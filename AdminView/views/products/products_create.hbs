@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html>
+    <div class="card-header d-flex align-items-center">
+      <h3 class="h4">Thêm sản phẩm</h3>
+    </div>
+    <div class="card-body bg-white">
+      <div class="row">
+        <!-- Form Panel    -->
+          <div class="col-lg-7 bg-white">
+            <div class="d-flex align-items-center" >
+              <div class="content">
+                  <form class="form" id="myform" action="/products/create" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                    {{#if message}}
+                      <div class="alert alert-danger">{{message}}</div>
+                    {{/if}}
+                    </div>
+                    <div class="form-group">
+                      <strong>Hình ảnh chính</strong> 
+                      <input type="file" class="input-material" value="" name ="image" id="image" required multiple>
+                    </div>
+                    <div class="form-group">
+                      <strong for="name">Tên Sản phẩm</strong> 
+                      <input type="text" class="input-material" value="" name ="name" id="name" require >
+                    </div>
+                    <div class="form-group">
+                      <strong for="price">Giá Sản phẩm</strong> 
+                      <input type="number" class="input-material" value="" name ="price" id="price" step="1000" require>
+                    </div>
+                    <div class="form-group">
+                      <strong for="amount">Số lượng</strong> 
+                      <input type="number" class="input-material" value="" name ="amount" id="amount" step="1"  require>
+                    </div>
+                    <div class="form-group">
+                      <strong for="size">Size</strong> 
+                      <input type="text" class="input-material" value="" name ="size" id="size" require>
+                    </div>
+                    <div class="form-group">
+                      <strong for="color">Color</strong> 
+                      <br/>
+                      <select name="color" id="color" class="m-t-10">
+                        <option value="Đen">Đen<span></span></option>
+                        <option value="Trắng">Trắng</option>
+                        <option value="Xanh lam">Xanh lam</option>
+                        <option value="Xanh lục">Xanh lục</option>
+                        <option value="Đỏ">Đỏ</option>
+                        <option value="Vàng">Vàng</option>
+                        <option value="Cam">Cam</option>
+                        <option value="Tím">Tím</option>
+                        <option value="Hồng">Hồng</option>
+                        <option value="Xám">Xám</option>
+                        <option value="Bạc">Bạc</option>
+                        <option value="Kem">Kem</option>
+                        <option value="Nâu">Nâu</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <strong>Mô tả</strong> <br><br>
+                      <textarea rows="10" cols="30" class="input-material"name ="descript" id="descript" ></textarea>
+                    </div>  
+                    <div class="form-group">
+                        <strong>Loại sản phẩm: &emsp;</strong> 
+                        <select name="category" id="category">
+                          {{#each catergories }}
+                            <option id = {{this._id}} value={{this._id}}>{{this.name}}</option>
+                          {{/each}}
+                        </select>
+                    </div>
+                    <br><br>
+                    <div class="row form-group">
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <button type ="submit" class="btn btn-primary">Thêm</button>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <p></p>
+                      </div>
+                      <div class="col-lg-3">
+                        <a href="javascript:history.back()" class="btn btn-primary">Hủy</a>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>  
+</html>

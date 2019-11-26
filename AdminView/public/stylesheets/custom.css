@@ -1,0 +1,41 @@
+/* your styles go here */
+.redStyle {
+    color: red;
+    font-weight: 700;
+}
+
+.greenStyle {
+    color: rgb(60, 172, 27);
+    font-weight: 700;
+}
+
+.yellowStyle {
+    color:rgb(180, 180, 9);
+    font-weight: 700;
+}
+
+.avata {
+    height: 254px;
+    width: 254px;
+    margin: 10px 0 20px 40px;
+}
+
+.btn-avata {
+    margin: 0 0 20px 30px;
+}
+
+.avata img {
+    height: 100%;
+    width: 100%;
+}
+
+.btn {
+    margin: 0 10px 0 0;
+}
+th {
+    text-align: center left !important;
+    vertical-align: inherit !important;
+}
+#table {
+    ordering: 
+}

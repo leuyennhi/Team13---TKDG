@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Đơn Hàng</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th class="width:5%">STT</th>
+                              <th class="width:20%">Thời gian mua</th>
+                              <th class="width:25%">Khách hàng</th>
+                              <th class="width:25%">Tổng tiền</th>
+                              <th class="width:20%">Tình trạng</th>
+                              <th class="width:5%">Xem chi tiết</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {{#each data}}
+                            <tr data-href='/orders/detail/{{this._id}}'>
+                              <th scope="row">{{inc @index}}</th>
+                              <td>{{this.date}}</td>
+                              <td>{{this.customName}}</td>
+                              <td class="js-cost">{{this.total}}</td>
+                              <td class="js-status">{{this.status}}</td>
+                              <td>
+                                  <div class="row button">
+                                    <form>
+                                      <button class="btn" formaction="/orders/detail/{{this._id}}"><i class="fa fa-info-circle"></i></button>
+                                    </form>
+                                  </div>
+                                </td>
+                            </tr>
+                          {{/each}}
+                          </tbody>
+                        </table>
+                    </div>
+</html>

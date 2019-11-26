@@ -1,0 +1,48 @@
+<!-- Content page -->
+	<section class="bg0 p-t-75 p-b-120">
+		<div class="container">
+			<div class="row p-b-148">
+				<div class="col-md-7 col-lg-8">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+						<h3 class="mtext-111 cl2 p-b-50">
+							THÔNG TIN TÀI KHOẢN
+						</h3>
+						<p class="stext-113 cl6 p-b-30">
+							Họ tên: {{user.username}}
+						</p>
+						<p class="stext-113 cl6 p-b-30">
+							Giới tính: {{user.sex}}
+						</p>
+						<p class="stext-113 cl6 p-b-30">
+							Ngày sinh: {{birth}}
+						</p>
+						<p class="stext-113 cl6 p-b-30">
+							Email: {{user.email}}
+						</p>
+						<p class="stext-113 cl6 p-b-30">
+							Địa chỉ: {{user.address}}
+						</p>
+					</div>
+					<div class="row">
+						<a href="/history" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-r-10">Lịch sử mua</a>
+						<a href="/edit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-l-10">Chỉnh sửa</a>
+						<a href="/changepass" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-l-10">Đổi mật khẩu</a>
+					</div>
+					
+				</div>
+
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+					<div class="how-bor1 ">
+						<div class="hov-img0">
+							{{#if user.avar}}
+								<img src={{user.avar}} alt="Hình đại diện">
+							{{else}}
+								<img src="images/about-02.jpg" alt="Hình đại diện">
+							{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>	
+	
+		

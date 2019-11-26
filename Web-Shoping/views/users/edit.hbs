@@ -1,0 +1,44 @@
+<!-- Content page -->
+	<section class="bg0 p-t-75 p-b-120">
+		<div class="container">
+            <h3 class="mtext-111 cl2 p-b-50">Chỉnh sửa tài khoản</h3>
+			<form action = "/edit" method="POST" enctype="multipart/form-data">
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Hình đại diện: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" type="file" name="image" required>
+                    <div class="focus-input1 trans-04"></div>
+	            </div> <br><br>
+	            <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Họ tên: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="username" value="{{user.username}}">
+                    <div class="focus-input1 trans-04"></div>
+	            </div> <br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Ngày sinh: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" type="date" name="birthday" value="{{birth}}">
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="row col-md-3 col-lg-4">
+                    &nbsp;&nbsp;&nbsp;Giới tính: 	&nbsp;
+                    <input type="radio" name="gender" value="Male" class="col-md-1 col-lg-1" checked> Male 	&nbsp;<br>
+                    <input type="radio" name="gender" value="Female" class="col-md-1 col-lg-1"> Female &nbsp;<br>
+                    <input type="radio" name="gender" value="Other"class="col-md-1 col-lg-21"> Other<br> 
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Email: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" value="{{user.email}}"> 
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Địa chỉ: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="address" value="{{user.address}}">
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+	            <div class="p-t-18">
+	                <button type="submit" class="col-md-2 col-lg-1 flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">Chỉnh sửa</button>
+	            </div>
+            </form>
+		</div>
+	</section>	
+    

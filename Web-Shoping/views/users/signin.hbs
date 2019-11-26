@@ -1,0 +1,63 @@
+  <!-- Content page -->
+	<section class="bg0 p-t-75 p-b-120">
+		<div class="container">
+            <h3 class="mtext-111 cl2 p-b-50">Đăng kí tài khoản</h3>
+			{{#if sessionFlash.message}}
+                <div class="alert alert-danger">{{sessionFlash.message}}</div>
+            {{/if}}
+			<form action = "/signin" method="POST" enctype="multipart/form-data">
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Hình đại diện: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" type="file" name="image" required>
+                    <div class="focus-input1 trans-04"></div>
+	            </div> <br><br>
+	            <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Họ tên: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="text" name="username" placeholder="Lê Uyển Nhi">
+                    <div class="focus-input1 trans-04"></div>
+	            </div> <br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Ngày sinh: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="date" name="birthday" placeholder="01/04/1998">
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="row col-md-3 col-lg-4">
+                    &nbsp;&nbsp;&nbsp;Giới tính: 	&nbsp;
+                    <input type="radio" name="gender" value="male" class="col-md-1 col-lg-1" checked> Male 	&nbsp;<br>
+                    <input type="radio" name="gender" value="female" class="col-md-1 col-lg-1"> Female &nbsp;<br>
+                    <input type="radio" name="gender" value="other"class="col-md-1 col-lg-21"> Other<br> 
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Email: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="email" name="email"> 
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Mật khẩu:
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="password" name="pass" >
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                {{#if sessionFlash.message1}}
+                <div class="p-b-4 col-md-3 col-lg-4">
+                        <div class="alert alert-danger">{{sessionFlash.message1}}</div>
+	            </div><br><br>
+                {{/if}}
+                 
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Nhập lại:
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="password" name="repass" >
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Địa chỉ: 
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="text" name="address" placeholder="Quận 7, Thành phố Hồ Chí Minh">
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+	            <div class="p-t-18">
+	                <button type="submit" class="col-md-2 col-lg-1 flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">Đăng ký</button>
+	            </div>
+            </form>
+		</div>
+	</section>	
+    

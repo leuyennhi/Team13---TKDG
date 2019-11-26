@@ -1,0 +1,39 @@
+<div class="bg0 p-t-75 p-b-85">
+			<div class="container">
+				<div class="m-t-20">
+					<h4>LỊCH SỬ MUA HÀNG</h4>
+				</div>
+				<div class="row">
+					<div class="col-lg-10 m-t-20">
+							<div class="wrap-table-history-list">
+								<table class="bg6 table-history-list">
+									<tr class="table_head">
+										<th class="column-1">Ngày mua</th>
+										<th class="column-2">Sản phẩm</th>
+										<th class="column-3">Số lượng</th>
+										<th class="column-4">Tổng tiền</th>
+										<th class="column-5">Trạng thái</th>
+									</tr>
+									{{#each data}}
+									<tr class="table_row" onclick="document.location = '/history/detail/{{this._id}}';">
+										<td class="column-1">{{this.date}}</td>
+										<td class="column-2">
+										{{#each this.products}}
+												{{this.product}}<br>
+										{{/each}}
+											</td>
+										<td class="column-3">
+											{{#each this.products}}
+											{{this.amount}}<br>
+											{{/each}}
+											</td>
+										<td class="column-4 js-cost">{{this.total}}</td>
+										<td class="column-5">{{this.status}} </td>
+									</tr>
+									{{/each}}
+								</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

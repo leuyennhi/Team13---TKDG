@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{title}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="/stylesheets/custom.css">
+    <link rel="stylesheet" href="/stylesheets/util.css">
+    <link rel="stylesheet" href="/stylesheets/fontastic.css">
+    <link rel="stylesheet" href="/stylesheets/style.blue.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <div class="page login-page">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>Dashboard</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6 bg-white">
+              <div class="form align-items-center">
+                 {{#if sessionFlash.message}}
+                    <div class="alert alert-danger">{{sessionFlash.message}}</div>
+                  {{/if}}
+                  <form  action="\signup" method="POST" class="form-validate">
+                    <div class="form-group">
+                      <input id="name" type="text" name="name" required data-msg="Vui lòng nhập họ và tên" class="input-material" placeholder="Họ và tên">
+                    </div>
+                    <div class="form-group">
+                      <input id="title" type="text" name="title" required data-msg="Vui lòng nhập chức vụ" class="input-material" placeholder="Chức vụ">
+                    </div>
+                    <div class="form-group">
+                      <input id="email" type="email" name="email" required data-msg="Vui lòng nhập địa chỉ email hợp lệ" class="input-material" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <input id="birthday" type="date" name="birthday" required class="input-material" placeholder="Ngày sinh">
+                    </div>
+                    <div class="form-group">
+                      <input id="phone" type="tel"  name="phone" required class="input-material" placeholder="Số điện thoại">
+                    </div>
+                    {{#if sessionFlash.message2}}
+                        <div>
+                          <div class="alert alert-danger">{{sessionFlash.message2}}</div>
+	                      </div>
+                     {{/if}}
+                    <div class="form-group">
+                      <input id="address" type="text" name="address" required class="input-material" placeholder="Địa chỉ">
+                    </div>
+                    <div class="row">
+                      <div class="form-group m-l-15 m-t-10">
+                        <div>Giới tính:</div>
+                      </div>
+                      <div class="form-group m-l-20 m-t-10">
+                        <select name="gender">
+                          <option id = "male" value="Nam">Nam</option>
+                          <option id = "female" value="Nữ">Nữ</option>
+                          <option id = "other" value="Khác">Khác</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input id="pass" type="password" name="pass" required data-msg="Vui lòng nhập mật khẩu" class="input-material" placeholder="Mật khẩu">
+                    </div>
+                     {{#if sessionFlash.message1}}
+                        <div>
+                          <div class="alert alert-danger">{{sessionFlash.message1}}</div>
+	                      </div>
+                     {{/if}}
+                    <div class="form-group">
+                      <input id="repass" type="password" name="repass" required data-msg="Vui lòng nhập lại mật khẩu" class="input-material" placeholder="Nhập lại mật khẩu">
+                    </div>
+                    <div class="form-group">
+                      <button id="regidter" type="submit" name="registerSubmit" class="btn btn-primary">Đăng ký</button>
+                    </div>
+                  </form><small>Bạn đã có tài khoản? </small><a href="/" class="signup">Đăng nhập</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights text-center">
+        <p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a>
+          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </p>
+      </div>
+    </div>
+    <script src="/javascripts/custom.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--script>
+      function checkPhoneNumber() {
+    var flag = false;
+    var phone = $('#input').val().trim(); // ID của trường Số điện thoại
+    phone = phone.replace('(+84)', '0');
+    phone = phone.replace('+84', '0');
+    phone = phone.replace('0084', '0');
+    phone = phone.replace(/ /g, '');
+    if (phone != '') {
+        var firstNumber = phone.substring(0, 2);
+        if ((firstNumber == '09' || firstNumber == '08') && phone.length == 10) {
+            if (phone.match(/^\d{10}/)) {
+                flag = true;
+            }
+        } else if (firstNumber == '01' && phone.length == 11) {
+            if (phone.match(/^\d{11}/)) {
+                flag = true;
+            }
+        }
+    }
+    return flag;
+      }
+    </script>
+    <script>
+    $('#form').submit(function(e) { // ID của Form
+    if (!checkPhoneNumber()) {
+        $('#input').parents('div.form-group').addClass('has-error'); // ID của trường Số điện thoại
+        $('#input').focus(); // ID của trường Số điện thoại
+        e.preventDefault();
+    }
+});
+
+$('#input').keypress(function() { // ID của trường Số điện thoại
+    $(this).parents('div.form-group').removeClass('has-error');
+});
+
+/*$('#phone').on('keyup', function() {
+      var foo = $(this).val().split(" ").join(""); 
+      if (foo.length > 0) {
+        foo = foo.match(new RegExp('.{1,3}', 'g')).join(" ");
+      }
+      $(this).val(foo);
+    });*/
+    </script-->
+  </body>
+</html>

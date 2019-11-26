@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <div class="card-header d-flex align-items-center">
+        <h3 class="h4">Đổi mật khẩu</h3>
+    </div>
+    <div class="card-body bg-white">
+                  <form  action="/changepass" method="POST" class="form-validate col-6 align-items-center">
+                    <div class="form-group">
+                    {{#if message}}
+                      <div class="alert alert-danger">{{message}}</div>
+                    {{/if}}
+                    </div>
+                    <div class="form-group">
+                      <strong>Mật khẩu hiện tại </strong> 
+                      <input id="passpresent" type="password" name="passpresent" class="input-material">
+                    </div>
+                    <div class="form-group">
+                      <strong>Mật khẩu mới</strong> 
+                      <input id="pass" type="password" name="pass" class="input-material">
+                    </div>
+                    <div class="form-group">
+                      <strong>Nhập lại mật khẩu</strong> 
+                      <input id="repass" type="password" name="repass" class="input-material">
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <form>
+                          <a href="javascript:history.back()" class="btn btn-primary">Hủy</a>
+                        </form>
+                        <button id="regidter" type="submit" name="registerSubmit" class= "btn btn-primary m-l-40">Lưu</button>
+                      </div>
+                    </div>
+                  </form>
+        </div>
+</html>

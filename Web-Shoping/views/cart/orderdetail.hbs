@@ -1,0 +1,113 @@
+	<!-- Order -->
+	<div class="bg0 p-t-75 p-b-85">
+		<div class="container">
+			<div class="m-t-20">
+				<h4>CHI TIẾT ĐƠN HÀNG</h4>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50 m-t-20">
+					
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-1">Sản phẩm</th>
+									<th class="column-2"></th>
+									<th class="column-3">Giá tiền</th>
+									<th class="column-4">Số lượng</th>
+									<th class="column-5">Tổng cộng</th>
+								</tr>
+								{{#each data.products}}
+								<tr class="table_row">
+									<td class="column-1">
+										<div class="how-itemcart1 m-l-20">
+											<img src="{{this.img}}" alt="IMG">
+										</div>
+									</td>
+									<td class="column-2">{{this.product}}</td>
+									<td class="column-3 js-cost">{{this.price}}</td>
+									<td class="column-4">{{this.amount}}</td>
+									<td class="column-5 js-cost"> {{this.total}}</td>
+								</tr>
+								{{/each}}
+							</table>
+					{{#if show}}
+					<form action="/deleteorder/{{id}}" method="POST" class="table-shopping-cart flex-w flex-c bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+						<button type="submit" class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+							Hủy đơn hàng
+						</button>
+					</form>
+					{{/if}}
+				</div>
+
+				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50 m-t-20">
+					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+						<div class="flex-w flex-t bor12 p-b-13">
+							<div class='m-b-10'>
+								<span class="stext-110 cl2">
+									Trạng thái đơn hàng: {{data.status}}
+								</span>
+							</div>
+
+							<div class='m-b-10'>
+								<span class="stext-110 cl2">
+									Tổng số tiền:
+									<span class="mtext-110 cl2 js-cost">
+										{{total}}
+									</span>
+								</span>
+							</div>
+
+							<div class='m-b-10'>
+								<span class="stext-110 cl2">
+									Phí giao hàng:
+									<span class="mtext-110 cl2 p-t-2 js-cost" id="ship-fee">
+										{{data.shipfee}}
+									</span>
+								</span>
+							</div>
+						</div>
+
+						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
+								
+									<div class="m-b-12">
+										<span class="stext-112 cl8 p-b-10">
+											Thông tin giao hàng:
+										</span>
+									</div>
+
+									<div class='m-b-10'>
+                                        <span class="stext-110 cl2">
+                                            Tên người nhận: {{data.recipientname}}
+                                        </span>
+                                    </div>
+
+                                    <div class='m-b-10'>
+                                        <span class="stext-110 cl2">
+                                            Địa chỉ: {{data.address}}
+                                        </span>
+                                    </div>
+
+                                    <div class='m-b-10'>
+                                        <span class="stext-110 cl2">
+                                            Số điện thoại: {{data.phone}}
+                                        </span>
+                                    </div>
+						</div>
+						<div class="flex-w flex-t p-t-27 p-b-33">
+							<div class="size-208">
+								<span class="mtext-101 cl2">
+									Tổng số tiền
+								</span>
+							</div>
+
+							<div class="size-209 p-t-1">
+								<span id="total-ship" class="mtext-110 cl2 js-cost">
+									{{data.totalship}}
+								</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		

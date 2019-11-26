@@ -1,0 +1,25 @@
+  <!-- Content page -->
+	<section class="bg0 p-t-75 p-b-120">
+		<div class="container">
+            <h3 class="mtext-111 cl2 p-b-50">Đổi mật khẩu</h3>
+			{{#if message}}
+                <div class="alert alert-danger">{{message}}</div>
+            {{/if}}
+			<form action = "/reset/{{user.resetPasswordToken}}" method="POST" >
+                 <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Mật khẩu mới:
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="password" name="newpass" >
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+                <div class="wrap-input1 w-full p-b-4 col-md-3 col-lg-4">
+                    Nhập lại:
+                    <input class="input1 bg-none plh1 stext-107 cl7" required type="password" name="repass" >
+                    <div class="focus-input1 trans-04"></div>
+	            </div><br><br>
+	            <div class="p-t-18">
+	                <button type="submit" class="col-md-2 col-lg-1 flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">Đổi mật khẩu</button>
+	            </div>
+            </form>
+		</div>
+	</section>	
+    

@@ -1,0 +1,84 @@
+<html>
+    <div class="card-header d-flex align-items-center"> 
+        <h3 class="h4">Thống Kê Doanh Thu Theo Tháng</h3>
+    </div>
+    <div class="card-header row">    
+        <div class="col-xl-2 col-sm-6">
+            <h6>Năm</h6>
+        </div>
+        <form class="form-validate col-xl-3 col-sm-6" action="/statistics_month" method="POST">
+            <input type="text" id="year" name="year" value="{{textYear}}" placeholder="Nhập năm...">
+        </form>
+    </div>
+    <div clas="chart col-lg-8 col-12">
+        <div class="bar-chart bg-white d-flex align-items-center justify-content-center has-shadow" style="position: relative">
+            <canvas id="barChart" {{hidden}}></canvas>
+        </div>
+        <h6 class="p-t-20 p-l-20">{{message}}</h6>
+    </div>
+    <script>
+        var dataD = "{{dataD}}".split(",");
+        var ctx = document.getElementById("barChart").getContext('2d');
+        var myChart = new Chart(ctx, { 
+        type: 'bar',    
+        options: {
+            scales: {
+                xAxes: [{
+                    display: true,
+                    gridLines: {
+                        color: '#eee'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    gridLines: {
+                        color: '#eee'
+                    },
+                    ticks: {
+                        suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                        // OR //
+                        beginAtZero: true   // minimum value will be 0.
+                    }
+                }]
+            },
+        },
+        data: {
+            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            datasets: [
+                {
+                    label: "Doanh thu (triệu)",
+                    backgroundColor: [
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7'
+                    ],
+                    hoverBackgroundColor: [
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7'
+                    ],
+                    borderColor: [
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7',
+                        '#44b2d7'
+                    ],
+                    borderWidth: 1,
+                    data: dataD,
+                }
+            ]
+        }
+    });
+    </script>
+</html>
