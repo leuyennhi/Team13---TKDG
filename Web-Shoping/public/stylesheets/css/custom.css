@@ -1,0 +1,68 @@
+.icon-star {
+  color: #F1B306;
+}
+
+.btn-size {
+  height: 36px;
+  width: 95px;
+  border-radius: 3px;
+  border-color: #666666;
+  color: #666666;
+  border: 1px solid;
+}
+
+.size-selected {
+  border-color: #2F80ED !important;
+  color: #2F80ED !important;
+}
+
+.btn-size:hover {
+  border-color: #2F80ED;
+  color: #2F80ED;
+}
+
+.btn-color {
+  height: 36px;
+  width: 95px;
+  border-radius: 3px;
+  border-color: #666666;
+  color: #666666;
+  border: 1px solid;
+}
+
+.color-selected {
+  border-color: #2F80ED !important;
+  color: #2F80ED !important;
+}
+
+.btn-color:hover {
+  border-color: #2F80ED ;
+  color: #2F80ED;
+}
+
+.tag-size {
+  width: 110px;
+  height: 36px;
+}
+
+.btn-buy-now {
+  height: 55px;
+  width: 220px;
+  color: white;
+  background: #FF3940;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-add-to-cart {
+  height: 54px;
+  width: 220px;
+  color: #FF3940;
+  background: white;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #FF3940;
+  font-size: 18px;
+  font-weight: bold;
+}

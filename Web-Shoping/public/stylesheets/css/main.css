@@ -1720,8 +1720,7 @@ button.mfp-close {
 /*//////////////////////////////////////////////////////////////////
 [ Num Product ]*/
 .wrap-num-product {
-  width: 140px;
-  height: 45px;
+  height: 40px;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   overflow: hidden;
@@ -1729,7 +1728,7 @@ button.mfp-close {
 
 .btn-num-product-up,
 .btn-num-product-down {
-  width: 45px;
+  width: 40px;
   height: 100%;
   cursor: pointer;
 }
@@ -1737,6 +1736,7 @@ button.mfp-close {
 .num-product {
   width: calc(100% - 90px);
   height: 100%;
+  width: 40px;
   border-left: 1px solid #e6e6e6;
   border-right: 1px solid #e6e6e6;
   background-color: #f7f7f7;
@@ -2330,7 +2330,7 @@ input.num-product::-webkit-inner-spin-button {
 
 .ltext-105 {
   font-family: Poppins-Regular;
-  font-size: 50px;
+  font-size: 45px;
   line-height: 1.1;
 }
 
