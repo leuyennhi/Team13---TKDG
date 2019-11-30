@@ -26,6 +26,7 @@
     "multer": "^1.4.1",
     "multer-storage-cloudinary": "^2.2.1",
     "nodemailer": "^6.2.1",
+    "numeral": "^2.0.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },

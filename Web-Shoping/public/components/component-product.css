@@ -1,8 +1,14 @@
+@import '../stylesheets/css/default-style.css';
+
 .component-product {
-  /* margin: 1em 2em; */
   width: 100%;
   height: auto;
-  color: #333333;
+  color: var(--main-font-color-1);
+  transition: all 200ms ease;
+}
+
+.component-product:hover {
+  border-color: rgba(113, 127, 224, 0.6);
 }
 
 .component-product .product-image {
@@ -27,7 +33,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  font-size: 14px;
+  font-size: var(--font-size-content);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -56,10 +62,10 @@
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 14px;
+  font-size: var(--font-size-content);
   padding: 8px 8px 5px;
   color: #fff;
-  background-color: #ff3940;
+  background-color: var(--color-red);
   border-radius: 0px 3px 0px 0px;
 }
 
@@ -70,24 +76,29 @@
   right: 0;
   width: 0px;
   height: 0px;
-  border-left: 21px solid #ff3940;
-  border-right: 21px solid #ff3940;
+  border-left: 22px solid var(--color-red);
+  border-right: 22px solid var(--color-red);
   border-bottom: 10px solid transparent;
 }
 
 .component-product .card-body {
   text-align: center;
   padding: 0.5em;
-  font-size: 14px;
+  font-size: var(--font-size-content);
 }
 
 .component-product .card-body .card-title {
   text-decoration: none;
-  color: #333333;
+  color: var(--main-font-color-1);
+  transition: all 200ms ease;
+}
+
+.component-product .card-body .card-title:hover {
+  color: var(--main-font-color-2);
 }
 
 .component-product .card-body .sale-price {
-  color: #ff3940;
+  color: var(--color-red);
 }
 
 .component-product .card-body .original-price {
@@ -95,7 +106,7 @@
 }
 
 .component-product .card-body .favorite-btn {
-  color: #ff3940;
+  color: var(--color-red);
   font-size: 23px;
   float: right;
   padding: 0;

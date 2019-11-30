@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins-Regular;
 }
 
 :root {
@@ -11,5 +9,8 @@
   --hover-button-color: #212529;
   --main-border-color: #c9c9c9;
   --main-background-color: rgba(103, 117, 214, 0.8);
+  --color-red: #ff3940;
   --width-normal: 80%;
+  --font-size-title: 28px;
+  --font-size-content: 14px;
 }

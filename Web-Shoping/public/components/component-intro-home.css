@@ -42,7 +42,7 @@
 
 .component-intro-home .inner .content {
   margin-top: 1em;
-  font-size: 14px;
+  font-size: var(--font-size-content);
   color: var(--main-font-color-1);
   line-height: 1.6em;
 }
