@@ -1,0 +1,103 @@
+.component-product {
+  /* margin: 1em 2em; */
+  width: 100%;
+  height: auto;
+  color: #333333;
+}
+
+.component-product .product-image {
+  margin: 0.5em;
+  position: relative;
+}
+
+.component-product .product-image img {
+  border-radius: 3px;
+  height: 299px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.component-product .product-image:hover .hover-div {
+  padding: 6px 20px;
+  max-height: 500px;
+}
+
+.component-product .product-image .hover-div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0px 20px;
+  border-radius: 0px 0px 3px 3px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 200ms ease;
+}
+
+.component-product .product-image .hover-div a {
+  text-decoration: none;
+  color: #fff;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.component-product .product-image .hover-div a i {
+  font-size: 13px;
+}
+
+.component-product .product-image .deal-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 14px;
+  padding: 8px 8px 5px;
+  color: #fff;
+  background-color: #ff3940;
+  border-radius: 0px 3px 0px 0px;
+}
+
+.component-product .product-image .deal-tag:after {
+  content: '';
+  position: absolute;
+  top: 34px;
+  right: 0;
+  width: 0px;
+  height: 0px;
+  border-left: 21px solid #ff3940;
+  border-right: 21px solid #ff3940;
+  border-bottom: 10px solid transparent;
+}
+
+.component-product .card-body {
+  text-align: center;
+  padding: 0.5em;
+  font-size: 14px;
+}
+
+.component-product .card-body .card-title {
+  text-decoration: none;
+  color: #333333;
+}
+
+.component-product .card-body .sale-price {
+  color: #ff3940;
+}
+
+.component-product .card-body .original-price {
+  text-decoration-line: line-through;
+}
+
+.component-product .card-body .favorite-btn {
+  color: #ff3940;
+  font-size: 23px;
+  float: right;
+  padding: 0;
+  line-height: 0;
+}

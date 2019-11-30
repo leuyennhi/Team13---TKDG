@@ -1,0 +1,107 @@
+@import '../stylesheets/css/default-style.css';
+
+.component-category {
+  color: var(--main-font-color-1);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.component-category .image {
+  width: 15.5em;
+  height: 15.5em;
+  margin-right: 1.5em;
+  border: 1px solid var(--main-border-color);
+  position: relative;
+  z-index: 0;
+}
+
+.component-category .image a img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.component-category .image .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid var(--main-border-color);
+  z-index: -1;
+  visibility: hidden;
+  transition: all 300ms ease;
+}
+
+.component-category .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 40%;
+}
+
+.component-category .info .category {
+  text-transform: uppercase;
+}
+
+.component-category .info .category::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 18%;
+  height: 1px;
+  background-color: var(--main-border-color);
+}
+
+.component-category .info .category a {
+  color: var(--main-font-color-1);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  margin-left: 1em;
+  text-decoration: none;
+  transition: 300ms;
+}
+
+.component-category .info .category a:hover {
+  color: var(--main-font-color-2);
+}
+
+.component-category .info .name {
+  font-size: 28px;
+  letter-spacing: 0.025em;
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  font-weight: 100;
+}
+
+.component-category .info .name::first-letter {
+  text-transform: capitalize;
+}
+
+.component-category .info .name a {
+  color: var(--main-font-color-1);
+  text-decoration: none;
+  transition: 300ms;
+}
+
+.component-category .info .name a:hover {
+  color: var(--main-font-color-2);
+}
+
+.component-category .info .detail {
+  font-size: 14px;
+  letter-spacing: 0.025em;
+  margin: 1em 0;
+}
+
+.component-category:hover .image .background {
+  visibility: visible;
+  transform: translate(-0.7em, -0.7em);
+}
+
+.component-category:not(:hover) .image .background {
+  border: 1px solid #fff;
+  visibility: hidden;
+}

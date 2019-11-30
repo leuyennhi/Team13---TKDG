@@ -1,0 +1,113 @@
+@import '../../stylesheets/css/default-style.css';
+
+.page-home {
+}
+
+.page-home .slider {
+  position: relative;
+}
+
+.page-home .intro-slick-autoplay {
+  width: 100%;
+  margin-top: -10em;
+  padding: 0 10%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s ease;
+}
+
+.page-home .intro-slick-autoplay .item .introHome .inner {
+  padding: 2em 1.7em;
+}
+
+.page-home .intro-slick-autoplay .slick-dots {
+  text-align: center;
+  padding: 0;
+  margin-top: 1em;
+}
+
+.page-home .intro-slick-autoplay button {
+  padding: 0;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent;
+  border: 1px solid var(--hover-button-color);
+  outline: none;
+  border-radius: 50%;
+  width: 0.6em;
+  height: 0.6em;
+  cursor: pointer;
+}
+
+.page-home .intro-slick-autoplay li {
+  display: inline-block;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.page-home .intro-slick-autoplay .slick-active button {
+  background-color: var(--hover-button-color);
+}
+
+.page-home .intro-slick-autoplay .slick-track {
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+}
+
+.page-home .intro-slick-autoplay .slick-slide {
+  margin: 0 1em;
+  height: auto;
+  width: 100%;
+}
+
+.page-home .categories,
+.page-home .products {
+  width: var(--width-normal);
+  margin: 0 auto;
+}
+
+.page-home .categories .title .inner,
+.page-home .products .title .inner {
+  padding: 6em 50% 0 0;
+}
+
+.page-home .categories .title .inner div,
+.page-home .products .title .inner div {
+  text-transform: uppercase;
+  font-size: 35px;
+  letter-spacing: 2px;
+  color: var(--main-font-color-2);
+}
+
+.page-home .categories .title .inner p,
+.page-home .products .title .inner p {
+  margin: 0.8em 0 1em;
+  font-size: 14px;
+  color: var(--main-font-color-1);
+  line-height: 1.5em;
+}
+
+.page-home .categories .content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.5em;
+  row-gap: 2em;
+  padding-bottom: 6em;
+}
+
+.page-home .categories .content .component-category:nth-child(2n + 1) {
+  margin-top: 4.5em;
+}
+
+.page-home .categories .content .component-category:nth-child(2n) {
+  margin-bottom: 4.5em;
+}
+
+.page-home .products .content {
+  padding: 2em 0em 6em;
+}
+
+.page-home .products .content .row > div {
+  padding: 1em 0.8em;
+}
