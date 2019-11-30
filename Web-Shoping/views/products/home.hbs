@@ -5,6 +5,8 @@
 <link href="/components/component-intro-home.css" rel="stylesheet" />
 <link href="/components/component-category.css" rel="stylesheet" />
 <link href="/components/component-product.css" rel="stylesheet" />
+<link href="/components/component-list-products.css" rel="stylesheet" />
+<link href="/components/component-checkable-product.css" rel="stylesheet" />
 <link href="/pages/page-home/style.css" rel="stylesheet" />
 {{!-- slider slick --}}
 {{/section}}
@@ -320,9 +322,9 @@
 			<div class="inner">
 				<div>Các loại sản phẩm</div>
 				<p>
-					Các khóa học được đầu tư và nghiên cứu kĩ lưỡng phù hợp với
-					từng nhóm đối tượng cụ thể, dẫn dắt bởi những giáo viên tâm
-					huyết và chuyên môn tốt.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, repellendus voluptatem, voluptas ut
+					omnis nulla dolorem veritatis velit, vitae commodi placeat in iusto! Cum possimus placeat quam neque
+					perferendis fugiat.
 				</p>
 			</div>
 		</div>
@@ -580,13 +582,15 @@
 	<div class="products">
 		<div class="title">
 			<div class="inner">
-				<div>Sản phẩm</div>
+				<div>Sản phẩm bán chạy</div>
 				<p>
-					Các khóa học được đầu tư và nghiên cứu kĩ lưỡng phù hợp với
-					từng nhóm đối tượng cụ thể, dẫn dắt bởi những giáo viên tâm
-					huyết và chuyên môn tốt.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores distinctio obcaecati ratione natus
+					consectetur, aliquam quo labore rerum omnis vel nemo necessitatibus officia nihil, laudantium
+					cupiditate, eius minus suscipit corporis.
 				</p>
+				<a href="/product">Xem tất cả&ensp;<i class="zmdi zmdi-chevron-right"></i></a>
 			</div>
+
 		</div>
 		<div class="content">
 			<div class="row">
@@ -608,10 +612,10 @@
 
 						<div class="card-body">
 							<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-							<div class="m-0 mt-1" style="display: flex; justify-content: center;">
-								<span class="sale-price">{{this.price}}<u>đ</u></span>
+							<div class="m-0 mt-1 d-flex justify-content-center">
+								<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
 								<span class="original-price ml-3">
-									195.000<u>đ</u>
+									195,000<u>đ</u>
 								</span>
 							</div>
 							<button class="btn favorite-btn"><i class="far fa-heart"></i></button>
@@ -623,10 +627,254 @@
 		</div>
 	</div>
 
+	<!-- News -->
+	<div class="news">
+		<div class="info">
+			<div class="category">
+				<a href="#">
+					Bộ sưu tập mới
+				</a>
+			</div>
+			<h4 class="title">
+				<a href="#">Công Trí hé lộ về BST mới "Đi nhặt hạt sương nghiêng", lên tiếng về tin đồn sính sao ngoại
+					bỏ sao Việt</a>
+			</h4>
+			<p class="content">Sau lần debut thành công tại New York Fashion Week (NYFW) với "Cuộc dạo
+				chơi của những vì sao", hiện NTK Công Trí và ekip của anh đang gấp rút chuẩn bị cho lần chinh chiến thứ
+				hai cũng tại sân chơi này. Theo dự kiến, BST Xuân-Hè 2020 của NTK gốc Đà Nẵng sẽ được trình làng vào
+				ngày 9/9/2019 sắp tới.</p>
+			<div class="more">
+				<a class="btn component-outline-button" href="#" role="button">Xem thêm</a>
+			</div>
+		</div>
+		<div class="image">
+			<div class="background"></div>
+			<a href="#">
+				<img src="https://kenh14cdn.com/thumb_w/600/2019/9/3/ava-1567490946730858478770-crop-15674909521021191990034.jpg"
+					alt="" />
+			</a>
+		</div>
+	</div>
+
+	<div class="test">
+		<div class="component-list-products card">
+			<div class="content">
+				<div class="scroller scroller-left"><i class="zmdi zmdi-chevron-left"></i></div>
+				<div class="scroller scroller-right"><i class="zmdi zmdi-chevron-right"></i></div>
+				<div class="wrapper">
+					<nav>
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<p class="nav-item nav-link active" id="category-1-nav-tab" data-toggle="tab"
+								href="#category-1-nav" role="tab" aria-controls="category-1-nav" aria-selected="true">
+								Áo thun
+							</p>
+							<p class="nav-item nav-link" id="category-2-nav-tab" data-toggle="tab"
+								href="#category-2-nav" role="tab" aria-controls="category-2-nav" aria-selected="false">
+								Quần jeans
+							</p>
+							<p class="nav-item nav-link" id="category-3-nav-tab" data-toggle="tab"
+								href="#category-3-nav" role="tab" aria-controls="category-3-nav" aria-selected="false">
+								Áo khoác
+							</p>
+							<p class="nav-item nav-link" id="category-4-nav-tab" data-toggle="tab"
+								href="#category-4-nav" role="tab" aria-controls="category-4-nav" aria-selected="false">
+								Chân váy
+							</p>
+							<p class="nav-item nav-link" id="category-5-nav-tab" data-toggle="tab"
+								href="#category-5-nav" role="tab" aria-controls="category-5-nav" aria-selected="false">
+								Phụ kiện
+							</p>
+						</div>
+					</nav>
+				</div>
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="category-1-nav" role="tabpanel"
+						aria-labelledby="category-1-nav-tab">
+						<div class="search-input-group input-group mb-3">
+							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
+								aria-describedby="button-addon">
+							<div class="input-group-append">
+								<button class="btn" type="button" id="button-addon"><i
+										class="fas fa-search"></i></button>
+							</div>
+						</div>
+						<div class="list-products">
+							{{#each products}}
+							<div class="component-checkable-product card mr-2">
+								<div class="product-image">
+									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
+								</div>
+								<div class="card-body">
+									<div>
+										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+										<div class="m-0 mt-1 d-flex">
+											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+											<span class="original-price ml-3">
+												195,000<u>đ</u>
+											</span>
+										</div>
+									</div>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-1">
+										<label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+					<div class="tab-pane fade" id="category-2-nav" role="tabpanel" aria-labelledby="category-2-nav-tab">
+						<div class="search-input-group input-group mb-3">
+							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
+								aria-describedby="button-addon">
+							<div class="input-group-append">
+								<button class="btn" type="button" id="button-addon"><i
+										class="fas fa-search"></i></button>
+							</div>
+						</div>
+						<div class="list-products">
+							{{#each products}}
+							<div class="component-checkable-product card mr-2">
+								<div class="product-image">
+									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
+								</div>
+								<div class="card-body">
+									<div>
+										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+										<div class="m-0 mt-1 d-flex">
+											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+											<span class="original-price ml-3">
+												195,000<u>đ</u>
+											</span>
+										</div>
+									</div>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-2">
+										<label class="custom-control-label" for="customCheck{{this._id}}-2"></label>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+					<div class="tab-pane fade" id="category-3-nav" role="tabpanel" aria-labelledby="category-3-nav-tab">
+						<div class="search-input-group input-group mb-3">
+							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
+								aria-describedby="button-addon">
+							<div class="input-group-append">
+								<button class="btn" type="button" id="button-addon"><i
+										class="fas fa-search"></i></button>
+							</div>
+						</div>
+						<div class="list-products">
+							{{#each products}}
+							<div class="component-checkable-product card mr-2">
+								<div class="product-image">
+									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
+								</div>
+								<div class="card-body">
+									<div>
+										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+										<div class="m-0 mt-1 d-flex">
+											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+											<span class="original-price ml-3">
+												195,000<u>đ</u>
+											</span>
+										</div>
+									</div>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-3">
+										<label class="custom-control-label" for="customCheck{{this._id}}-3"></label>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+					<div class="tab-pane fade" id="category-4-nav" role="tabpanel" aria-labelledby="category-4-nav-tab">
+						<div class="search-input-group input-group mb-3">
+							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
+								aria-describedby="button-addon">
+							<div class="input-group-append">
+								<button class="btn" type="button" id="button-addon"><i
+										class="fas fa-search"></i></button>
+							</div>
+						</div>
+						<div class="list-products">
+							{{#each products}}
+							<div class="component-checkable-product card mr-2">
+								<div class="product-image">
+									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
+								</div>
+								<div class="card-body">
+									<div>
+										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+										<div class="m-0 mt-1 d-flex">
+											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+											<span class="original-price ml-3">
+												195,000<u>đ</u>
+											</span>
+										</div>
+									</div>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-4">
+										<label class="custom-control-label" for="customCheck{{this._id}}-4"></label>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+					<div class="tab-pane fade" id="category-5-nav" role="tabpanel" aria-labelledby="category-5-nav-tab">
+						<div class="search-input-group input-group mb-3">
+							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
+								aria-describedby="button-addon">
+							<div class="input-group-append">
+								<button class="btn" type="button" id="button-addon"><i
+										class="fas fa-search"></i></button>
+							</div>
+						</div>
+						<div class="list-products">
+							{{#each products}}
+							<div class="component-checkable-product card mr-2">
+								<div class="product-image">
+									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
+								</div>
+								<div class="card-body">
+									<div>
+										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+										<div class="m-0 mt-1 d-flex">
+											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+											<span class="original-price ml-3">
+												195,000<u>đ</u>
+											</span>
+										</div>
+									</div>
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-5">
+										<label class="custom-control-label" for="customCheck{{this._id}}-5"></label>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </div>
 
 {{#section 'js'}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 <script src="/pages/page-home/slider-slick-autoplay.js"></script>
 <script src="/pages/page-home/intro-slick-autoplay.js"></script>
+<script src="/pages/page-try-on-clothes/scrollable-nav-tabs.js"></script>
 {{/section}}

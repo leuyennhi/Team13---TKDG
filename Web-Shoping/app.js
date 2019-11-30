@@ -8,6 +8,7 @@ var logger = require('morgan');
 var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
+var formatPriceHelper = require('./helpers/format-price.helper');
 require('dotenv').config();
 
 require('./config/passport')(passport);
@@ -43,7 +44,10 @@ const parser = multer({ storage: storage });
 
 const hbs = express_handlebars.create({
   layoutsDir: 'views',
-  defaultLayout: 'layout.hbs'
+  defaultLayout: 'layout.hbs',
+  helpers: {
+    formatPrice: formatPriceHelper
+  }
 });
 express_handlebars_sections(hbs);
 

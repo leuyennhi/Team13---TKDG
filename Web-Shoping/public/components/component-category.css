@@ -61,7 +61,7 @@
   letter-spacing: 0.2em;
   margin-left: 1em;
   text-decoration: none;
-  transition: 300ms;
+  transition: all 200ms ease;
 }
 
 .component-category .info .category a:hover {
@@ -69,7 +69,7 @@
 }
 
 .component-category .info .name {
-  font-size: 28px;
+  font-size: var(--font-size-title);
   letter-spacing: 0.025em;
   margin-top: 0.3em;
   margin-bottom: 0;
@@ -91,7 +91,7 @@
 }
 
 .component-category .info .detail {
-  font-size: 14px;
+  font-size: var(--font-size-content);
   letter-spacing: 0.025em;
   margin: 1em 0;
 }
