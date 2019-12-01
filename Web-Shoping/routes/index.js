@@ -5,7 +5,7 @@ var express = require('express');
 var product_controller = require('../controllers/productController');
 var cart_controller = require('../controllers/cartController');
 var user_controller = require('../controllers/userController');
-
+var cloth_controller  = require('../controllers/clothController')
 
 module.exports = function(router, passport, parser) {
 	router.get('/*', function(req, res, next) {
@@ -79,6 +79,8 @@ module.exports = function(router, passport, parser) {
 	router.get('/aboutus', function(req, res, next){
 		res.render('aboutus', {title: 'Về chúng tôi'});
 	})
+
+	router.get('/trycloth',cloth_controller.try_clothe)
 }
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
