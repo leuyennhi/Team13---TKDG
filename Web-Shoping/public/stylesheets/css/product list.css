@@ -1,0 +1,172 @@
+    .container {
+    font-family: Roboto;
+}
+
+.path {
+    font-family: Roboto;
+    height: 144px;
+    width: auto;
+    background-color: #EFF3FF;
+    margin-top: 70px;
+}
+
+.path .page {
+    width: 500px;
+    padding-top: 55px;
+    padding-left: 100px;
+}
+
+.page1 {
+    color: #666666;
+    text-decoration: none;
+}
+
+.infor {
+    margin-top: 20px;
+}
+
+.left {
+    width: 300px;
+    height: auto;
+    margin-left: 50px;
+}
+
+.left .filter {
+    height: 70px;
+    width: auto;
+}
+
+a {
+    float: left;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #111111;
+}
+
+.left .categories .d,
+.left .size .d,
+.left .color .colordm .d,
+.left .cost .d {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 20px;
+    height: 20px;
+    align-items: center;
+    color: #000000;
+}
+
+.left .categories .checkbox-cate,
+.left .size .checkbox-size,
+.left .cost .slider,
+.left .color .checkbox-color {
+    margin-left: 20px;
+}
+
+.left .cost .slider {
+    width: 200px;
+}
+
+.left .categories .checkbox-cate .checkbox,
+.left .size .checkbox-size .checkbox,
+.left .color .checkbox-color .checkbox {
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 2px solid #2D9CDB;
+    font-style: normal;
+    font-weight: normal;
+    background-color: white;
+}
+
+.left .cost pre {
+    font-family: Roboto;
+    font-size: 17px;
+    border: white;
+    background-color: white;
+    .left .dm .down,
+    .left .costdm .down,
+    .left .colordm .down {
+        width: 20px;
+        margin-left: 200px;
+        cursor: pointer;
+    }
+    .left .sizedm .down {
+        width: 20px;
+        margin-left: 240px;
+        cursor: pointer;
+    }
+    .left .filter .delete-filter {
+        float: right;
+        position: absolute;
+        width: 85px;
+        height: 44px;
+        left: 300px;
+        font-family: Roboto;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        color: #333333;
+        cursor: pointer;
+        background: #FFFFFF;
+        border: 1px solid #2D9CDB;
+        box-sizing: border-box;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.09);
+        border-radius: 3px;
+    }
+    .right {
+        margin-left: 10px;
+        width: 100%;
+    }
+    .right .gender .gender-female {
+        cursor: pointer;
+        padding: 2px;
+        text-decoration: none;
+    }
+    .right .gender .gender-male {
+        cursor: pointer;
+        padding: 2px;
+        font-weight: normal;
+    }
+    .right .text .short {
+        float: right;
+        width: 130px;
+        height: 44px;
+        left: 300px;
+        font-family: Roboto;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        color: #333333;
+        cursor: pointer;
+        background: #FFFFFF;
+        border: 1px solid #2D9CDB;
+        box-sizing: border-box;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.09);
+        border-radius: 3px;
+    }
+    .right .text {
+        width: 100%;
+        padding-bottom: 60px;
+    }
+    .right .row {
+        padding-top: 20px;
+    }
+    .right .row .single-blog-post .post-img img {
+        width: 240px;
+        height: 350px;
+        padding-bottom: 30px
+    }
