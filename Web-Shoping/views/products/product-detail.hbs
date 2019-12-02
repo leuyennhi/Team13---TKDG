@@ -1,13 +1,11 @@
-<style>
-	.mx-auto{
-		margin-left: auto;
-		margin-right: auto
-	}
-</style>
-</style>
-<body class="animsition">
-	<section class="sec-product-detail bg0 p-t-65 p-b-60">
-		<div class="container">
+{{#section 'css'}}
+{{!-- slider slick --}}
+<link href="/pages/page-product-detail/style.css" rel="stylesheet" />
+{{!-- slider slick --}}
+{{/section}}
+
+	<section class="sec-product-detail bg0 p-t-84 p-b-60">
+		<div class="container basic-info-product">
 			<div class="row">
 				<div class="col-md-6 col-lg-7 p-b-30">
 					<div class="p-l-25 p-r-30 p-lr-0-lg">
@@ -33,45 +31,67 @@
 				</div>
 					
 				<div class="col-md-6 col-lg-5 p-b-30">
-					<div class="p-r-50 p-t-5 p-lr-0-lg">
-						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+					<div class="p-lr-0-lg">
+						<h4 class="name js-name-detail">
 							{{item.name}}
 						</h4>
-
-						<span class="mtext-106 cl2">
-							Giá:
-							<span class="js-cost">{{item.price}}</span>
+						<div class="row p-l-15 m-b-40">
+							<span class="mtext-108">
+								4.5
+								<i class="fa fa-star icon-star"></i>
+							</span> 
+							<h4 class="mtext-108 m-r-30 m-l-30">|</h4> 
+							<h4 class="mtext-108">376 Đã bán</h4>  
+						</div>
+						<span class="price js-cost">
+							{{item.price}}
 						</span>
 						<!--  -->
 						<div class="p-t-33">
-							<div class="p-b-10">
-								<div class="size-300">
-									Kích cỡ: {{item.size}}
+							<div class="m-b-25">
+								<div class="size-component p-l-15">
+									<h4 class="mtext-108 tag">Kích cỡ</h4> 
+									{{!-- <button class="btn-size size-selected m-l-18">{{item.size}}</button> --}}
+									<div class="size-button-component">
+										<button class="btn-size size-selected m-l-18">S</button>
+										<button class="btn-size m-l-18">M</button>
+										<button class="btn-size m-l-18">L</button>
+									</div>
 								</div>
 							</div>
 
-							<div class=" p-b-10">
-								<div class="size-300">
-									Màu sắc : {{item.color}}
+							<div class="m-b-25">
+								<div class="row p-l-15">
+									<h4 class="mtext-108 tag">Màu sắc</h4> 
+									<button class="btn-color color-selected m-l-18">{{item.color}}</button>
 								</div>
 							</div>
 
-							<div class="flex-w flex-r-m p-b-10">
-								<form action="/product/detail/{{item._id}}" method="POST" class="size-204 flex-w flex-m respon6-next">
-									<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-minus"></i>
-										</div>
+							<div class="flex-w flex-r-m p-b-25">
+								<form action="/product/detail/{{item._id}}" method="POST" class="flex-w flex-m respon6-next">
+									<div class="row p-l-15">
+										<h4 class="mtext-108 tag m-r-18">Số lượng</h4>
+										<div class="wrap-num-product flex-w">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
 
-										<input class="mtext-104 cl3 txt-center num-product" type="number" id="num" name="num" value="1">
+											<input class="mtext-104 cl3 txt-center num-product" type="number" id="num" name="num" value="1">
 
-										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-plus"></i>
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
 										</div>
 									</div>
-									<button type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-										Thêm vào giỏ hàng
-									</button>
+									<div class="row p-l-15 m-t-50">
+										<button type="submit" class="btn-add-to-cart flex-c-m m-r-28 js-addcart-detail">
+											<i class="fa fa-shopping-cart m-r-5"></i>
+											Thêm vào giỏ hàng
+										</button>
+										<button type="submit" class="btn-buy-now flex-c-m js-addcart-detail">
+											Mua ngay
+										</button>
+									</div>
 								</form>
 							</div>	
 						</div>
@@ -79,7 +99,7 @@
 				</div>
 			</div>
 
-			<div class="bor10 m-t-50 p-t-43 p-b-40">
+			{{!-- <div class="bor10 m-t-50 p-t-43 p-b-40">
 				<!-- Tab01 -->
 				<div class="tab01">
 					<!-- Nav tabs -->
@@ -214,23 +234,52 @@
 						</div>
 					</div>
 				</div>
+			</div> --}}
+		</div> 
+
+		<div class="container product-detail-component">
+			<h2>Chi tiết sản phẩm</h2>
+			<div class="data">
+				<div class="items-detail">
+					<div class="item">
+						<h3 class="title">Xuất xứ</h3>
+						<h3 class="value">Việt Nam</h3>
+					</div>
+					<div class="item">
+						<h3 class="title">Thương hiệu</h3>
+						<h3 class="value">No brand</h3>
+					</div>
+					<div class="item">
+						<h3 class="title">Chất liệu</h3>
+						<h3 class="value">Cotton</h3>
+					</div>
+				</div>
+				<div class="items-detail">
+					<div class="item">
+						<h3 class="title">Màu sắc</h3>
+						<h3 class="value">{{item.color}}</h3>
+					</div>
+					<div class="item">
+						<h3 class="title">Kích cỡ</h3>
+						<h3 class="value">S, M, L</h3>
+					</div>
+					<div class="item">
+						<h3 class="title">Kho hàng</h3>
+						<h3 class="value">20</h3>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
-			<span class="stext-107 cl6 p-lr-25">
-				Lượt xem: {{watch}}
-			</span>
+		<div class="container product-description-component">
+			<h2>Mô tả sản phẩm</h2>
+			<p>{{item.description}}</p>
 		</div>
-	</section>
 
-
-	<!-- Related Products -->
-	<section class="sec-relate-product bg0 p-t-45 p-b-105">
 		<div class="container">
 			<div class="p-b-45">
 				<h3 class="ltext-106 cl5 txt-center">
-					Related Products
+					Sản phẩm được mua chung
 				</h3>
 			</div>
 
@@ -262,10 +311,4 @@
 				</div>
 			</div>
 		</div>
-	</section>
-		
-
-	
-	
-</body>
-</html>
+</section>
