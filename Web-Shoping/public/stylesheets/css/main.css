@@ -294,6 +294,7 @@
   display: -ms-flexbox;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .main-menu > li {
