@@ -1,0 +1,229 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product list</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- font-awesome CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="product list.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link href="/components/component-product.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!--Breadcrumb
+        <div class="path">
+            <div class="page">
+                <span><a href="" class="page1">TRANG CHỦ /</a>
+          <a href="" class="page1">SẢN PHẨM /</a>
+          <a href="" class="page1">QUẦN ÁO</a></span>
+            </div>
+        </div>-->
+        <!--Information product list-->
+        <div class="infor">
+            <div class="col-sm-4">
+                <div class="left">
+                    <div class="filter">
+                        <span>
+                                 <a style="font-weight:bold;text-decoration: none;color: black;">BỘ LỌC</a>
+                                 <button class="delete-filter">Xóa bộ lọc</button>
+                                </span>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="categories">
+                        <div class="dm">
+                            <p class="d">Danh mục <img class="down" data-toggle="collapse" data-target="#list-checkbox1" src="img/down.png" alt="down.png"> </p>
+                        </div>
+                        <form class="checkbox-cate" id="list-checkbox1">
+                            <input class="checkbox" type="checkbox" value="Đầm"> Đầm </br>
+                            <input class="checkbox" type="checkbox" value="Jeans"> Jeans </br>
+                            <input class="checkbox" type="checkbox" value="Áo thun"> Áo thun</br>
+                            <input class="checkbox" type="checkbox" value="Chân váy"> Chân váy</br>
+                            <input class="checkbox" type="checkbox" value="Phụ kiện"> Phụ kiện</br>
+                        </form>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="size">
+                        <div class="sizedm">
+                            <p class="d">Size <img class="down" data-toggle="collapse" data-target="#list-checkbox2" src="img/down.png" alt="down.png"></p>
+                        </div>
+                        <form class="checkbox-size" id="list-checkbox2">
+                            <input class="checkbox" type="checkbox" value="XS"> XS </br>
+                            <input class="checkbox" type="checkbox" value="S"> S </br>
+                            <input class="checkbox" type="checkbox" value="M"> M</br>
+                            <input class="checkbox" type="checkbox" value="L"> L</br>
+                            <input class="checkbox" type="checkbox" value="XL"> XL</br>
+                        </form>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="cost">
+                        <div class="costdm">
+                            <p class="d">Giá tiền (nghìn vnđ)<img class="down" data-toggle="collapse" data-target="#slider" src="img/down.png" alt="down.png"></p>
+                        </div>
+                        <div class="slider" id="slider"><input type="range" min="100" max="1000" value="500"></br><pre>100           500                  1.000</pre></div>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="color">
+                        <div class="colordm">
+                            <p class="d">Màu sắc<img class="down" data-toggle="collapse" data-target="#list-checkbox4" src="img/down.png" alt="down.png"> </p>
+                        </div>
+                        <form class="checkbox-color" id="list-checkbox4">
+                            <input class="checkbox" type="checkbox" value=""> Trắng </br>
+                            <input class="checkbox" type="checkbox" value=""> Đen </br>
+                            <input class="checkbox" type="checkbox" value=""> Đỏ</br>
+                            <input class="checkbox" type="checkbox" value=""> Vàng</br>
+
+                        </form>
+                    </div>
+                </div>
+                <!--left-->
+            </div>
+            <div class="col-sm-8">
+                <div class="right">
+                    <div class="text">
+                        <div class="gender">
+                            <a class="gender-male" style="text-decoration: none;">Nam| </a>
+                            <a class="gender-female"> Nữ</a>
+                        </div>
+                        <button class="short">Sắp xếp theo <img  style="width:30px;padding-left: 20px; " src="img/down.png" alt="down.png"> </button>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="abc"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="abc"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-post">
+                                <div class="post-img">
+                                    <a href=""><img src="img/blog/product-04.jpg" alt="Popular Post" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        {{#each products}}
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex" id={{this.catergory}}>
+                            <div class="component-product card">
+                                <div class="product-image">
+                                    <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top" alt="...">
+                                    <a href="/product/detail/{{this._id}}" class="stretched-link"></a>
+                                    <div class="deal-tag">30%</div>
+                                    <div class="hover-div">
+                                        <a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
+                                        <div>&nbsp;|&nbsp;</div>
+                                        <a href="/product/detail/{{this._id}}" class="mr-3"><i class="far fa-eye"></i>&ensp;Chi
+                                                tiết</a>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+                                    <div class="m-0 mt-1 d-flex justify-content-center">
+                                        <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+                                        <span class="original-price ml-3">
+                                                195,000<u>đ</u>
+                                            </span>
+                                    </div>
+                                    <button class="btn favorite-btn"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <!--right-->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
