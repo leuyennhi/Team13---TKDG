@@ -2,7 +2,7 @@
 
 .component-list-products {
   width: 26em;
-  margin-bottom: 10em;
+  margin-bottom: 5em;
   color: var(--main-font-color-1);
 }
 
@@ -128,7 +128,7 @@
 }
 
 .component-list-products .content .tab-content .tab-pane .list-products {
-  max-height: 45em;
+  max-height: 30em;
   overflow: auto;
 }
 
