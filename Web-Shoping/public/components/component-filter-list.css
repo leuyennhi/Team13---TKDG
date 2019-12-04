@@ -65,24 +65,28 @@ a {
     color: #000000;
 }
 
-.left .size .card-body .custom-control custom-checkbox {
+.left .size .card-boy .custom-control custom-checkbox {
     width: 18px;
     height: 18px;
 }
 
 .left .categories .checkbox-cate,
 .left .size .checkbox-size,
-.left .cost .slider,
+.left .cost .checkbox-cost,
 .left .color .checkbox-color {
     margin-left: 15px;
     font-size: 17px;
     font-family: Roboto;
+    display: none;
+    transition: 0.2s;
 }
 
 .left .cost .slider {
     width: 200px;
 }
 
+
+/*
 .left .categories .checkbox-cate .checkbox,
 .left .size .checkbox-size .checkbox,
 .left .color .checkbox-color .checkbox {
@@ -97,6 +101,59 @@ a {
     box-sizing: border-box;
     margin-right: 5px;
     border-radius: 2px;
+    font-family: Roboto;
+}*/
+
+.categories .checkbox-cate .card-boy,
+.size .checkbox-size .card-boy,
+.color .checkbox-color .card-boy {
+    display: flex;
+}
+
+.categories .checkbox-cate .card-boy .name-product .card-title,
+.size .checkbox-size .card-boy .name-product .card-title,
+.color .checkbox-color .card-boy .name-product .card-title {
+    font-weight: normal;
+}
+
+.left .categories .checkbox-cate .custom-control-input:checked~.custom-control-label::before,
+.left .size .checkbox-size .custom-control-input:checked~.custom-control-label::before,
+.left .color .checkbox-color .custom-control-input:checked~.custom-control-label::before {
+    background-color: #717fe0;
+}
+
+.categories .checkbox-cate .custom-control,
+.size .checkbox-size .custom-control,
+.color .checkbox-color .custom-control {
+    display: block;
+    padding-right: 8px;
+}
+
+.categories .checkbox-cate .custom-control .custom-control-label::before,
+.size .checkbox-size .custom-control .custom-control-label::before,
+.color .checkbox-color .custom-control .custom-control-label::before {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    pointer-events: none;
+    content: "";
+    /* background-color: #fff; */
+    border: #adb5bd solid 1px;
+}
+
+.categories .checkbox-cate .custom-control .custom-control-label::after,
+.size .checkbox-size .custom-control .custom-control-label::after,
+.color .checkbox-color .custom-control .custom-control-label::after {
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
 }
 
 .left .cost pre {
@@ -173,6 +230,7 @@ a {
 .right {
     margin-left: 10px;
     width: 100%;
+    height: auto;
 }
 
 .right .gender .gender-female {
