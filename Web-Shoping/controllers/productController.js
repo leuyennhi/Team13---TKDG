@@ -2,6 +2,7 @@ var Product = require('../models/products');
 var Category = require('../models/catergories');
 var User = require('../models/users');
 var Review = require('../models/reviews');
+var createQueryHelper = require('../helpers/create-query-url.helper');
 
 const price = [
   { start: 0, end: 500000 },
@@ -66,6 +67,75 @@ exports.index = function(req, res) {
         products: results.products,
         categories: results.categories,
         user: req.user
+      });
+    }
+  );
+};
+
+exports.search_products = function(req, res, next) {
+  var quantityPerPage = 12;
+  var productName = req.query.productName || '';
+  var pageNumber = req.query.pageNumber || 1;
+  var notFoundMessage = null;
+  var foundMessage = null;
+
+  if (isNaN(pageNumber) || pageNumber < 1) {
+    pageNumber = 1;
+  }
+  productName = productName.trim().toLowerCase();
+
+  async.parallel(
+    {
+      products: function(callback) {
+        Product.find({
+          name: { $regex: new RegExp('.*' + productName + '.*', 'i') }
+        })
+          .skip(quantityPerPage * (pageNumber - 1))
+          .limit(quantityPerPage)
+          .exec(callback);
+      },
+      categories: function(callback) {
+        Category.find().exec(callback);
+      },
+      productQuantity: function(callback) {
+        Product.countDocuments({
+          name: { $regex: new RegExp('.*' + productName + '.*', 'i') }
+        }).exec(callback);
+      }
+    },
+    function(err, results) {
+      if (err) {
+        return next(err);
+      }
+
+      var pageQuantity = Math.ceil(results.productQuantity / quantityPerPage);
+      var pageNumbers = [];
+      for (var i = 1; i <= pageQuantity; i++) {
+        var pageNum = { active: pageNumber == i ? true : false, value: i };
+        pageNumbers.push(pageNum);
+      }
+
+      if (results.products == 0) {
+        searchMessage = `Không tìm thấy sản phẩm phù hợp với từ khóa ${productName}.`;
+      } else {
+        searchMessage = `${results.productQuantity} kết quả tìm kiếm phù hợp với từ khóa ${productName}.`;
+      }
+
+      results.products.forEach(product => {
+        product.img = product.img[0];
+      });
+
+      res.render('products/search', {
+        title: 'Tìm kiếm sản phẩm',
+        pageNumbers: pageNumbers,
+        products: results.products,
+        categories: results.categories,
+        searchMessage: searchMessage,
+        productName: productName,
+        user: req.user,
+        helpers: {
+          createQueryProductSearch: createQueryHelper.createQueryProductSearch
+        }
       });
     }
   );
