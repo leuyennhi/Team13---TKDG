@@ -329,11 +329,6 @@ exports.product_list = function(req, res) {
     }
   );
 };
-
-exports.product_detail_data = async function(req,res){
-  var product = await Product.findById(req.params.id);
-  return res.json(product)
-}
 exports.product_detail = async function(req, res) {
   var itemPerPage = 10;
   page = req.params.page ? req.params.page : 1;
@@ -350,7 +345,7 @@ exports.product_detail = async function(req, res) {
         Category.findById(product.catergory).exec(callback);
       },
       productRelate: function(callback) {
-        Product.find({ catergory: product.catergory }).exec(callback);
+        Product.find({ catergory: product.catergory }).limit(4).exec(callback);
       },
       reviewPage: function(callback) {
         Review.countDocuments({ product: product._id }).exec(callback);

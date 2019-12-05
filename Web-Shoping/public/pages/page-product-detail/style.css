@@ -48,6 +48,13 @@ input.num-product::-webkit-inner-spin-button {
   color: #F1B306;
 }
 
+.size-component {
+  display: flex;
+}
+
+.size-button-component {
+  display: flex;
+}
 .btn-size {
   height: 36px;
   width: 95px;
@@ -98,7 +105,6 @@ input.num-product::-webkit-inner-spin-button {
   background: #FF3940;
   border-radius: 5px;
   font-size: 18px;
-  font-weight: bold;
   margin-top: 15px ;
 }
 
@@ -111,15 +117,14 @@ input.num-product::-webkit-inner-spin-button {
   border-radius: 5px;
   border-color: #FF3940;
   font-size: 18px;
-  font-weight: bold;
   margin-top: 15px ;
 }
-.product-detail-component, .product-description-component {
+.product-detail-component, .product-description-component, .product-relate-component, .evaluation-component {
   display: block;
   margin-top: 50px;
 }
 
-.product-detail-component h2 {
+.product-detail-component h2, .product-relate-component h2, .product-description-component h2, .evaluation-component h2 {
   color: #333333;
   font-size: 40px;
   margin-bottom: 25px;
@@ -152,14 +157,101 @@ input.num-product::-webkit-inner-spin-button {
   color: #333333;
 }
 
-.product-description-component h2 {
-  color: #333333;
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
 .product-description-component p {
   color: #666666;
   width: 100%;
   font-size: 21px;
+}
+
+.product-relate-component .title-component {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-relate-component .title-component a {
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.original-cost {
+  text-decoration-line: line-through;
+}
+
+.comments-component {
+  display: block;
+}
+
+.evaluation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.evaluation-button-component {
+  display: block;
+  width: 450px;
+  text-align: center;
+}
+
+.evaluation-button-component h3 {
+  font-size: 21px;
+  line-height: 64px;
+  text-align: center;
+}
+
+.evaluation-button-component button {
+  height: 50px;
+  width: 240px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.rating-component {
+  display: flex;
+}
+
+.rating-component .average-rating {
+  display: block;
+  text-align: center;
+}
+
+.rating-component .average-rating h1 {
+  font-size: 60px;
+  color: #333333;
+}
+
+.rating-component .average-rating h4 {
+  font-size: 21px;
+  color: #666666;
+}
+
+.rating-component .detail-rating {
+  display: block;
+  width: 400px;
+  margin-left: 30px;
+}
+
+.rating-component .detail-rating .item-detail-rating {
+  display: flex;
+  text-align: center;
+}
+
+.rating-component .detail-rating .item-detail-rating h5 {
+  font-size: 21px;
+  color: #F1B306;
+  width: 50px;
+}
+
+.my-process {
+  height: 10px;
+  margin-bottom: 20px;
+  margin-top: 7px;
+  margin-left: 5px;
+  width: 350px;
+}
+.my-process-bar {
+  background-color: #C8C8C8;
+  height: 10px;
+  border-radius: 5px;
 }

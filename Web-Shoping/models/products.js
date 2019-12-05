@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 var ProductSchema = new Schema({
     name: {type: String, required: true},
     catergory: { type: Schema.ObjectId, ref: 'Catergory', required: true },
+    originalPrice: {type: Number},
     price: {type: Number, required: true},
     amount: {type: Number, required: true},
     color:{type: String, required: true},
@@ -14,6 +15,8 @@ var ProductSchema = new Schema({
     img:{type:[String],require: true},
     dateImp: {type: Date, default: Date.now()},
     watch:{type: Number,default: 0 },
+    bought:{type:Number},
+    toTryImg:{type:[String]}
 });
 
 // Virtual for this Product instance URL.
