@@ -18,41 +18,42 @@
                     <div class="input-component">
                         <h4>Giới tính</h4>
                         <select>
-                            <option value="nam">Nam</option>
                             <option value="nu">Nữ</option>
                         </select>
                     </div>
                     <div class="input-component">
                         <h4>Chiều cao (cm)</h4>
-                        <input type="number" value="150"/>
+                        <input id="height" type="number" value="150"/>
                     </div>
                     <div class="input-component">
                         <h4>Cân nặng (kg)</h4>
-                        <input type="number" value="50"/>
+                        <input id="width" type="number" value="50"/>
                     </div>
                 </div>
                 <div class="input-row">
                     <div class="input-component">
                         <h4>Vòng 1 (cm)</h4>
-                        <input type="number" value="90"/>
+                        <input id="bust" type="number" value="90"/>
                     </div>
                     <div class="input-component">
                         <h4>Vòng 2 (cm)</h4>
-                        <input type="number" value="60"/>
+                        <input id="waist" type="number" value="60"/>
                     </div>
                     <div class="input-component">
                         <h4>Vòng 3 (cm)</h4>
-                        <input type="number" value="90"/>
+                        <input id="hips" type="number" value="90"/>
                     </div>
                 </div>
                 <div class="button">
-                    <button class="component-default-button ">
+                    <button class="component-default-button" onclick="onClickModel()">
                         Tạo mẫu
                     </button>
                 </div>
             </div>
+            
             <div class="model-component">
-                <img src="/images/model.jpg">
+                <img id= "model" src="/images/Models/2.png" alt="">
+              
                 <div class="selected-products">
                     <div class="product">
                         <h4 class="name">Áo Dây Croptop Trắng Phối Ren</h4>
@@ -69,6 +70,7 @@
                         Thêm vào giỏ hàng
                     </button>
                 </div>
+                
             </div>
         </div>
         <div class="right-component">
