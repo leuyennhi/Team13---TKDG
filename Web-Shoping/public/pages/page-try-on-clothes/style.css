@@ -1,7 +1,7 @@
 @import '../../stylesheets/css/default-style.css';
 
 .try-clothes-page {
-  padding: 80px 10% 0 10%;
+  padding: 0px 10% 0 10%;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -44,7 +44,6 @@ select, input{
 .model-component {
   display: flex;
   align-items: center;
-  margin-top: 10%;
   margin-bottom: 10%;
 }
 

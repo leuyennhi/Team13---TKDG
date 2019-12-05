@@ -580,7 +580,7 @@
 
 /* Style the list */
 ul.breadcrumb {
-  padding: 80px 10%;
+  padding: 20px 10% 20px 10%;
   list-style: none;
   background-color: rgba(103, 117, 214, 0.22);
 }
