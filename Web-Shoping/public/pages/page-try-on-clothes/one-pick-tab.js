@@ -1,6 +1,6 @@
 // the selector will match all input controls of type :checkbox
 // and attach a click event handler 
-$("input:checkbox").on('click', function() {
+$("input:checkbox.tab").on('click', function() {
     // in the handler, 'this' refers to the box clicked on
     var $box = $(this);
     if ($box.is(":checked")) {
@@ -14,4 +14,18 @@ $("input:checkbox").on('click', function() {
     } else {
       $box.prop("checked", false);
     }
+    var href = $(this).parent().parent().find("a").attr('href')
+    var url = href.replace('detail','product-detail');
+    getProduct(url)
   });
+
+  var getProduct = (_url) =>{
+    console.log(_url)
+    $.ajax({
+      method: "GET",
+      url: _url,
+    })
+    .done(function( data ) {
+       console.log(data)
+    });
+  }

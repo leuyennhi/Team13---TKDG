@@ -329,6 +329,11 @@ exports.product_list = function(req, res) {
     }
   );
 };
+
+exports.product_detail_data = async function(req,res){
+  var product = await Product.findById(req.params.id);
+  return res.json(product)
+}
 exports.product_detail = async function(req, res) {
   var itemPerPage = 10;
   page = req.params.page ? req.params.page : 1;
