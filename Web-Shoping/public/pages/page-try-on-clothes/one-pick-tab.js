@@ -29,3 +29,19 @@ $("input:checkbox.tab").on('click', function() {
        console.log(data)
     });
   }
+  var changeClothe = () =>{
+
+  }
+  var addList = (type,product) =>{
+    var item = `<div class="product ${type}">
+                  <h4 class="name">Áo Dây Croptop Trắng Phối Ren1</h4>
+                  <h4 class="size">S</h4>
+                  <h4 class="price">285,000đ</h4>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck-${type} checked">
+                    <label class="custom-control-label" for="customCheck-${type}"></label>
+                  </div>
+                </div>`
+    $( `.${type}` ).remove();
+    $('.selected-products').append(item)
+  }
