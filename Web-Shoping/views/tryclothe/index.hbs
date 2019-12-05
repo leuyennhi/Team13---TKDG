@@ -45,6 +45,11 @@
                         <input type="number" value="90"/>
                     </div>
                 </div>
+                <div class="button">
+                    <button class="component-default-button ">
+                        Tạo mẫu
+                    </button>
+                </div>
             </div>
             <div class="model-component">
                 <img src="/images/model.jpg">
@@ -53,6 +58,11 @@
                         <h4 class="name">Áo Dây Croptop Trắng Phối Ren</h4>
                         <h4 class="size">S</h4>
                         <h4 class="price">285,000đ</h4>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"
+                                id="customCheck{{this._id}}-1">
+                            <label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
+                        </div>
                     </div>
                     <button>
                         <i class="fa fa-shopping-cart"></i>
@@ -294,4 +304,5 @@
 <script src="/pages/page-home/slider-slick-autoplay.js"></script>
 <script src="/pages/page-home/intro-slick-autoplay.js"></script>
 <script src="/pages/page-try-on-clothes/scrollable-nav-tabs.js"></script>
+<script src="/pages/page-try-on-clothes/change-model.js"></script>
 {{/section}}

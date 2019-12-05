@@ -38,14 +38,15 @@ select, input{
   border-color: #C8C8C8;
   border-radius: 3px;
   font-size: 16px;
-  padding-left: 15px;
-  padding-right: 10px;
+  padding: 9px 19px;
 }
 
 .model-component {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .selected-products {
@@ -76,15 +77,15 @@ select, input{
 
 .selected-products button {
   height: 35px;
-  width: 290px;
+  width: 200px;
   color: white;
   background-color: #FF3940;
   margin-top: 30px;
   border-radius: 5px;
   align-items: center;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .selected-products button i {
@@ -95,4 +96,13 @@ select, input{
   position: relative;
 }
 
+.measure-component .button {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  margin-top: 25px;
+}
 
+.measure-component .button  > button{
+  width: 160px;
+}
