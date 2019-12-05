@@ -1,10 +1,13 @@
 {{#section 'css'}}
 {{!-- slider slick --}}
 <link href="/pages/page-product-detail/style.css" rel="stylesheet" />
+<link href="/pages/page-home/style.css" rel="stylesheet" />
+<link href="/components/component-product.css" rel="stylesheet" />
+<link href="/components/component-comment.css" rel="stylesheet" />
 {{!-- slider slick --}}
 {{/section}}
 
-	<section class="sec-product-detail bg0 p-t-84 p-b-60">
+	<section class="sec-product-detail bg0 p-b-60">
 		<div class="container basic-info-product">
 			<div class="row">
 				<div class="col-md-6 col-lg-7 p-b-30">
@@ -37,19 +40,22 @@
 						</h4>
 						<div class="row p-l-15 m-b-40">
 							<span class="mtext-108">
-								4.5
+								4.75
 								<i class="fa fa-star icon-star"></i>
 							</span> 
 							<h4 class="mtext-108 m-r-30 m-l-30">|</h4> 
-							<h4 class="mtext-108">376 Đã bán</h4>  
+							<h4 class="mtext-108">{{item.bought}} Đã bán</h4>  
 						</div>
 						<span class="price js-cost">
-							{{item.price}}
+							{{item.price}} 
+						</span>
+						<span class="original-cost js-cost ml-3 mtext-108">
+							{{item.originalPrice}}
 						</span>
 						<!--  -->
 						<div class="p-t-33">
 							<div class="m-b-25">
-								<div class="size-component p-l-15">
+								<div class="size-component">
 									<h4 class="mtext-108 tag">Kích cỡ</h4> 
 									{{!-- <button class="btn-size size-selected m-l-18">{{item.size}}</button> --}}
 									<div class="size-button-component">
@@ -276,18 +282,141 @@
 			<p>{{item.description}}</p>
 		</div>
 
-		<div class="container">
-			<div class="p-b-45">
-				<h3 class="ltext-106 cl5 txt-center">
-					Sản phẩm được mua chung
-				</h3>
+		<div class="container evaluation-component">
+			<h2>Đánh giá sản phẩm</h2>
+			<div class="evaluation">
+				<div class="rating-component">
+					<div class="average-rating">
+						<h1>4.75</h1>
+						<h4>(120 bình chọn)</h4>
+					</div>
+					<div class="detail-rating">
+						<div class="item-detail-rating">
+							<h5>
+								5
+								<i class="fa fa-star icon-star"></i>
+							</h5> 
+							<div class="progress my-process">
+								<div class="progress-bar my-process-bar" role="progressbar" style="width: 75%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="120"></div>
+							</div>
+						</div>
+						<div class="item-detail-rating">
+							<h5>
+								4
+								<i class="fa fa-star icon-star"></i>
+							</h5> 
+							<div class="progress my-process">
+								<div class="progress-bar my-process-bar" role="progressbar" style="width: 25%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="120"></div>
+							</div>
+						</div>
+						<div class="item-detail-rating">
+							<h5>
+								3
+								<i class="fa fa-star icon-star"></i>
+							</h5> 
+							<div class="progress my-process">
+								<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;" aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</div>
+						<div class="item-detail-rating">
+							<h5>
+								2
+								<i class="fa fa-star icon-star"></i>
+							</h5> 
+							<div class="progress my-process">
+								<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;" aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</div>
+						<div class="item-detail-rating">
+							<h5>
+								1
+								<i class="fa fa-star icon-star"></i>
+							</h5> 
+							<div class="progress my-process">
+								<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;" aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="evaluation-button-component">
+					<h3>Chia sẻ nhận xét của bạn về sản phẩm</h3>
+					<button>Viết nhận xét của bạn</button>
+				</div>
 			</div>
+			<div class="comments-component">
+				<div class="comment">
+					<div class="my-photo">
+							<a href="#"><img class="img-circle" src="/images/about2.jpeg" alt="My Image" /></a>
+							<h5>Anh Quân</h5>
+							<p class="time">một tháng trước</p>
+					</div>
+        	<div class="information">
+            <div class="stars">
+                <form action="">
+                    {{!-- <input class="star star-5" id="star-5" type="radio" name="star" /> --}}
+                    <label class="star star-5" for="star-5"></label>
+                    {{!-- <input class="star star-4" id="star-4" type="radio" name="star" /> --}}
+                    <label class="star star-4" for="star-4"></label>
+                    {{!-- <input class="star star-3" id="star-3" type="radio" name="star" /> --}}
+                    <label class="star star-3" for="star-3"></label>
+                    {{!-- <input class="star star-2" id="star-2" type="radio" name="star" /> --}}
+                    <label class="star star-2" for="star-2"></label>
+                    {{!-- <input class="star star-1" id="star-1" type="radio" name="star" /> --}}
+                    <label class="star star-1" for="star-1"></label>
+                </form>
+            </div>
+            <p class="review">Cực kì hài lòng</p>
+            <i class="fab fa-shield-check"></i>
+            <p class="buy-already">Đã mua sản phẩm này tại Team13-Shop</p>
+            <div class="description js-description">
+                <p class="review_detail" itemprop="reviewBody"><span>Mới nhận hàng và tự lắp, thấy mọi thứ ổn, rất hài lòng<br></span></p>
+            </div>
+        	</div>
+    		</div>
+				<div class="comment">
+					<div class="my-photo">
+							<a href="#"><img class="img-circle" src="/images/about2.jpeg" alt="My Image" /></a>
+							<h5>Anh Quân</h5>
+							<p class="time">một tháng trước</p>
+					</div>
+        	<div class="information">
+            <div class="stars">
+                <form action="">
+                    <input class="star star-5" id="star-5" type="radio" name="star" />
+                    <label class="star star-5" for="star-5"></label>
+                    <input class="star star-4" id="star-4" type="radio" name="star" />
+                    <label class="star star-4" for="star-4"></label>
+                    <input class="star star-3" id="star-3" type="radio" name="star" />
+                    <label class="star star-3" for="star-3"></label>
+                    <input class="star star-2" id="star-2" type="radio" name="star" />
+                    <label class="star star-2" for="star-2"></label>
+                    <input class="star star-1" id="star-1" type="radio" name="star" />
+                    <label class="star star-1" for="star-1"></label>
+                </form>
+            </div>
+            <p class="review">Cực kì hài lòng</p>
+            <i class="fab fa-shield-check"></i>
+            <p class="buy-already">Đã mua sản phẩm này tại Team13-Shop</p>
+            <div class="description js-description">
+                <p class="review_detail" itemprop="reviewBody"><span>Mới nhận hàng và tự lắp, thấy mọi thứ ổn, rất hài lòng<br></span></p>
+            </div>
+        	</div>
+    		</div>
+			</div>
+		</div>
+
+		<div class="container product-relate-component">
+			<div class="title-component">
+				<h2> Sản phẩm liên quan</h2>
+				<a href="/product">Xem thêm ></a>
+			</div>
+			
 
 			<!-- Slide2 -->
-			<div class="wrap-slick2">
-				<div class="slick2">
+			<div class="content">
+				<div class="row">
 					{{#each productRelates}}
-					<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					{{!-- <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
 						<!-- Block2 -->
 						<div class="block2">
 							<a href= /product/detail/{{this._id}} class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
@@ -304,6 +433,33 @@
 										{{this.price}}
 									</span>
 								</div>
+							</div>
+						</div>
+					</div> --}}
+					<div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex" id={{this.catergory}}>
+						<div class="component-product card">
+							<div class="product-image">
+								<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"
+									alt="...">
+								<a href="/product/detail/{{this._id}}" class="stretched-link"></a>
+								<div class="deal-tag">30%</div>
+								<div class="hover-div">
+									<a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
+									<div>&nbsp;|&nbsp;</div>
+									<a href="/product/detail/{{this._id}}" class="mr-3"><i class="far fa-eye"></i>&ensp;Chi
+										tiết</a>
+								</div>
+							</div>
+
+							<div class="card-body">
+								<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+								<div class="m-0 mt-1 d-flex justify-content-center">
+									<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+									<span class="original-price ml-3 js-cost">
+										{{this.originalPrice}}</u>
+									</span>
+								</div>
+								<button class="btn favorite-btn"><i class="far fa-heart"></i></button>
 							</div>
 						</div>
 					</div>

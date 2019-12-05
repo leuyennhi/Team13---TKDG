@@ -32,7 +32,7 @@ module.exports = function(router, passport, parser) {
   );
   router.get('/product/:page', product_controller.product_list);
   router.get('/product/detail/:id', product_controller.product_detail);
-  router.get('/product/product-detail/:id', product_controller.product_detail_data);
+  //router.get('/product/product-detail/:id', product_controller.product_detail_data);
   router.post('/product/detail/:id', product_controller.product_add_to_cart);
   router.get('/product/detail/:id/:page', product_controller.product_detail);
   router.post('/product/review/:id', product_controller.product_review);

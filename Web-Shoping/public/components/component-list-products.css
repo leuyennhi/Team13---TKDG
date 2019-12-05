@@ -128,7 +128,7 @@
 }
 
 .component-list-products .content .tab-content .tab-pane .list-products {
-  max-height: 40em;
+  max-height: 35em;
   overflow: auto;
 }
 
