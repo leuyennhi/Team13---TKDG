@@ -1,183 +1,296 @@
-<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product list</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- font-awesome CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="product list.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link href="/components/component-filter-list.css" rel="stylesheet" />
+    <link href="/components/component-default-button.css" rel="stylesheet" />
+    <link href="/components/component-intro-home.css" rel="stylesheet" />
+    <link href="/components/component-category.css" rel="stylesheet" />
+    <link href="/components/component-product.css" rel="stylesheet" />
+    <link href="/components/component-list-products.css" rel="stylesheet" />
+    <link href="/components/component-checkable-product.css" rel="stylesheet" />
+    <link href="/pages/page-home/style.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 <body class="animsition">
-	
-	<br><br>
-	<!-- Product -->
-	<section class="bg0 m-t-23 p-b-140">
-		<div class="container">
-			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-						Tất cả sản phẩm
-					</button>
-
-					{{#each categories}}
-						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter= #{{this._id}}>
-							{{this.name}}
-						</button>
-					{{/each}}
-
-				</div>
-
-				<div class="flex-w flex-c-m m-tb-10">
-					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						Lọc
-					</div>
-
-					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-						<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						Tìm kiếm
-					</div>
-				</div>
-				
-				<!-- Search product -->
-				<div class="dis-none panel-search w-full p-t-10 p-b-15">
-					<form action="/product/search" method="POST" class="bor8 dis-flex p-l-15">
-						<button type="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-							<i class="zmdi zmdi-search"></i>
-						</button>
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search" id="search" placeholder="Search" value="{{textSearch}}">	
-					</form>
-				</div>
-
-				<!-- Filter -->
-				<div class="dis-none panel-filter w-full p-t-10">
-					<div class="wrap-filter bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-						<div class="row">
-							<div class="filter-col1 p-r-15 p-b-27">
-								<div class="mtext-102 cl2 p-b-15">
-									Sắp xếp
+    <div class="container">
+        <div class="infor">
+            <div class="col-sm-3" style="padding-left: 0;">
+                <div class="left">
+                    <div class="filter">
+                        <span>
+                                 <a style="font-weight:bold;text-decoration: none;color: black;">BỘ LỌC</a>
+                                 <button class="delete-filter"> Xóa bộ lọc </button>
+                                </span>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="categories">
+                        <div class="dm">
+                            <p class="d">Danh mục <img class="down" data-toggle="collapse" data-target="#list-checkbox1" src="images/icons/down.png" alt="down.png"> </p>
+                        </div>
+                        <div class="checkbox-cate" id="list-checkbox1">
+                            <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-6">
+										<label class="custom-control-label" for="customCheck{{this._id}}-6"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">Đầm</a>
+									</div>
 								</div>
-							</div>
-							<div class="filter-col2 p-r-15 p-b-27">
-								<li class="p-b-6">
-										<a href="/filter/asc" class="filter-link stext-106 trans-04">
-											Giá tiền: Thấp đến Cao
-										</a>
-								</li>
-							</div>
-							<div class="filter-col3 p-r-15 p-b-27">
-								<li class="p-b-6">
-									<a href="/filter/desc" class="filter-link stext-106 trans-04">
-										Giá tiền: Cao đến thấp
-									</a>
-								</li>
-							</div>
-						</div>
-						<form action="/product/filter/multi" method="POST"class="row">
-							<div class="filter-col1 p-r-15 p-b-27">
-								<div class="mtext-102 cl2 p-b-15">
-									Tìm kiếm nâng cao
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-7">
+										<label class="custom-control-label" for="customCheck{{this._id}}-7"></label>
+									</div>
+                                    <div class="name-product">
+										<a  class="card-title m-0">Jeans</a>
+									</div>
 								</div>
-							</div>
-							<div class="filter-col2 p-r-15 p-b-27">
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-									<select class="js-select2" name="color" placeholder="Màu" id="color">
-										<option value="0">Màu sắc: Tất cả</option>
-										<option value="1">Màu đen</option>
-										<option value="2">Màu trắng</option>
-										<option value="3">Màu nâu</option>
-										<option value="4">Màu xanh</option>
-										<option value="5">Màu đỏ</option>	
-										<option value="6">Màu vàng</option>
-										<option value="7">Màu cam</option>
-										<option value="8">Màu hồng</option>
-										<option value="9">Màu tím</option>
-										<option value="10">Màu xám</option>
-									</select>
-									<div class="dropDownSelect2"></div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-8">
+										<label class="custom-control-label" for="customCheck{{this._id}}-8"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">Áo thun</a>
+									</div>
 								</div>
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-									<select class="js-select2" name="size" placeholder="Kích cỡ" id="size">
-										<option value="0">Kích cỡ: Tất cả</option>
-										<option value="1">Size S</option>
-										<option value="2">Size M</option>
-										<option value="3">Size L</option>											
-										<option value="4">Size XL</option>
-										<option value="5">FreeSize</option>
-									</select>
-									<div class="dropDownSelect2"></div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-9">
+										<label class="custom-control-label" for="customCheck{{this._id}}-9"></label>
+									</div>
+                                    <div class="name-product">
+										<a  class="card-title m-0">Chân váy</a>
+									</div>
 								</div>
-							</div>
-							<div class="filter-col3 p-r-15 p-b-27">
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-									<select class="js-select2" name="price" placeholder="Giá tiền" id="price">
-										<option value="0">Giá tiền: Tất cả</option>
-										<option value="1">Dưới 500.000 VND</option>
-										<option value="2">Từ 500.000 - 1.000.000 VND</option>
-										<option value="3">Từ 1.000.000 - 1.500.000 VND</option>
-										<option value="4">Từ 1.500.000 - 2.000.000 VND</option>
-										<option value="5">Từ 2.000.000 - 2.500.000 VND</option>
-										<option value="6">Từ 2.500.000 - 3.000.000 VND</option>
-										<option value="7">Từ 3.000.000 - 4.000.000 VND</option>
-										<option value="8">Trên 4.000.000 VND</option>
-									</select>
-									<div class="dropDownSelect2"></div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-10">
+										<label class="custom-control-label" for="customCheck{{this._id}}-10"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">Phụ kiện</a>
+									</div>
 								</div>
+                        </div>
+                      
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="size">
+                        <div class="sizedm">
+                            <p class="d">Size <img class="down" data-toggle="collapse" data-target="#list-checkbox2" src="images/icons/down.png" alt="down.png"></p>
+                        </div>
+                        <div class="checkbox-size" id="list-checkbox2">
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-1">
+										<label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">XS</a>
+									</div>
+								</div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-2">
+										<label class="custom-control-label" for="customCheck{{this._id}}-2"></label>
+									</div>
+                                    <div class="name-product">
+										<a  class="card-title m-0">S</a>
+									</div>
+								</div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-3">
+										<label class="custom-control-label" for="customCheck{{this._id}}-3"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">M</a>
+									</div>
+								</div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-4">
+										<label class="custom-control-label" for="customCheck{{this._id}}-4"></label>
+									</div>
+                                    <div class="name-product">
+										<a  class="card-title m-0">L</a>
+									</div>
+								</div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-5">
+										<label class="custom-control-label" for="customCheck{{this._id}}-5"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">XL</a>
+									</div>
+								</div>                       
+                        </div>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="cost">
+                        <div class="costdm">
+                            <p class="d" style="padding-bottom: 50px;">Giá tiền (nghìn vnđ)<img class="down" data-toggle="collapse" data-target="#slider" src="images/icons/down.png" alt="down.png"></p>
+                        </div>
+                        <div class="checkbox-cost" id="slider">
+                            <input type="range" class="range" name="" value="500" min="100" max="1000" onmousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)"></br>
+                            <table>
+                                <tr>
+                                    <td style="width:120px">
+                                        <p style="float: left;">100</p>
+                                    </td>
+                                    <td>
+                                        <p class="value" id="rangeValue">500 </p>
+                                    </td>
+                                    <td>
+                                        <p style="padding-left: 125px;">1.000</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="color">
+                        <div class="colordm">
+                            <p class="d">Màu sắc<img class="down" data-toggle="collapse" data-target="#list-checkbox4" src="images/icons/down.png" alt="down.png"> </p>
+                        </div>
+                        <div class="checkbox-color" id="list-checkbox4">
+                             <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-11">
+										<label class="custom-control-label" for="customCheck{{this._id}}-11"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">Trắng</a>
+									</div>
+								</div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-12">
+										<label class="custom-control-label" for="customCheck{{this._id}}-12"></label>
+									</div>
+                                    <div class="name-product">
+										<a  class="card-title m-0">Đen</a>
+									</div>
+								</div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-13">
+										<label class="custom-control-label" for="customCheck{{this._id}}-13"></label>
+									</div>
+                                    <div class="name-product">
+										<a class="card-title m-0">Đỏ</a>
+									</div>
+								</div>
+                                <div class="card-boy">									
+									<div class="custom-control custom-checkbox">                                    
+										<input type="checkbox" class="custom-control-input"
+											id="customCheck{{this._id}}-14">
+										<label class="custom-control-label" for="customCheck{{this._id}}-14"></label>
+									</div>
+                                    <div class="name-product">
+										<a  class="card-title m-0">Vàng</a>
+									</div>
+								</div>
+                        </div>
+                    </div>
+                </div>
+                <!--left-->
+            </div>
+            <div class="col-sm-9" style="padding-left: 50px;">
+                <div class="right">
+                    <div class="text">
+                        <div class="gender">
+                           <span> <a class="gender-male" style="text-decoration: none;">Nam </a>
+                            <a>|</a>
+                            <a class="gender-female"> Nữ</a></span>
+                        </div>
+                        <button class="short">Sắp xếp theo <img  style="width:30px;padding-left: 20px; " src="images/icons/down.png" alt="down.png"> </button>
+                    </div>
+                  
+                <div class="row">
+                        {{#each products}}
+                        <div class="col-sm-4 col-md-6 col-lg-4 " id={{this.catergory}}>
+                            <div class="component-product card">
+                                <div class="product-image">
+                                    <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top" alt="...">
+                                    <a href="/product/detail/{{this._id}}" class="stretched-link"></a>
+                                    <div class="deal-tag">30%</div>
+                                    <div class="hover-div">
+                                        <a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
+                                        <div>&nbsp;|&nbsp;</div>
+                                        <a href="/product/detail/{{this._id}}" class="mr-3"><i class="far fa-eye"></i>&ensp;Chi
+                                                tiết</a>
+                                    </div>
+                                </div>
 
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-									<select class="js-select2" name="category" placeholder="Loại" id="category">
-										<option value="a">Loại: Tất cả</option>
-										{{#each categories}}
-											<option value="{{@index}}" id="option-category">{{this.name}}</option>
-										{{/each}}
-									</select>
-									<div class="dropDownSelect2"></div>
-								</div>
-							</div>
-							<div class="filter-col4 p-r-15 p-b-27">
-								<br><br><br>
-								<button type="submit" class="stext-101 cl2 size-105 bg0 bor7 hov-btn2 p-lr-15 trans-04 m-b-12">
-									Lọc
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row p-l-15 p-b-30">{{done}}</div>
-			<div class="row isotope-grid">
-				<div class="p-l-15">{{none}}</div>
-				{{#each products}}
-				<div class= "col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item" id = {{this.catergory}} >
-					<!-- Block2 -->
-					<div class="block2">
-						<a href= /product/detail/{{this._id}} class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-						<div class="block2-pic hov-img0">
-							<img src= {{this.img}} alt="IMG-PRODUCT">
-
-							{{!-- <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Xem trước
-							</a> --}}
-						</div>
-						</a>
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href= /product/detail/{{this._id}} class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									{{this.name}}
-								</a>
-
-								<span class="stext-105 cl3 js-cost">
-									{{this.price}}
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				{{/each}}
-			</div>
-			<nav aria-label="..." class="mx-auto">
+                                <div class="card-body">
+                                    <a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+                                    <div class="m-0 mt-1 d-flex justify-content-center">
+                                        <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+                        <span class="original-price ml-3">
+                                                195,000<u>đ</u>
+                                            </span>
+                    </div>
+                    <button class="btn favorite-btn"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+ <!--right-->
+ </div>
+</div>
+</div>
+<!--
+<nav aria-label="..." class="mx-auto" style="text-align: center;">
 					<ul class="pagination">
 						{{#each page}}
 							<li class="page-item"><a class="page-link" href="{{../linkPage}}/{{this}}">{{this}}</a></li>
 						{{/each}}
 					</ul>
-				</nav>
-		</div>
-	</section>
-	
+				</nav>-->
+                <script>
+        function rangeSlider(value) {
+            document.getElementById('rangeValue').innerHTML = value;
+        }
+    </script>
 </body>
+    
+
