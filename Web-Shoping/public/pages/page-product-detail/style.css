@@ -179,6 +179,7 @@ input.num-product::-webkit-inner-spin-button {
 
 .comments-component {
   display: block;
+  height: fit-content;
 }
 
 .evaluation {
