@@ -1,61 +1,18 @@
-.container:focus {
-    font-family: Roboto;
-}
-
-.path {
-    height: 144px;
-    width: auto;
-    background-color: #EFF3FF;
-    margin-top: 70px;
-}
-
-.path .page {
-    width: 500px;
-    padding-top: 55px;
-    padding-left: 100px;
-}
-
-.page1 {
-    color: #666666;
-    text-decoration: none;
-}
-
-.infor {
-    margin-top: 20px;
-    padding-top: 200px
-}
-
-.left {
+.component-filter-list {
     width: 300px;
     height: auto;
-    margin-left: 10px;
-    font-family: Roboto;
+    margin-left: 120px;
 }
 
-.left .filter {
+.component-filter-list .filter {
     height: 70px;
     width: auto;
 }
 
-a {
-    color: #111111;
-    float: left;
-    margin-top: 10px;
-    font-weight: bold;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-}
-
-.left .categories .d,
-.left .size .d,
-.left .color .colordm .d,
-.left .cost .d {
-    font-family: Roboto;
+.component-filter-list .categories .d,
+.component-filter-list .size .d,
+.component-filter-list .color .colordm .d,
+.component-filter-list .cost .d {
     font-style: normal;
     font-weight: normal;
     font-size: 17px;
@@ -65,23 +22,22 @@ a {
     color: #000000;
 }
 
-.left .size .card-boy .custom-control custom-checkbox {
+.component-filter-list .size .card-boy .custom-control custom-checkbox {
     width: 18px;
     height: 18px;
 }
 
-.left .categories .checkbox-cate,
-.left .size .checkbox-size,
-.left .cost .checkbox-cost,
-.left .color .checkbox-color {
+.component-filter-list .categories .checkbox-cate,
+.component-filter-list .size .checkbox-size,
+.component-filter-list .cost .checkbox-cost,
+.component-filter-list .color .checkbox-color {
     margin-left: 15px;
     font-size: 17px;
-    font-family: Roboto;
     display: none;
     transition: 0.2s;
 }
 
-.left .cost .slider {
+.component-filter-list .cost .slider {
     width: 200px;
 }
 
@@ -104,44 +60,10 @@ a {
     font-family: Roboto;
 }*/
 
-.categories .checkbox-cate .card-boy,
-.size .checkbox-size .card-boy,
-.color .checkbox-color .card-boy {
-    display: flex;
-}
-
-.categories .checkbox-cate .card-boy .name-product .card-title,
-.size .checkbox-size .card-boy .name-product .card-title,
-.color .checkbox-color .card-boy .name-product .card-title {
-    font-weight: normal;
-}
-
-.left .categories .checkbox-cate .custom-control-input:checked~.custom-control-label::before,
-.left .size .checkbox-size .custom-control-input:checked~.custom-control-label::before,
-.left .color .checkbox-color .custom-control-input:checked~.custom-control-label::before {
+.component-filter-list .categories .checkbox-cate .custom-control-input:checked~.custom-control-label::before,
+.component-filter-list .size .checkbox-size .custom-control-input:checked~.custom-control-label::before,
+.component-filter-list .color .checkbox-color .custom-control-input:checked~.custom-control-label::before {
     background-color: #717fe0;
-}
-
-.categories .checkbox-cate .custom-control,
-.size .checkbox-size .custom-control,
-.color .checkbox-color .custom-control {
-    display: block;
-    padding-right: 8px;
-}
-
-.categories .checkbox-cate .custom-control .custom-control-label::before,
-.size .checkbox-size .custom-control .custom-control-label::before,
-.color .checkbox-color .custom-control .custom-control-label::before {
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: .25rem;
-    left: -1.5rem;
-    display: block;
-    pointer-events: none;
-    content: "";
-    /* background-color: #fff; */
-    border: #adb5bd solid 1px;
 }
 
 .categories .checkbox-cate .custom-control .custom-control-label::after,
@@ -156,50 +78,46 @@ a {
     height: 15px;
 }
 
-.left .cost pre {
-    font-family: Roboto;
+.component-filter-list .cost pre {
     font-size: 17px;
     border: white;
     background-color: white;
     width: 300px;
 }
 
-.left .dm .down,
-.left .costdm .down {
+.component-filter-list .dm .down,
+.component-filter-list .costdm .down {
     width: 20px;
     margin-left: 180px;
     cursor: pointer;
 }
 
-.left .costdm .down {
-    margin-left: 115px;
+.component-filter-list .costdm .down {
+    margin-left: 103px;
 }
 
-.left .sizedm .down {
+.component-filter-list .sizedm .down {
     width: 20px;
-    margin-left: 220px;
+    margin-left: 235px;
     cursor: pointer;
 }
 
-.left .colordm .down {
+.component-filter-list .colordm .down {
     width: 20px;
-    margin-left: 195px;
+    margin-left: 201px;
     cursor: pointer;
 }
 
-.left .filter .delete-filter {
-    margin-left: auto;
-    width: 85px;
+.component-filter-list .filter .delete-filter {
+    margin-left: 125px;
+    width: 105px;
     height: 44px;
     left: 300px;
-    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
-    display: flex;
     padding-left: 8px;
-    align-items: center;
     color: #333333;
     cursor: pointer;
     background: #FFFFFF;
@@ -207,79 +125,4 @@ a {
     box-sizing: border-box;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.09);
     border-radius: 3px;
-}
-
-.range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: #717fe0;
-}
-
-.range {
-    height: 1px;
-    background-color: #717fe0;
-    -webkit-appearance: none;
-    border-radius: 1px;
-    outline: none;
-    width: 250px;
-}
-
-.right {
-    margin-left: 10px;
-    width: 100%;
-    height: auto;
-}
-
-.right .gender .gender-female {
-    cursor: pointer;
-    padding: 2px;
-    text-decoration: none;
-    margin-left: 10px;
-    color: #000000;
-}
-
-.right .gender .gender-male {
-    cursor: pointer;
-    padding: 2px;
-    margin-right: 10px;
-    font-weight: normal;
-    color: #C8C8C8;
-}
-
-.right .text .short {
-    float: right;
-    width: 130px;
-    height: 44px;
-    left: 300px;
-    font-family: Roboto;
-    font-size: 16px;
-    padding-left: 8px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    color: #333333;
-    cursor: pointer;
-    background: #FFFFFF;
-    border: 1px solid #717fe0;
-    box-sizing: border-box;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.09);
-    border-radius: 3px;
-}
-
-.right .text {
-    width: 100%;
-    padding-bottom: 60px;
-}
-
-.right .row {
-    padding-top: 20px;
-}
-
-.right .row .single-blog-post .post-img img {
-    width: 240px;
-    height: 350px;
-    padding-bottom: 30px
 }
