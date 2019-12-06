@@ -5,7 +5,6 @@ var product_controller = require('../controllers/productController');
 var cart_controller = require('../controllers/cartController');
 var user_controller = require('../controllers/userController');
 var cloth_controller = require('../controllers/clothController');
-
 module.exports = function(router, passport, parser) {
   router.get('/*', function(req, res, next) {
     if (!req.session.cart && !req.user) {
@@ -32,7 +31,7 @@ module.exports = function(router, passport, parser) {
   );
   router.get('/product/:page', product_controller.product_list);
   router.get('/product/detail/:id', product_controller.product_detail);
-  //router.get('/product/product-detail/:id', product_controller.product_detail_data);
+  router.get('/product/product-detail/:id', cloth_controller.product_detail_data);
   router.post('/product/detail/:id', product_controller.product_add_to_cart);
   router.get('/product/detail/:id/:page', product_controller.product_detail);
   router.post('/product/review/:id', product_controller.product_review);

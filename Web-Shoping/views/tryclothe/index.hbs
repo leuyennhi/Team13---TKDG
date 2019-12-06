@@ -52,48 +52,17 @@
             </div>
             
             <div class="model-component">
-                <img id= "model" src="/images/Models/2.png" alt="">
-              
+                <div class="model-layer">
+                    <img id= "model" src="/images/Models/2.png" alt="">
+                    <img id= "model-shirt" src="" alt="">
+                    <img id= "model-skirt" src="" alt="">
+                    <img id= "model-dress" src="" alt="">
+                    <img id= "model-a" src="" alt="">
+                    <img id= "model-b" src="" alt="">
+                </div>
                 <div class="selected-products">
-                    <div class="product">
-                        <h4 class="name">Áo Dây Croptop Trắng Phối Ren1</h4>
-                        <h4 class="size">S</h4>
-                        <h4 class="price">285,000đ</h4>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input"
-                                id="customCheck-skirt">
-                            <label class="custom-control-label" for="customCheck-skirt"></label>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <h4 class="name">Áo Dây Croptop Trắng Phối Ren</h4>
-                        <h4 class="size">S</h4>
-                        <h4 class="price">285,000đ</h4>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input"
-                                id="customCheck-shirt">
-                            <label class="custom-control-label" for="customCheck-shirt"></label>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <h4 class="name">Áo Dây Croptop Trắng Phối Ren3</h4>
-                        <h4 class="size">S</h4>
-                        <h4 class="price">285,000đ</h4>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input"
-                                id="customCheck-coat">
-                            <label class="custom-control-label" for="customCheck-coat"></label>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <h4 class="name">Áo Dây Croptop Trắng Phối Ren</h4>
-                        <h4 class="size">S</h4>
-                        <h4 class="price">285,000đ</h4>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input"
-                                id="customCheck-PK">
-                            <label class="custom-control-label" for="customCheck-PK"></label>
-                        </div>
+                    <div class="product-selected-list">
+
                     </div>
                     <button>
                         <i class="fa fa-shopping-cart"></i>
@@ -114,17 +83,17 @@
                                 <p class="nav-item nav-link active" id="category-1-nav-tab" data-toggle="tab"
                                     href="#category-1-nav" role="tab" aria-controls="category-1-nav"
                                     aria-selected="true">
-                                    Áo thun
+                                    Áo
                                 </p>
                                 <p class="nav-item nav-link" id="category-2-nav-tab" data-toggle="tab"
                                     href="#category-2-nav" role="tab" aria-controls="category-2-nav"
                                     aria-selected="false">
-                                    Quần jeans
+                                    Chân váy
                                 </p>
                                 <p class="nav-item nav-link" id="category-3-nav-tab" data-toggle="tab"
                                     href="#category-3-nav" role="tab" aria-controls="category-3-nav"
                                     aria-selected="false">
-                                    Áo khoác
+                                    Đầm
                                 </p>
                                 <p class="nav-item nav-link" id="category-4-nav-tab" data-toggle="tab"
                                     href="#category-4-nav" role="tab" aria-controls="category-4-nav"
@@ -151,7 +120,7 @@
                                 </div>
                             </div>
                             <div class="list-products">
-                                {{#each products}}
+                                {{#each productList1}}
                                 <div class="component-checkable-product card mr-2">
                                     <div class="product-image">
                                         <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
@@ -163,7 +132,7 @@
                                             <div class="m-0 mt-1 d-flex">
                                                 <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
                                                 <span class="original-price ml-3">
-                                                    195,000<u>đ</u>
+                                                    {{formatPrice this.originalPrice}}<u>đ</u>
                                                 </span>
                                             </div>
                                         </div>
@@ -188,7 +157,7 @@
                                 </div>
                             </div>
                             <div class="list-products">
-                                {{#each products}}
+                                {{#each productList2}}
                                 <div class="component-checkable-product card mr-2">
                                     <div class="product-image">
                                         <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
@@ -200,7 +169,7 @@
                                             <div class="m-0 mt-1 d-flex">
                                                 <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
                                                 <span class="original-price ml-3">
-                                                    195,000<u>đ</u>
+                                                    {{formatPrice this.originalPrice}}<u>đ</u>
                                                 </span>
                                             </div>
                                         </div>
@@ -225,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="list-products">
-                                {{#each products}}
+                                {{#each productList3}}
                                 <div class="component-checkable-product card mr-2">
                                     <div class="product-image">
                                         <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
@@ -237,7 +206,7 @@
                                             <div class="m-0 mt-1 d-flex">
                                                 <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
                                                 <span class="original-price ml-3">
-                                                    195,000<u>đ</u>
+                                                    {{formatPrice this.originalPrice}}<u>đ</u>
                                                 </span>
                                             </div>
                                         </div>
@@ -274,7 +243,7 @@
                                             <div class="m-0 mt-1 d-flex">
                                                 <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
                                                 <span class="original-price ml-3">
-                                                    195,000<u>đ</u>
+                                                    {{formatPrice this.originalPrice}}<u>đ</u>
                                                 </span>
                                             </div>
                                         </div>
@@ -311,7 +280,7 @@
                                             <div class="m-0 mt-1 d-flex">
                                                 <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
                                                 <span class="original-price ml-3">
-                                                    195,000<u>đ</u>
+                                                    {{formatPrice this.originalPrice}}<u>đ</u>
                                                 </span>
                                             </div>
                                         </div>

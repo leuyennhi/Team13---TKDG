@@ -1,14 +1,7 @@
-// the selector will match all input controls of type :checkbox
-// and attach a click event handler 
 $("input:checkbox.tab").on('click', function() {
-    // in the handler, 'this' refers to the box clicked on
     var $box = $(this);
     if ($box.is(":checked")) {
-      // the name of the box is retrieved using the .attr() method
-      // as it is assumed and expected to be immutable
       var group = "input:checkbox[name='" + $box.attr("name") + "']";
-      // the checked state of the group/box on the other hand will change
-      // and the current value is retrieved using .prop() method
       $(group).prop("checked", false);
       $box.prop("checked", true);
     } else {
@@ -18,30 +11,62 @@ $("input:checkbox.tab").on('click', function() {
     var url = href.replace('detail','product-detail');
     getProduct(url)
   });
-
-  var getProduct = (_url) =>{
+  $('.product-selected-list').on('click','.select-product',function() {
+    var $box = $(this);
+    var type = $box.attr('id')
+    if ($box.is(":checked")) {
+      $box.prop("checked", true);
+      $(`#model-${type}`).css("display","flex");
+    } else {
+      $box.prop("checked", false);
+      $(`#model-${type}`).css("display","none");
+    }
+  });
+var getProduct = (_url) =>{
     console.log(_url)
     $.ajax({
       method: "GET",
       url: _url,
     })
     .done(function( data ) {
-       console.log(data)
+       addList(data)
+       changeClothe(data)
     });
-  }
-  var changeClothe = () =>{
+}
+var changeClothe = (product) =>{
+    var x = document.getElementById("height").value;
+    var y = document.getElementById("waist").value;
+    var pos = 1
+    if (y>80){
+      pos = 2
+    }
+    else if (x>170){
+      size = 0
+    }
+    $(`#model-${product.type}`).attr("src",`${product.toTryImg[pos]}`);
+    $(`#model-${product.type}`).css("display","flex");
 
-  }
-  var addList = (type,product) =>{
-    var item = `<div class="product ${type}">
-                  <h4 class="name">Áo Dây Croptop Trắng Phối Ren1</h4>
-                  <h4 class="size">S</h4>
-                  <h4 class="price">285,000đ</h4>
+}
+var addList = (product) =>{
+    var x = document.getElementById("height").value;
+    var y = document.getElementById("waist").value;
+    var size = 'S'
+    if (y>80){
+      size = 'M'
+    }
+    else if (x>170){
+      size = 'L'
+    }
+    var item = `<div class="product ${product.type}">
+                  <h4 class="name">${product.name}</h4>
+                  <h4 class="size">${size}</h4>
+                  <h4 class="price">${product.price}<u>đ</u></h4>
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck-${type} checked">
-                    <label class="custom-control-label" for="customCheck-${type}"></label>
+                    <input type="checkbox" class="custom-control-input select-product checked" id="${product.type}">
+                    <label class="custom-control-label" for="${product.type}"></label>
                   </div>
                 </div>`
-    $( `.${type}` ).remove();
-    $('.selected-products').append(item)
-  }
+    $( `.${product.type}` ).remove();
+    $('.product-selected-list').append(item)
+    $('.selected-products button').css("display","block")
+}

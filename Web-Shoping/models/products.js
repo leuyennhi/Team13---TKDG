@@ -16,7 +16,8 @@ var ProductSchema = new Schema({
     dateImp: {type: Date, default: Date.now()},
     watch:{type: Number,default: 0 },
     bought:{type:Number},
-    toTryImg:{type:[String]}
+    toTryImg:{type:[String]},
+    type: {type: String}
 });
 
 // Virtual for this Product instance URL.
