@@ -1,8 +1,10 @@
+var ObjectId = require('mongodb').ObjectID;
 var Product = require('../models/products');
 var Category = require('../models/catergories');
 var User = require('../models/users');
 var Review = require('../models/reviews');
 var createQueryHelper = require('../helpers/create-query-url.helper');
+var formatPriceHelper = require('../helpers/format-price.helper');
 
 const price = [
   { start: 0, end: 500000 },
@@ -76,8 +78,6 @@ exports.search_products = function(req, res, next) {
   var quantityPerPage = 12;
   var productName = req.query.productName || '';
   var pageNumber = req.query.pageNumber || 1;
-  var notFoundMessage = null;
-  var foundMessage = null;
 
   if (isNaN(pageNumber) || pageNumber < 1) {
     pageNumber = 1;
@@ -139,6 +139,29 @@ exports.search_products = function(req, res, next) {
       });
     }
   );
+};
+
+exports.product_list_by_category = function(req, res) {
+  var categoryId = req.params.categoryId || '';
+  var productName = req.params.productName || '';
+  if (productName === 'all') productName = '';
+  productName = productName.trim().toLowerCase();
+
+  Product.find({
+    name: { $regex: new RegExp('.*' + productName + '.*', 'i') },
+    catergory: ObjectId(categoryId)
+  })
+    .then(products => {
+      var listProducts = JSON.parse(JSON.stringify(products));
+      listProducts.forEach(product => {
+        product.img = product.img[0];
+        product.price = formatPriceHelper(product.price);
+        product.originalPrice = formatPriceHelper(product.originalPrice);
+      });
+
+      return res.json({ error: false, data: listProducts });
+    })
+    .catch(error => res.json({ error: true, data: error }));
 };
 
 exports.home_search_post = function(req, res) {
@@ -345,7 +368,9 @@ exports.product_detail = async function(req, res) {
         Category.findById(product.catergory).exec(callback);
       },
       productRelate: function(callback) {
-        Product.find({ catergory: product.catergory }).limit(4).exec(callback);
+        Product.find({ catergory: product.catergory })
+          .limit(4)
+          .exec(callback);
       },
       reviewPage: function(callback) {
         Review.countDocuments({ product: product._id }).exec(callback);
