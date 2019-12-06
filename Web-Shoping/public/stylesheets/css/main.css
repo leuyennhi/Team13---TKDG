@@ -281,8 +281,8 @@
     display: -ms-flexbox;
     display: flex;
     align-items: center;
-    height: 65%;
-    margin-right: 55px;
+    height: 85%;
+    margin-right: 20px;
 }
 
 .logo:hover {
@@ -294,6 +294,11 @@
     max-height: 100%;
 }
 
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
 
 /*------------------------------------------------------------------
 [ Menu ]*/
@@ -2098,7 +2103,6 @@ button.mfp-close {
 [ Num Product ]*/
 
 .wrap-num-product {
-    width: 140px;
     height: 45px;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
