@@ -345,7 +345,7 @@ exports.product_detail = async function(req, res) {
         Category.findById(product.catergory).exec(callback);
       },
       productRelate: function(callback) {
-        Product.find({ catergory: product.catergory }).exec(callback);
+        Product.find({ catergory: product.catergory }).limit(4).exec(callback);
       },
       reviewPage: function(callback) {
         Review.countDocuments({ product: product._id }).exec(callback);
