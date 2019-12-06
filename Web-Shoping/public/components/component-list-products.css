@@ -129,6 +129,7 @@
 
 .component-list-products .content .tab-content .tab-pane .list-products {
   max-height: 35em;
+  min-height: 450px;
   overflow: auto;
 }
 
@@ -196,6 +197,7 @@
   text-align: center;
   cursor: pointer;
   vertical-align: middle;
+  padding: 0.5rem 2.3rem !important;
 }
 
 .component-list-products .content .wrapper .nav-tabs .nav-item.show .nav-link,

@@ -1,10 +1,11 @@
 var express = require('express');
 
 // Require controller modules.
-var product_controller = require('../controllers/productController');
-var cart_controller = require('../controllers/cartController');
-var user_controller = require('../controllers/userController');
-var cloth_controller = require('../controllers/clothController');
+var productController = require('../controllers/product.controller');
+var cartController = require('../controllers/cart.controller');
+var userController = require('../controllers/user.controller');
+var tryOnClothesController = require('../controllers/tryOnClothes.controller');
+
 module.exports = function(router, passport, parser) {
   router.get('/*', function(req, res, next) {
     if (!req.session.cart && !req.user) {
@@ -15,32 +16,39 @@ module.exports = function(router, passport, parser) {
     res.locals.cart = req.session.cart;
     next();
   });
-  router.get('/', product_controller.index);
-  router.get('/page/:page', product_controller.index);
-  router.post('/search', product_controller.home_search_post);
-  router.get('/search/:search/:page', product_controller.home_search_get);
-  router.post('/filter/multi', product_controller.home_filtermulti);
-  router.get('/filter/:type', product_controller.product_sort_home);
+  router.get('/', productController.index);
+  router.get('/page/:page', productController.index);
+  router.post('/search', productController.home_search_post);
+  router.get('/search/:search/:page', productController.home_search_get);
+  router.post('/filter/multi', productController.home_filtermulti);
+  router.get('/filter/:type', productController.product_sort_home);
 
-  router.get('/product', product_controller.product_list);
-  router.get('/search-products', product_controller.search_products);
-  router.post('/product/search', product_controller.product_search_post);
+  router.get('/product', productController.product_list);
+  router.get('/search-products', productController.search_products);
+  router.post('/product/search', productController.product_search_post);
   router.get(
     '/product/search/:search/:page',
-    product_controller.product_search_get
+    productController.product_search_get
   );
-  router.get('/product/:page', product_controller.product_list);
-  router.get('/product/detail/:id', product_controller.product_detail);
-  router.get('/product/product-detail/:id', cloth_controller.product_detail_data);
-  router.post('/product/detail/:id', product_controller.product_add_to_cart);
-  router.get('/product/detail/:id/:page', product_controller.product_detail);
-  router.post('/product/review/:id', product_controller.product_review);
-  router.post('/product/filter/multi', product_controller.product_filtermulti);
-  router.get('/product/filter/:type', product_controller.product_sort);
-  router.post('/deleteorder/:id', cart_controller.delete_order);
-  router.get('/myaccount', isLoggedIn, user_controller.user_detail);
-  router.get('/login', user_controller.user_login_get);
-  router.get('/logout', user_controller.user_logout_get);
+  router.post(
+    '/product/:categoryId/:productName',
+    productController.product_list_by_category
+  );
+  router.get('/product/:page', productController.product_list);
+  router.get('/product/detail/:id', productController.product_detail);
+  router.get(
+    '/product/product-detail/:id',
+    tryOnClothesController.product_detail_data
+  );
+  router.post('/product/detail/:id', productController.product_add_to_cart);
+  router.get('/product/detail/:id/:page', productController.product_detail);
+  router.post('/product/review/:id', productController.product_review);
+  router.post('/product/filter/multi', productController.product_filtermulti);
+  router.get('/product/filter/:type', productController.product_sort);
+  router.post('/deleteorder/:id', cartController.delete_order);
+  router.get('/myaccount', isLoggedIn, userController.user_detail);
+  router.get('/login', userController.user_login_get);
+  router.get('/logout', userController.user_logout_get);
   router.post(
     '/login',
     passport.authenticate('local-login', {
@@ -49,18 +57,14 @@ module.exports = function(router, passport, parser) {
       failureFlash: true
     })
   );
-  router.get('/reset/:token', user_controller.user_reset_get);
-  router.post('/reset/:token', user_controller.user_reset_post);
+  router.get('/reset/:token', userController.user_reset_get);
+  router.post('/reset/:token', userController.user_reset_post);
 
-  router.get('/forgotpassword', user_controller.user_forgetpass_get);
-  router.post('/forgotpassword', user_controller.user_forgetpass_post);
-  router.get('/edit', user_controller.user_update_get);
-  router.post(
-    '/edit',
-    parser.single('image'),
-    user_controller.user_update_post
-  );
-  router.get('/signin', user_controller.user_create_get);
+  router.get('/forgotpassword', userController.user_forgetpass_get);
+  router.post('/forgotpassword', userController.user_forgetpass_post);
+  router.get('/edit', userController.user_update_get);
+  router.post('/edit', parser.single('image'), userController.user_update_post);
+  router.get('/signin', userController.user_create_get);
   router.post(
     '/signin',
     parser.single('image'),
@@ -70,16 +74,16 @@ module.exports = function(router, passport, parser) {
       failureFlash: true
     })
   );
-  router.get('/active', user_controller.user_active_account);
-  router.get('/active/user/:id', user_controller.user_active_account);
-  router.get('/active/:token', user_controller.user_active_account_done);
-  router.get('/changepass', user_controller.user_change_pass);
-  router.post('/changepass', user_controller.user_change_pass_post);
-  router.get('/shoppingcart', cart_controller.cart_list);
-  router.post('/shoppingcart', cart_controller.cart_update_product);
-  router.get('/history', isLoggedIn, cart_controller.order_list);
-  router.post('/history', isLoggedIn, cart_controller.order_create);
-  router.get('/history/detail/:id', isLoggedIn, cart_controller.order_detail);
+  router.get('/active', userController.user_active_account);
+  router.get('/active/user/:id', userController.user_active_account);
+  router.get('/active/:token', userController.user_active_account_done);
+  router.get('/changepass', userController.user_change_pass);
+  router.post('/changepass', userController.user_change_pass_post);
+  router.get('/shoppingcart', cartController.cart_list);
+  router.post('/shoppingcart', cartController.cart_update_product);
+  router.get('/history', isLoggedIn, cartController.order_list);
+  router.post('/history', isLoggedIn, cartController.order_create);
+  router.get('/history/detail/:id', isLoggedIn, cartController.order_detail);
 
   router.get('/faq', function(req, res, next) {
     res.render('faq', { title: 'Câu hỏi thường gặp' });
@@ -93,8 +97,9 @@ module.exports = function(router, passport, parser) {
     res.render('aboutus', { title: 'Về chúng tôi' });
   });
 
-  router.get('/trycloth', cloth_controller.try_clothe);
+  router.get('/try-on-clothes', tryOnClothesController.try_on_clothes);
 };
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect('/login');
