@@ -6,6 +6,8 @@ var Review = require('../models/reviews');
 var createQueryHelper = require('../helpers/create-query-url.helper');
 var formatPriceHelper = require('../helpers/format-price.helper');
 
+var breadcrumbs_middleware = require('../middlewares/breadcrumbs.middleware');
+
 const price = [
   { start: 0, end: 500000 },
   { start: 500000, end: 1000000 },
@@ -32,6 +34,7 @@ const size = ['S', 'M', 'L', 'XL', 'Freesize'];
 
 var async = require('async');
 exports.index = function(req, res) {
+  res.locals.isShowBreadcrumbs = false;
   var itemPerPage = 12;
   page = req.params.page ? req.params.page : 1;
   async.parallel(
@@ -75,6 +78,9 @@ exports.index = function(req, res) {
 };
 
 exports.search_products = function(req, res, next) {
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push("Trang chủ");
+  res.locals.links.push("Tìm kiếm");
   var quantityPerPage = 12;
   var productName = req.query.productName || '';
   var pageNumber = req.query.pageNumber || 1;
@@ -311,6 +317,9 @@ exports.home_filtermulti = function(req, res) {
   );
 };
 exports.product_list = function(req, res) {
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push("Trang chủ");
+  res.locals.links.push("Sản phẩm");
   var itemPerPage = 12;
   page = req.params.page ? req.params.page : 1;
   async.parallel(

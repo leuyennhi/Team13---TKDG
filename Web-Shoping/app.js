@@ -9,6 +9,8 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var formatPriceHelper = require('./helpers/format-price.helper');
+var breadcrumbs_middleware = require('./middlewares/breadcrumbs.middleware');
+
 require('dotenv').config();
 
 require('./config/passport')(passport);
@@ -78,6 +80,8 @@ app.use(function(req, res, next) {
   delete req.session.sessionFlash;
   next();
 });
+
+app.use(breadcrumbs_middleware);
 
 require('./routes/index')(app, passport, parser);
 
