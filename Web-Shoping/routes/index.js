@@ -6,6 +6,8 @@ var cartController = require('../controllers/cart.controller');
 var userController = require('../controllers/user.controller');
 var tryOnClothesController = require('../controllers/tryOnClothes.controller');
 
+var breadcrumbs_middleware = require('../middlewares/breadcrumbs.middleware');
+
 module.exports = function(router, passport, parser) {
   router.get('/*', function(req, res, next) {
     if (!req.session.cart && !req.user) {

@@ -58,10 +58,7 @@
 			<div class="wrap-menu-desktop" style="background-color: black; margin-top: 0;">
 				<nav class="limiter-menu-desktop container" style="padding: 0 !important; width: 90% !important;">
 					<!-- Logo desktop -->
-					{{!-- <a href="/" class="logo" style="font-size: 30px; color:white">
-						LOGO
-					</a> --}}
-					<a href="" class="logo"><img class="img-circle" src="/images/logo.png" alt="" /></a>
+					<a href="/" class="logo"><img class="img-circle" src="/images/logo.png" alt="" /></a>
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
@@ -137,13 +134,15 @@
 
 	</header>
 
+	{{#if isShowBreadcrumbs}}
 	<div style="margin-top: 84px">
 		<ul class="breadcrumb">
-			<li><a href="/">TRANG CHỦ</a></li>
-			<li><a href="/product">SẢN PHẨM</a></li>
-			<li><a href="#">ÁO</a></li>
+			{{#each links}}
+			<li><a href="/">{{this}}</a></li>
+			{{/each}}
 		</ul>
 	</div>
+	{{/if}}
 
 	<!-- Content-->
 	{{{body}}}
@@ -154,7 +153,7 @@
 			<div class="footer-logo">
 				<a href="/" class="logo"><img class="img-circle" src="/images/logo.png" alt="" /></a>
 			</div>
-			
+
 			<div class="row text-center">
 				<div class="col-6 col-sm-4">
 					<h4 class="stext-301 cl0 p-b-30">
@@ -181,7 +180,7 @@
 						<a href=""><img src="/images/fb.png" alt="" /></a>
 					</li>
 					<li>
-						<a href=""><img src="/images/isg.png"  alt="" /></a>
+						<a href=""><img src="/images/isg.png" alt="" /></a>
 					</li>
 				</ul>
 			</div>

@@ -5,6 +5,9 @@ var engCat = { Áo: 'shirt', 'Chân Váy': 'skirt', Đầm: 'dress' };
 var formatPriceHelper = require('../helpers/format-price.helper');
 
 exports.try_on_clothes = async function(req, res) {
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push("Trang chủ");
+  res.locals.links.push("Thử đồ");
   var products = await Product.find();
   var categories = await Category.find();
 
