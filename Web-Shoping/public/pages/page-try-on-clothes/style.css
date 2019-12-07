@@ -102,3 +102,20 @@ input {
 .measure-component .button > button {
   width: 160px;
 }
+
+.model-layer{
+  position: relative;
+}
+
+#model-shirt{
+  position: absolute;
+  z-index: 2;
+}
+#model-skirt{
+  position: absolute;
+}
+#model-dress{
+  position: absolute;
+  z-index: 3;
+}
+
