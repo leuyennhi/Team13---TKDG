@@ -29,34 +29,43 @@ var getFigure = (type) =>{
   switch(type) {
     case "shirt":
       {
-        topM = 124
+        topM = 124;
+        leftM = -4;
         if (y>80){
           topM = 130
+          leftM = -4
         }
         else if (x>170){
           topM = 95
+          leftM = -5;
         }
         break;
       }
     case "skirt":
         {
           topM = 224
+          leftM = -8
           if (y>80){
             topM = 224
+            leftM = -6
           }
           else if (x>170){
             topM = 196
+            leftM =-6
           }
           break;
         }
     case "dress":
         {
           topM = 134
+          leftM = -4
           if (y>80){
             topM = 138
+            leftM = -5
           }
           else if (x>170){
             topM = 105
+            leftM = -4
           }
           break;
         }
