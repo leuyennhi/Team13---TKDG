@@ -79,8 +79,8 @@ var onClickModel = () =>{
   img.forEach(ele=>{
     getFigure(ele.type)
     $(`#model-${ele.type}`).attr("src",`${ele.imgT[posImg]}`);
-    $(`#model-${ele.type}`).css("top",`${topM}px`);
-    $(`#model-${ele.type}`).css("left",`${leftM}px`);
+    $(`#model-${ele.type}`).css("margin-top",`${topM}px`);
+    $(`#model-${ele.type}`).css("margin-left",`${leftM}px`);
   })
 }
 
@@ -125,8 +125,8 @@ var changeClothe = (product) =>{
   $(`#model-${product.type}`).attr("src",`${product.toTryImg[posImg]}`);
   getFigure(product.type);
   console.log(topM)
-  $(`#model-${product.type}`).css("top",`${topM}px`);
-  $(`#model-${product.type}`).css("left",`${leftM}px`);
+  $(`#model-${product.type}`).css("margin-top",`${topM}px`);
+  $(`#model-${product.type}`).css("margin-left",`${leftM}px`);
   $(`#model-${product.type}`).css("display","flex");
 }
 var addList = (product) =>{

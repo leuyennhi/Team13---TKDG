@@ -107,15 +107,15 @@ input {
   position: relative;
 }
 
-#model-shirt{
-  position: absolute;
-  z-index: 2;
+.model-shirt{
+  /* position: absolute; */
+  z-index: 1;
 }
-#model-skirt{
-  position: absolute;
+.model-skirt{
+  /* position: absolute; */
 }
-#model-dress{
-  position: absolute;
+.model-dress{
+  /* position: absolute; */
   z-index: 3;
 }
 
