@@ -1,257 +1,271 @@
 {{#section 'css'}}
 {{!-- slider slick --}}
-<link href="/components/component-filter-list.css" rel="stylesheet"/>
+<link href="/components/component-filter-list.css" rel="stylesheet" />
 <link href="/pages/page-product/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link href="/components/component-product.css" rel="stylesheet" />
+
+
 {{!-- slider slick --}}
 {{/section}}
 <div class="page-product">
     <div class="infor">
         <div class="row">
-        <div class="col-sm-4" style="padding-left: 0;">
-            <div class="component-filter-list">
-                <div class="filter">
-                    <span>
-                        <a style="font-size:18px;font-weight:bold;">BỘ LỌC</a>
-                        <button class="delete-filter"> Xóa bộ lọc </button>
-                    </span>
-                </div>
-                <hr width="100%" size="1px" />
-                <div class="categories">
-                    <div class="dm">
-                        <p class="d">Danh mục <img class="down" data-toggle="collapse" data-target="#list-checkbox1"
-                                src="images/icons/down.png" alt="down.png"> </p>
+            <div class="col-sm-4" style="padding-left: 0;">
+                <div class="component-filter-list">
+                    <div class="filter">
+                        <span>
+                            <a style="font-size:18px;font-weight:bold;">BỘ LỌC</a>
+                            <button class="delete-filter"> Xóa bộ lọc </button>
+                        </span>
                     </div>
-                    <div class="checkbox-cate" id="list-checkbox1">
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-6">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-6"></label>
+                    <hr width="100%" size="1px" />
+                    <div class="categories">
+                        <div class="dm">
+                            <p class="d">Danh mục <img class="down" data-toggle="collapse" data-target="#list-checkbox1"
+                                    src="images/icons/left.png" id="img-down" onclick="change()" alt="down.png"> </p>
+                        </div>
+                        <div class="checkbox-cate" id="list-checkbox1">
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-6">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-6"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Đầm</a>
+                                </div>
                             </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Đầm</a>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-7">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-7"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Jeans</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-8">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-8"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Áo thun</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-9">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-9"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Chân váy</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-10">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-10"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Phụ kiện</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-7">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-7"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Jeans</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-8">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-8"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Áo thun</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-9">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-9"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Chân váy</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-10">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-10"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Phụ kiện</a>
-                            </div>
-                        </div>
-                    </div>
 
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="size">
+                        <div class="sizedm">
+                            <p class="d">Size <img class="down" data-toggle="collapse" data-target="#list-checkbox2" id="img-down1"
+                                    src="images/icons/left.png" onclick="change1()" alt="down.png"></p>
+                        </div>
+                        <div class="checkbox-size" id="list-checkbox2">
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-1">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">XS</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-2">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-2"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">S</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-3">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-3"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">M</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-4">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-4"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">L</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-5">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-5"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">XL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="cost">
+                        <div class="costdm">
+                            <p class="d" style="padding-bottom: 50px;">Giá tiền (nghìn vnđ)<img class="down"
+                                    data-toggle="collapse" data-target="#slider" src="images/icons/left.png" id="img-down2"
+                                    onclick="change2()" alt="down.png">
+                            </p>
+                        </div>
+                        <div class="checkbox-cost" id="slider">
+                            <input type="range" class="range" name="" value="500" min="100" max="1000"
+                                onmousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)"></br>
+                            <table>
+                                <tr>
+                                    <td style="width:120px">
+                                        <p style="float: left;">100</p>
+                                    </td>
+                                    <td>
+                                        <p class="value" id="rangeValue">500 </p>
+                                    </td>
+                                    <td>
+                                        <p style="padding-left: 125px;">1.000</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <hr width="100%" size="1px" />
+                    <div class="color">
+                        <div class="colordm">
+                            <p class="d">Màu sắc<img class="down" data-toggle="collapse" data-target="#list-checkbox4"
+                                    src="images/icons/left.png" onclick="change3()" id="img-down3" alt="down.png"> </p>
+                        </div>
+                        <div class="checkbox-color" id="list-checkbox4">
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-11">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-11"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Trắng</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-12">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-12"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Đen</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-13">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-13"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Đỏ</a>
+                                </div>
+                            </div>
+                            <div class="card-boy">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-14">
+                                    <label class="custom-control-label" for="customCheck{{this._id}}-14"></label>
+                                </div>
+                                <div class="name-product">
+                                    <a class="card-title m-0">Vàng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <hr width="100%" size="1px" />
-                <div class="size">
-                    <div class="sizedm">
-                        <p class="d">Size <img class="down" data-toggle="collapse" data-target="#list-checkbox2"
-                                src="images/icons/down.png" alt="down.png"></p>
-                    </div>
-                    <div class="checkbox-size" id="list-checkbox2">
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-1">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">XS</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-2">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-2"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">S</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-3">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-3"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">M</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-4">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-4"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">L</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-5">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-5"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">XL</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr width="100%" size="1px" />
-                <div class="cost">
-                    <div class="costdm">
-                        <p class="d" style="padding-bottom: 50px;">Giá tiền (nghìn vnđ)<img class="down"
-                                data-toggle="collapse" data-target="#slider" src="images/icons/down.png" alt="down.png">
-                        </p>
-                    </div>
-                    <div class="checkbox-cost" id="slider">
-                        <input type="range" class="range" name="" value="500" min="100" max="1000"
-                            onmousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)"></br>
-                        <table>
-                            <tr>
-                                <td style="width:120px">
-                                    <p style="float: left;">100</p>
-                                </td>
-                                <td>
-                                    <p class="value" id="rangeValue">500 </p>
-                                </td>
-                                <td>
-                                    <p style="padding-left: 125px;">1.000</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <hr width="100%" size="1px" />
-                <div class="color">
-                    <div class="colordm">
-                        <p class="d">Màu sắc<img class="down" data-toggle="collapse" data-target="#list-checkbox4"
-                                src="images/icons/down.png" alt="down.png"> </p>
-                    </div>
-                    <div class="checkbox-color" id="list-checkbox4">
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-11">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-11"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Trắng</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-12">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-12"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Đen</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-13">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-13"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Đỏ</a>
-                            </div>
-                        </div>
-                        <div class="card-boy">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-14">
-                                <label class="custom-control-label" for="customCheck{{this._id}}-14"></label>
-                            </div>
-                            <div class="name-product">
-                                <a class="card-title m-0">Vàng</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!--left-->
             </div>
-            <!--left-->
-        </div>
-        <div class="col-sm-8" style="padding-right: 120px;">
-            <div class="right" >
-                <div class="text" >
-                  
-                    <div class="gender">
-                        <a class="gender-male" style="text-decoration: none;">Nam </a>
+            <div class="col-sm-8" style="padding-right: 120px;">
+                <div class="right">
+                    <div class="text">
+
+                        <div class="gender">
+                            <a class="gender-male" style="text-decoration: none;">Nam </a>
                             <a>|</a>
                             <a class="gender-female"> Nữ</a></span>
+                        </div>
+                        {{!-- <button class="short" data-toggle="collapse" data-target="#sort">Sắp xếp theo <img style="width:30px;padding-left: 20px; "
+                            src="images/icons/down.png" alt="down.png"> </button> --}}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sắp xếp theo
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Giá tăng dần</a>
+                                <a class="dropdown-item" href="#">Giá giảm dần</a>
+                                <a class="dropdown-item" href="#">Sản phẩm bán chạy nhất</a>
+                            </div>
+                        </div>
                     </div>
-                    <button class="short" data-toggle="collapse" data-target="#sort">Sắp xếp theo <img style="width:30px;padding-left: 20px; "
-                            src="images/icons/down.png" alt="down.png"> </button>
-                </div>
-             <div id="sort" class="panel-collapse collapse" style="border: 1px solid #717fe0;background-color: #f2f2f2;width=500px;
+                    {{!-- <div id="sort" class="panel-collapse collapse" style="border: 1px solid #717fe0;background-color: #f2f2f2;width=500px;
                     border-radius: 3px;">
                         <!-- <div class="panel-body">Panel Body</div> -->
                         Sắp xếp theo  : 
                         
-                    </div>
-                <div class="row">
-                    {{#each products}}
-                    <div class="col-sm-4 col-md-6 col-lg-4 " id={{this.catergory}}>
-                        <div class="component-product card">
-                            <div class="product-image">
-                                <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"
-                                    alt="...">
-                                <a href="/product/detail/{{this._id}}" class="stretched-link"></a>
-                                <div class="deal-tag">30%</div>
-                                <div class="hover-div">
-                                    <a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
-                                    <div>&nbsp;|&nbsp;</div>
-                                    <a href="/product/detail/{{this._id}}" class="mr-3"><i
-                                            class="far fa-eye"></i>&ensp;Chi
-                                        tiết</a>
+                    </div> --}}
+                    <div class="row">
+                        {{#each products}}
+                        <div class="col-sm-4 col-md-6 col-lg-4 " id={{this.catergory}}>
+                            <div class="component-product card">
+                                <div class="product-image">
+                                    <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}"
+                                        class="card-img-top" alt="...">
+                                    <a href="/product/detail/{{this._id}}" class="stretched-link"></a>
+                                    <div class="deal-tag">30%</div>
+                                    <div class="hover-div">
+                                        <a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
+                                        <div>&nbsp;|&nbsp;</div>
+                                        <a href="/product/detail/{{this._id}}" class="mr-3"><i
+                                                class="far fa-eye"></i>&ensp;Chi
+                                            tiết</a>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="card-body">
-                                <a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-                                <div class="m-0 mt-1 d-flex justify-content-center">
-                                    <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
-                                    <span class="original-price ml-3">
-                                        195,000<u>đ</u>
-                                    </span>
+                                <div class="card-body">
+                                    <a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+                                    <div class="m-0 mt-1 d-flex justify-content-center">
+                                        <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+                                        <span class="original-price ml-3">
+                                            195,000<u>đ</u>
+                                        </span>
+                                    </div>
+                                    <button class="btn favorite-btn"><i class="far fa-heart"></i></button>
                                 </div>
-                                <button class="btn favorite-btn"><i class="far fa-heart"></i></button>
                             </div>
                         </div>
+                        {{/each}}
                     </div>
-                    {{/each}}
                 </div>
+                <!--right-->
             </div>
-            <!--right-->
-        </div>
         </div>
     </div>
 </div>
@@ -263,12 +277,91 @@
 						{{/each}}
 					</ul>
 				</nav>-->
+ 
 
 {{#section 'js'}}
+<script>
+    var img_tracker = 'f';
+    function change() {
+        var img = document.getElementById("img-down");
+        if (img_tracker == 'f') {
+            img.src = 'images/icons/down.png';
+            img_tracker = 't';
+        } else {
+            img.src = 'images/icons/left.png';
+            img_tracker = 'f';
+        }
+    }
+</script>
+<script>
+    var img_tracker1 = 'f';
+    function change1() {
+        var img = document.getElementById("img-down1");
+        if (img_tracker1 == 'f') {
+            img.src = 'images/icons/down.png';
+            img_tracker1 = 't';
+        } else {
+            img.src = 'images/icons/left.png';
+            img_tracker1 = 'f';
+        }
+    }
+</script>
+<script>
+    var img_tracker2 = 'f';
+    function change2() {
+        var img = document.getElementById("img-down2");
+        if (img_tracker2 == 'f') {
+            img.src = 'images/icons/down.png';
+            img_tracker2 = 't';
+        } else {
+            img.src = 'images/icons/left.png';
+            img_tracker2 = 'f';
+        }
+    }
+</script>
+<script>
+    var img_tracker3 = 'f';
+    function change3() {
+        var img = document.getElementById("img-down3");
+        if (img_tracker3 == 'f') {
+            img.src = 'images/icons/down.png';
+            img_tracker3 = 't';
+        } else {
+            img.src = 'images/icons/left.png';
+            img_tracker3 = 'f';
+        }
+    }
+</script>
+
 <script>
     function rangeSlider(value) {
         document.getElementById('rangeValue').innerHTML = value;
     }
 </script>
+
+{{!-- <script>
+var coll = document.getElementsByClassName("down");
+var i;
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var checkbox1 = this.nextElementSibling;
+    if (checkbox1.style.display === "block") {
+      checkbox1.style.display = "none";
+    } else {
+      checkbox1.style.display = "block";
+    }
+  });
+}
+</script> --}}
+{{!-- <script>
+$(document).ready(function(){
+  $(".down").click(function(){
+    $(".checkbox-cate").collapse('toggle');
+  });
+});
+</script> --}}
+
+ 
 <script src="/pages/page-product/list-product.js"></script>
 {{/section}}

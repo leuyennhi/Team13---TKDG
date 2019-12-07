@@ -34,7 +34,6 @@
     margin-left: 15px;
     font-size: 17px;
     display: none;
-    transition: 0.2s;
 }
 
 .component-filter-list .cost .slider {
@@ -126,3 +125,33 @@
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.09);
     border-radius: 3px;
 }
+
+.component-filter-list .filter .delete-filter:hover {
+    color: #fff;
+    border-color: var(--main-button-color);
+    background-color: var(--main-button-color);
+}
+
+
+/* .collapse {
+    display: none
+}
+
+.collapse.show {
+    display: block
+}
+
+tr.collapse.show {
+    display: table-row
+}
+
+tbody.collapse.show {
+    display: table-row-group
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height .35s ease
+} */
