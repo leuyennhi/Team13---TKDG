@@ -119,6 +119,10 @@
     color: #C8C8C8;
 }
 
+.page-product .right .gender .gender-male:hover {
+    color: black;
+}
+
 .page-product .right .text .short {
     float: right;
     width: 150px;

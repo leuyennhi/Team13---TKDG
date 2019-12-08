@@ -22,7 +22,7 @@
     color: #000000;
 }
 
-.component-filter-list .size .card-boy .custom-control custom-checkbox {
+.component-filter-list .size .card-body .custom-control custom-checkbox {
     width: 18px;
     height: 18px;
 }
@@ -33,31 +33,12 @@
 .component-filter-list .color .checkbox-color {
     margin-left: 15px;
     font-size: 17px;
-    display: none;
+    display: flex;
 }
 
 .component-filter-list .cost .slider {
     width: 200px;
 }
-
-
-/*
-.left .categories .checkbox-cate .checkbox,
-.left .size .checkbox-size .checkbox,
-.left .color .checkbox-color .checkbox {
-    cursor: pointer;
-    width: 17px;
-    height: 17px;
-    display: inline-block;
-    background-color: white;
-    outline: #2D9CDB;
-    vertical-align: top;
-    border: 1px solid #2F80ED;
-    box-sizing: border-box;
-    margin-right: 5px;
-    border-radius: 2px;
-    font-family: Roboto;
-}*/
 
 .component-filter-list .categories .checkbox-cate .custom-control-input:checked~.custom-control-label::before,
 .component-filter-list .size .checkbox-size .custom-control-input:checked~.custom-control-label::before,
@@ -112,8 +93,6 @@
     width: 105px;
     height: 44px;
     left: 300px;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 19px;
     padding-left: 8px;
@@ -131,27 +110,3 @@
     border-color: var(--main-button-color);
     background-color: var(--main-button-color);
 }
-
-
-/* .collapse {
-    display: none
-}
-
-.collapse.show {
-    display: block
-}
-
-tr.collapse.show {
-    display: table-row
-}
-
-tbody.collapse.show {
-    display: table-row-group
-}
-
-.collapsing {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-    transition: height .35s ease
-} */
