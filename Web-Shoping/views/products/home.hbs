@@ -329,7 +329,26 @@
 			</div>
 		</div>
 		<div class="content">
+			{{#each categories}}
 			<div class="component-category">
+				<div class="image">
+					<div class="background"></div>
+					<a href="#">
+						<img src="{{this.img}}" />
+					</a>
+				</div>
+				<div class="info">
+					<div class="category">
+						<a href="#">{{this.name}}</a>
+					</div>
+					<h4 class="name">
+						<a href="#">{{this.name}}</a>
+					</h4>
+					<p class="detail">Xuân 2019</p>
+				</div>
+			</div>
+			{{/each}}
+			{{!-- <div class="component-category">
 				<div class="image">
 					<div class="background"></div>
 					<a href="#">
@@ -396,7 +415,7 @@
 					</h4>
 					<p class="detail">Xuân 2019</p>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 
@@ -655,221 +674,6 @@
 			</a>
 		</div>
 	</div>
-
-	<div class="test">
-		<div class="component-list-products card">
-			<div class="content">
-				<div class="scroller scroller-left"><i class="zmdi zmdi-chevron-left"></i></div>
-				<div class="scroller scroller-right"><i class="zmdi zmdi-chevron-right"></i></div>
-				<div class="wrapper">
-					<nav>
-						<div class="nav nav-tabs" id="nav-tab" role="tablist">
-							<p class="nav-item nav-link active" id="category-1-nav-tab" data-toggle="tab"
-								href="#category-1-nav" role="tab" aria-controls="category-1-nav" aria-selected="true">
-								Áo thun
-							</p>
-							<p class="nav-item nav-link" id="category-2-nav-tab" data-toggle="tab"
-								href="#category-2-nav" role="tab" aria-controls="category-2-nav" aria-selected="false">
-								Quần jeans
-							</p>
-							<p class="nav-item nav-link" id="category-3-nav-tab" data-toggle="tab"
-								href="#category-3-nav" role="tab" aria-controls="category-3-nav" aria-selected="false">
-								Áo khoác
-							</p>
-							<p class="nav-item nav-link" id="category-4-nav-tab" data-toggle="tab"
-								href="#category-4-nav" role="tab" aria-controls="category-4-nav" aria-selected="false">
-								Chân váy
-							</p>
-							<p class="nav-item nav-link" id="category-5-nav-tab" data-toggle="tab"
-								href="#category-5-nav" role="tab" aria-controls="category-5-nav" aria-selected="false">
-								Phụ kiện
-							</p>
-						</div>
-					</nav>
-				</div>
-				<div class="tab-content" id="nav-tabContent">
-					<div class="tab-pane fade show active" id="category-1-nav" role="tabpanel"
-						aria-labelledby="category-1-nav-tab">
-						<div class="search-input-group input-group mb-3">
-							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
-								aria-describedby="button-addon">
-							<div class="input-group-append">
-								<button class="btn" type="button" id="button-addon"><i
-										class="fas fa-search"></i></button>
-							</div>
-						</div>
-						<div class="list-products">
-							{{#each products}}
-							<div class="component-checkable-product card mr-2">
-								<div class="product-image">
-									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
-								</div>
-								<div class="card-body">
-									<div>
-										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-										<div class="m-0 mt-1 d-flex">
-											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
-											<span class="original-price ml-3">
-												195,000<u>đ</u>
-											</span>
-										</div>
-									</div>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											id="customCheck{{this._id}}-1">
-										<label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
-									</div>
-								</div>
-							</div>
-							{{/each}}
-						</div>
-					</div>
-					<div class="tab-pane fade" id="category-2-nav" role="tabpanel" aria-labelledby="category-2-nav-tab">
-						<div class="search-input-group input-group mb-3">
-							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
-								aria-describedby="button-addon">
-							<div class="input-group-append">
-								<button class="btn" type="button" id="button-addon"><i
-										class="fas fa-search"></i></button>
-							</div>
-						</div>
-						<div class="list-products">
-							{{#each products}}
-							<div class="component-checkable-product card mr-2">
-								<div class="product-image">
-									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
-								</div>
-								<div class="card-body">
-									<div>
-										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-										<div class="m-0 mt-1 d-flex">
-											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
-											<span class="original-price ml-3">
-												195,000<u>đ</u>
-											</span>
-										</div>
-									</div>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											id="customCheck{{this._id}}-2">
-										<label class="custom-control-label" for="customCheck{{this._id}}-2"></label>
-									</div>
-								</div>
-							</div>
-							{{/each}}
-						</div>
-					</div>
-					<div class="tab-pane fade" id="category-3-nav" role="tabpanel" aria-labelledby="category-3-nav-tab">
-						<div class="search-input-group input-group mb-3">
-							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
-								aria-describedby="button-addon">
-							<div class="input-group-append">
-								<button class="btn" type="button" id="button-addon"><i
-										class="fas fa-search"></i></button>
-							</div>
-						</div>
-						<div class="list-products">
-							{{#each products}}
-							<div class="component-checkable-product card mr-2">
-								<div class="product-image">
-									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
-								</div>
-								<div class="card-body">
-									<div>
-										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-										<div class="m-0 mt-1 d-flex">
-											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
-											<span class="original-price ml-3">
-												195,000<u>đ</u>
-											</span>
-										</div>
-									</div>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											id="customCheck{{this._id}}-3">
-										<label class="custom-control-label" for="customCheck{{this._id}}-3"></label>
-									</div>
-								</div>
-							</div>
-							{{/each}}
-						</div>
-					</div>
-					<div class="tab-pane fade" id="category-4-nav" role="tabpanel" aria-labelledby="category-4-nav-tab">
-						<div class="search-input-group input-group mb-3">
-							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
-								aria-describedby="button-addon">
-							<div class="input-group-append">
-								<button class="btn" type="button" id="button-addon"><i
-										class="fas fa-search"></i></button>
-							</div>
-						</div>
-						<div class="list-products">
-							{{#each products}}
-							<div class="component-checkable-product card mr-2">
-								<div class="product-image">
-									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
-								</div>
-								<div class="card-body">
-									<div>
-										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-										<div class="m-0 mt-1 d-flex">
-											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
-											<span class="original-price ml-3">
-												195,000<u>đ</u>
-											</span>
-										</div>
-									</div>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											id="customCheck{{this._id}}-4">
-										<label class="custom-control-label" for="customCheck{{this._id}}-4"></label>
-									</div>
-								</div>
-							</div>
-							{{/each}}
-						</div>
-					</div>
-					<div class="tab-pane fade" id="category-5-nav" role="tabpanel" aria-labelledby="category-5-nav-tab">
-						<div class="search-input-group input-group mb-3">
-							<input type="text" class="form-control" placeholder="Tên sản phẩm" aria-label="Tên sản phẩm"
-								aria-describedby="button-addon">
-							<div class="input-group-append">
-								<button class="btn" type="button" id="button-addon"><i
-										class="fas fa-search"></i></button>
-							</div>
-						</div>
-						<div class="list-products">
-							{{#each products}}
-							<div class="component-checkable-product card mr-2">
-								<div class="product-image">
-									<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
-								</div>
-								<div class="card-body">
-									<div>
-										<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-										<div class="m-0 mt-1 d-flex">
-											<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
-											<span class="original-price ml-3">
-												195,000<u>đ</u>
-											</span>
-										</div>
-									</div>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											id="customCheck{{this._id}}-5">
-										<label class="custom-control-label" for="customCheck{{this._id}}-5"></label>
-									</div>
-								</div>
-							</div>
-							{{/each}}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 </div>
 
 {{#section 'js'}}

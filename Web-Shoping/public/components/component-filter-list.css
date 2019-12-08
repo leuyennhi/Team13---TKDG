@@ -1,137 +1,255 @@
+@import '../stylesheets/css/default-style.css';
+
 .component-filter-list {
-    width: 300px;
-    height: auto;
-    margin-left: 120px;
+  width: 100%;
+  height: auto;
 }
 
 .component-filter-list .filter {
-    height: 70px;
-    width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.component-filter-list .categories .d,
+.component-filter-list .dm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.component-filter-list .dm p {
+  margin: 0px;
+}
+
+/* .component-filter-list .categories .d,
 .component-filter-list .size .d,
 .component-filter-list .color .colordm .d,
 .component-filter-list .cost .d {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 17px;
-    line-height: 20px;
-    height: 20px;
-    align-items: center;
-    color: #000000;
-}
+  font-style: normal;
+  font-weight: normal;
+  font-size: --font-size-content;
+  line-height: 20px;
+  color: --main-font-color-1;
+} */
 
-.component-filter-list .size .card-boy .custom-control custom-checkbox {
-    width: 18px;
-    height: 18px;
-}
+/* .component-filter-list .size .card-boy .custom-control .custom-checkbox {
+  width: 18px;
+  height: 18px;
+} */
 
 .component-filter-list .categories .checkbox-cate,
 .component-filter-list .size .checkbox-size,
-.component-filter-list .cost .checkbox-cost,
 .component-filter-list .color .checkbox-color {
-    margin-left: 15px;
-    font-size: 17px;
-    display: none;
+  margin-left: 15px;
+  margin-top: 10px;
+  font-size: --font-size-content;
+  display: none;
 }
 
-.component-filter-list .cost .slider {
-    width: 200px;
+.component-filter-list .cost .checkbox-cost {
+  padding-top: 50px;
 }
 
-
-/*
-.left .categories .checkbox-cate .checkbox,
-.left .size .checkbox-size .checkbox,
-.left .color .checkbox-color .checkbox {
-    cursor: pointer;
-    width: 17px;
-    height: 17px;
-    display: inline-block;
-    background-color: white;
-    outline: #2D9CDB;
-    vertical-align: top;
-    border: 1px solid #2F80ED;
-    box-sizing: border-box;
-    margin-right: 5px;
-    border-radius: 2px;
-    font-family: Roboto;
-}*/
-
-.component-filter-list .categories .checkbox-cate .custom-control-input:checked~.custom-control-label::before,
-.component-filter-list .size .checkbox-size .custom-control-input:checked~.custom-control-label::before,
-.component-filter-list .color .checkbox-color .custom-control-input:checked~.custom-control-label::before {
-    background-color: #717fe0;
+.component-filter-list .cost .checkbox-cost > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+/* .component-filter-list .cost .slider {
+  width: 200px;
+} */
+
+/* .categories .checkbox-cate .checkbox,
+.size .checkbox-size .checkbox,
+.color .checkbox-color .checkbox {
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  background-color: white;
+  outline: #2d9cdb;
+  vertical-align: top;
+  border: 1px solid #2f80ed;
+  box-sizing: border-box;
+  margin-right: 5px;
+  border-radius: 2px;
+} */
+
+.component-filter-list
+  .custom-checkbox
+  .custom-control-input:checked
+  ~ .custom-control-label::before {
+  background-color: var(--main-font-color-2);
+  border: none;
+}
+
+.component-filter-list
+  .custom-control-input:active
+  ~ .custom-control-label::before {
+  background-color: var(--main-font-color-2);
+  border: none;
+}
+
+.component-filter-list
+  .custom-control-input:active
+  ~ .custom-control-label::before {
+  background-color: #fff;
+  border: none;
+}
+
+/** focus shadow pinkish **/
+.component-filter-list
+  .custom-checkbox
+  .custom-control-input:focus
+  ~ .custom-control-label::before {
+  box-shadow: none;
+}
+
+/* .component-filter-list
+  .categories
+  .checkbox-cate
+  .custom-control-input:checked
+  ~ .custom-control-label::before,
+.component-filter-list
+  .size
+  .checkbox-size
+  .custom-control-input:checked
+  ~ .custom-control-label::before,
+.component-filter-list
+  .color
+  .checkbox-color
+  .custom-control-input:checked
+  ~ .custom-control-label::before {
+  background-color: #717fe0;
+} */
 
 .categories .checkbox-cate .custom-control .custom-control-label::after,
 .size .checkbox-size .custom-control .custom-control-label::after,
 .color .checkbox-color .custom-control .custom-control-label::after {
-    position: absolute;
-    top: .25rem;
-    left: -1.5rem;
-    display: block;
-    content: "";
-    width: 15px;
-    height: 15px;
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  content: '';
+  width: 15px;
+  height: 15px;
 }
 
-.component-filter-list .cost pre {
-    font-size: 17px;
-    border: white;
-    background-color: white;
-    width: 300px;
+/* .component-filter-list .cost pre {
+  font-size: 17px;
+  border: white;
+  background-color: white;
+  width: 300px;
+} */
+
+.component-filter-list .down {
+  width: 14px;
+  cursor: pointer;
 }
 
-.component-filter-list .dm .down,
-.component-filter-list .costdm .down {
-    width: 20px;
-    margin-left: 180px;
-    cursor: pointer;
-}
-
-.component-filter-list .costdm .down {
-    margin-left: 103px;
+/* .component-filter-list .costdm .down {
+  margin-left: 103px;
 }
 
 .component-filter-list .sizedm .down {
-    width: 20px;
-    margin-left: 235px;
-    cursor: pointer;
+  margin-left: 235px;
 }
 
 .component-filter-list .colordm .down {
-    width: 20px;
-    margin-left: 201px;
-    cursor: pointer;
+  margin-left: 201px;
+} */
+
+/* .component-filter-list .filter .delete-filter {
+  margin-left: 125px;
+  width: 105px;
+  height: 44px;
+  left: 300px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  padding-left: 8px;
+  color: #333333;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #717fe0;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.09);
+  border-radius: 3px;
+} */
+
+/* .component-filter-list .filter .delete-filter:hover {
+  color: #fff;
+  border-color: var(--main-button-color);
+  background-color: var(--main-button-color);
+} */
+
+.categories .checkbox-cate .card-boy,
+.size .checkbox-size .card-boy,
+.color .checkbox-color .card-boy {
+  margin: 5px;
+  display: flex;
+  align-items: center;
 }
 
-.component-filter-list .filter .delete-filter {
-    margin-left: 125px;
-    width: 105px;
-    height: 44px;
-    left: 300px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    padding-left: 8px;
-    color: #333333;
-    cursor: pointer;
-    background: #FFFFFF;
-    border: 1px solid #717fe0;
-    box-sizing: border-box;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.09);
-    border-radius: 3px;
+/* .page-product
+  .component-filter-list
+  .categories
+  .checkbox-cate
+  .card-boy
+  .name-product
+  .card-title,
+.page-product
+  .component-filter-list
+  .size
+  .checkbox-size
+  .card-boy
+  .name-product
+  .card-title,
+.page-product .color .checkbox-color .card-boy .name-product .card-title {
+  font-weight: normal;
+} */
+
+.categories .checkbox-cate .custom-control,
+.size .checkbox-size .custom-control,
+.color .checkbox-color .custom-control {
+  display: block;
+  padding-right: 8px;
 }
 
-.component-filter-list .filter .delete-filter:hover {
-    color: #fff;
-    border-color: var(--main-button-color);
-    background-color: var(--main-button-color);
+.page-product
+  .categories
+  .checkbox-cate
+  .custom-control
+  .custom-control-label::before,
+.page-product
+  .size
+  .checkbox-size
+  .custom-control
+  .custom-control-label::before,
+.page-product
+  .color
+  .checkbox-color
+  .custom-control
+  .custom-control-label::before {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  pointer-events: none;
+  content: '';
+  border: #adb5bd solid 1px;
 }
 
+.range {
+  height: 2px;
+  background-color: #717fe0;
+  -webkit-appearance: none;
+  outline: none;
+}
 
 /* .collapse {
     display: none

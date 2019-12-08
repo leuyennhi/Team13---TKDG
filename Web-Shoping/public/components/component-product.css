@@ -72,7 +72,7 @@
 .component-product .product-image .deal-tag:after {
   content: '';
   position: absolute;
-  top: 34px;
+  top: 32px;
   right: 0;
   width: 0px;
   height: 0px;

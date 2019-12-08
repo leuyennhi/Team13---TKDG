@@ -636,15 +636,9 @@
 /* Style the list */
 
 ul.breadcrumb {
-<<<<<<< HEAD
-    padding: 80px 10%;
-    list-style: none;
-    background-color: rgba(103, 117, 214, 0.22);
-=======
-  padding: 20px 10% 20px 10%;
+  padding: 25px 10%;
   list-style: none;
   background-color: rgba(103, 117, 214, 0.22);
->>>>>>> f44f052e7246647d3e590d893d35645694082649
 }
 
 
@@ -652,7 +646,7 @@ ul.breadcrumb {
 
 ul.breadcrumb li {
     display: inline;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 

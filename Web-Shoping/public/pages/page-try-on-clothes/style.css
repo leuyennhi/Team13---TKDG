@@ -1,14 +1,15 @@
 @import '../../stylesheets/css/default-style.css';
 
 .try-clothes-page {
-  padding: 0px 10% 0 10%;
   display: flex;
-  width: 100%;
+  width: 80%;
+  margin: 70px auto 0px;
   justify-content: space-between;
+  padding-bottom: 100px;
 }
 
 .left-component {
-  width: 700px;
+  width: 100%;
   margin: 0;
   padding-right: 40px;
 }
@@ -33,13 +34,13 @@
 }
 select,
 input {
-  height: 35px;
+  height: auto;
   width: 160px;
   border: 1px solid;
   border-color: #c8c8c8;
   border-radius: 3px;
   font-size: 16px;
-  padding: 9px 19px;
+  padding: 6px 19px;
 }
 
 .model-component {
@@ -103,19 +104,18 @@ input {
   width: 160px;
 }
 
-.model-layer{
+.model-layer {
   position: relative;
 }
 
-.model-shirt{
+.model-shirt {
   /* position: absolute; */
   z-index: 1;
 }
-.model-skirt{
+.model-skirt {
   /* position: absolute; */
 }
-.model-dress{
+.model-dress {
   /* position: absolute; */
   z-index: 3;
 }
-

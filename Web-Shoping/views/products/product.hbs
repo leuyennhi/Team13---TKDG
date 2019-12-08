@@ -1,6 +1,7 @@
 {{#section 'css'}}
 {{!-- slider slick --}}
 <link href="/components/component-filter-list.css" rel="stylesheet" />
+<link href="/components/component-outline-button.css" rel="stylesheet" />
 <link href="/pages/page-product/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link href="/components/component-product.css" rel="stylesheet" />
@@ -11,25 +12,24 @@
 <div class="page-product">
     <div class="infor">
         <div class="row">
-            <div class="col-sm-4" style="padding-left: 0;">
+            <div class="col-sm-3">
                 <div class="component-filter-list">
                     <div class="filter">
-                        <span>
-                            <a style="font-size:18px;font-weight:bold;">BỘ LỌC</a>
-                            <button class="delete-filter"> Xóa bộ lọc </button>
-                        </span>
+                        <a style="font-size:18px;font-weight:bold;text-transform:uppercase">bộ lọc</a>
+                        <button class="component-outline-button">Xóa bộ lọc</button>
                     </div>
                     <hr width="100%" size="1px" />
                     <div class="categories">
                         <div class="dm">
-                            <p class="d">Danh mục <img class="down" data-toggle="collapse" data-target="#list-checkbox1"
-                                    src="images/icons/left.png" id="img-down" onclick="change()" alt="down.png"> </p>
+                            <p class="d">Danh mục</p>
+                            <img class="down" data-toggle="collapse" data-target="#list-checkbox1"
+                                src="images/icons/left.png" id="img-down" onclick="change()" alt="down.png">
                         </div>
                         <div class="checkbox-cate" id="list-checkbox1">
                             <div class="card-boy">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck{{this._id}}-6">
-                                    <label class="custom-control-label" for="customCheck{{this._id}}-6"></label>
+                                    <input type="checkbox" class="custom-control-input tab" id="customCheck-1">
+                                    <label class="custom-control-label" for="customCheck-1"></label>
                                 </div>
                                 <div class="name-product">
                                     <a class="card-title m-0">Đầm</a>
@@ -76,9 +76,10 @@
                     </div>
                     <hr width="100%" size="1px" />
                     <div class="size">
-                        <div class="sizedm">
-                            <p class="d">Size <img class="down" data-toggle="collapse" data-target="#list-checkbox2" id="img-down1"
-                                    src="images/icons/left.png" onclick="change1()" alt="down.png"></p>
+                        <div class="dm">
+                            <p class="d">Size</p>
+                            <img class="down" data-toggle="collapse" data-target="#list-checkbox2" id="img-down1"
+                                src="images/icons/left.png" onclick="change1()" alt="down.png">
                         </div>
                         <div class="checkbox-size" id="list-checkbox2">
                             <div class="card-boy">
@@ -130,35 +131,27 @@
                     </div>
                     <hr width="100%" size="1px" />
                     <div class="cost">
-                        <div class="costdm">
-                            <p class="d" style="padding-bottom: 50px;">Giá tiền (nghìn vnđ)<img class="down"
-                                    data-toggle="collapse" data-target="#slider" src="images/icons/left.png" id="img-down2"
-                                    onclick="change2()" alt="down.png">
-                            </p>
+                        <div class="dm">
+                            <p class="d">Giá tiền (nghìn vnđ)</p>
+                            <img class="down" data-toggle="collapse" data-target="#slider" src="images/icons/left.png"
+                                id="img-down2" onclick="change2()" alt="down.png">
                         </div>
                         <div class="checkbox-cost" id="slider">
                             <input type="range" class="range" name="" value="500" min="100" max="1000"
                                 onmousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)"></br>
-                            <table>
-                                <tr>
-                                    <td style="width:120px">
-                                        <p style="float: left;">100</p>
-                                    </td>
-                                    <td>
-                                        <p class="value" id="rangeValue">500 </p>
-                                    </td>
-                                    <td>
-                                        <p style="padding-left: 125px;">1.000</p>
-                                    </td>
-                                </tr>
-                            </table>
+                            <div>
+                                <div>100</div>
+                                <div id="rangeValue">500</div>
+                                <div>1.000</div>
+                            </div>
                         </div>
                     </div>
                     <hr width="100%" size="1px" />
                     <div class="color">
-                        <div class="colordm">
-                            <p class="d">Màu sắc<img class="down" data-toggle="collapse" data-target="#list-checkbox4"
-                                    src="images/icons/left.png" onclick="change3()" id="img-down3" alt="down.png"> </p>
+                        <div class="dm">
+                            <p class="d">Màu sắc</p>
+                            <img class="down" data-toggle="collapse" data-target="#list-checkbox4"
+                                src="images/icons/left.png" onclick="change3()" id="img-down3" alt="down.png">
                         </div>
                         <div class="checkbox-color" id="list-checkbox4">
                             <div class="card-boy">
@@ -202,20 +195,20 @@
                 </div>
                 <!--left-->
             </div>
-            <div class="col-sm-8" style="padding-right: 120px;">
+            <div class="col-sm-9">
                 <div class="right">
                     <div class="text">
-
                         <div class="gender">
                             <a class="gender-male" style="text-decoration: none;">Nam </a>
-                            <a>|</a>
-                            <a class="gender-female"> Nữ</a></span>
+                            <span>|</span>
+                            <a class="gender-female">Nữ</a></span>
                         </div>
                         {{!-- <button class="short" data-toggle="collapse" data-target="#sort">Sắp xếp theo <img style="width:30px;padding-left: 20px; "
                             src="images/icons/down.png" alt="down.png"> </button> --}}
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="component-outline-button dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 Sắp xếp theo
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -233,7 +226,7 @@
                     </div> --}}
                     <div class="row">
                         {{#each products}}
-                        <div class="col-sm-4 col-md-6 col-lg-4 " id={{this.catergory}}>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 d-flex">
                             <div class="component-product card">
                                 <div class="product-image">
                                     <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}"
@@ -277,7 +270,7 @@
 						{{/each}}
 					</ul>
 				</nav>-->
- 
+
 
 {{#section 'js'}}
 <script>
@@ -340,28 +333,28 @@
 </script>
 
 {{!-- <script>
-var coll = document.getElementsByClassName("down");
-var i;
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var checkbox1 = this.nextElementSibling;
-    if (checkbox1.style.display === "block") {
-      checkbox1.style.display = "none";
-    } else {
-      checkbox1.style.display = "block";
+    var coll = document.getElementsByClassName("down");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var checkbox1 = this.nextElementSibling;
+            if (checkbox1.style.display === "block") {
+                checkbox1.style.display = "none";
+            } else {
+                checkbox1.style.display = "block";
+            }
+        });
     }
-  });
-}
 </script> --}}
 {{!-- <script>
-$(document).ready(function(){
-  $(".down").click(function(){
-    $(".checkbox-cate").collapse('toggle');
-  });
-});
+    $(document).ready(function () {
+        $(".down").click(function () {
+            $(".checkbox-cate").collapse('toggle');
+        });
+    });
 </script> --}}
 
- 
+
 <script src="/pages/page-product/list-product.js"></script>
 {{/section}}

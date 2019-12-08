@@ -5,8 +5,7 @@
 
 .page-home .categories,
 .page-home .products,
-.page-home .news,
-.page-home .test {
+.page-home .news {
   width: var(--width-normal);
   margin: 0 auto;
 }

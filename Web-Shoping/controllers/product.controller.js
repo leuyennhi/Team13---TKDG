@@ -67,8 +67,8 @@ exports.index = function(req, res) {
       var linkPage = '/page';
       res.render('products/home', {
         title: 'Trang chủ',
-        linkPage: linkPage,
-        page: page,
+        // linkPage: linkPage,
+        // page: page,
         products: results.products,
         categories: results.categories,
         user: req.user
@@ -79,8 +79,8 @@ exports.index = function(req, res) {
 
 exports.search_products = function(req, res, next) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push("Trang chủ");
-  res.locals.links.push("Tìm kiếm");
+  res.locals.links.push('Trang chủ');
+  res.locals.links.push('Tìm kiếm');
   var quantityPerPage = 12;
   var productName = req.query.productName || '';
   var pageNumber = req.query.pageNumber || 1;
@@ -318,8 +318,8 @@ exports.home_filtermulti = function(req, res) {
 };
 exports.product_list = function(req, res) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push("Trang chủ");
-  res.locals.links.push("Sản phẩm");
+  res.locals.links.push('Trang chủ');
+  res.locals.links.push('Sản phẩm');
   var itemPerPage = 12;
   page = req.params.page ? req.params.page : 1;
   async.parallel(
