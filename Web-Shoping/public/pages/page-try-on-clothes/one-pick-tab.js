@@ -61,11 +61,25 @@ var getFigure = (type) =>{
           leftM = -4
           if (y>80){
             topM = 138
-            leftM = -5
+            leftM = -4
           }
           else if (x>170){
             topM = 105
             leftM = -4
+          }
+          break;
+        }
+    case "short":
+        {
+          topM = 224
+          leftM = -8
+          if (y>80){
+            topM = 224
+            leftM = -6
+          }
+          else if (x>170){
+            topM = 196
+            leftM =-6
           }
           break;
         }
@@ -148,5 +162,23 @@ var addList = (product) =>{
       $("input:checkbox#shirt").prop("checked", false);
       $(`#model-shirt`).css("display","none");
       $(`#model-skirt`).css("display","none");
+      $(`#model-short`).css("display","none");
     }
+    if(product.type == "shirt"){
+      $("input:checkbox#dress").prop("checked", false);
+      $(`#model-dress`).css("display","none");
+    }
+    if(product.type == "skirt"){
+      $("input:checkbox#dress").prop("checked", false);
+      $(`#model-dress`).css("display","none");
+      $("input:checkbox#short").prop("checked", false);
+      $(`#model-short`).css("display","none");
+    }
+    if(product.type == "short"){
+      $("input:checkbox#dress").prop("checked", false);
+      $(`#model-dress`).css("display","none");
+      $("input:checkbox#skirt").prop("checked", false);
+      $(`#model-skirt`).css("display","none");
+    }
+
 }
