@@ -90,12 +90,14 @@ $("input:checkbox.tab").on('click', function() {
       var group = "input:checkbox[name='" + $box.attr("name") + "']";
       $(group).prop("checked", false);
       $box.prop("checked", true);
+      var href = $(this).parent().parent().find("a").attr('href')
+      var url = href.replace('detail','product-detail');
+      getProduct(url,"add")
     } else {
       $box.prop("checked", false);
+      getProduct(url,"remove")
     }
-    var href = $(this).parent().parent().find("a").attr('href')
-    var url = href.replace('detail','product-detail');
-    getProduct(url)
+    
   });
 $('.product-selected-list').on('click','.select-product',function() {
     var $box = $(this);
@@ -108,17 +110,27 @@ $('.product-selected-list').on('click','.select-product',function() {
       $(`#model-${type}`).css("display","none");
     }
   });
-var getProduct = (_url) =>{
+var getProduct = (_url,type) =>{
     console.log(_url)
     $.ajax({
       method: "GET",
       url: _url,
     })
     .done(function( data ) {
-       addList(data)
-       changeClothe(data)
-       img.push({type:data.type,imgT: data.toTryImg})
+      if(type == "add")
+      {
+        addList(data)
+        changeClothe(data)
+        img.push({type:data.type,imgT: data.toTryImg})
+      }
+      else if(type == "remove"){
+        removeFromList(data)
+      }
     });
+}
+var removeFromList = (product) =>{
+  var type = data.type
+  $(`#model-${type}`).css("display","none");
 }
 var changeClothe = (product) =>{
   getFigureM()
