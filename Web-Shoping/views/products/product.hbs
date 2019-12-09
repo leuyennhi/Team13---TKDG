@@ -17,8 +17,7 @@
                         <a style="font-size:18px;font-weight:bold;text-transform:uppercase">bộ lọc</a>
                         <button class="component-outline-button">Xóa bộ lọc</button>
                     </div>
-                    <hr width="100%" size="1px" />
-                    <div class="categories">
+                    <div class="categories" style="margin-top: 50px;">
                         <div class="dm">
                             <p class="d">Danh mục</p>
                             <img class="down" data-toggle="collapse" data-target="#list-checkbox1"
@@ -134,7 +133,7 @@
                             <img class="down" data-toggle="collapse" data-target="#slider" src="images/icons/left.png"
                                 id="img-down2" onclick="change2()" alt="down.png">
                         </div>
-                        <div class="collapse" id="slider" style="padding-top: 7px;">
+                        <div class="collapse checkbox-cost" id="slider">
                             <input type="range" class="range" name="" value="550" min="100" max="1000"
                                 onmousemove="rangeSlider(this.value)" onChange="rangeSlider(this.value)"></br>
                             <div>
@@ -245,7 +244,7 @@
                                     <div class="m-0 mt-1 d-flex justify-content-center">
                                         <span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
                                         <span class="original-price ml-3">
-                                            195,000<u>đ</u>
+                                            {{formatPrice this.originalPrice}}<u>đ</u>
                                         </span>
                                     </div>
                                     <button class="btn favorite-btn"><i class="far fa-heart"></i></button>

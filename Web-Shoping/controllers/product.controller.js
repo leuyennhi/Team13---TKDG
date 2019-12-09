@@ -319,8 +319,8 @@ exports.home_filtermulti = function(req, res) {
 };
 exports.product_list = function(req, res) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push('Trang chủ');
-  res.locals.links.push('Sản phẩm');
+  res.locals.links.push({name: 'Trang chủ', route: '/'});
+  res.locals.links.push({name: 'Sản phẩm', route: '/product'});
 
   var quantityPerPage = 12;
   var pageNumber = req.query.pageNumber || 1;

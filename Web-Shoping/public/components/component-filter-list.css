@@ -9,6 +9,10 @@
   width: 40%;
 }
 
+.component-filter-list hr {
+  height: 1px;
+}
+
 .component-filter-list .filter {
   display: flex;
   justify-content: space-between;
@@ -47,7 +51,10 @@
   margin-left: 15px;
   margin-top: 10px;
   font-size: --font-size-content;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* display: none; */
 }
 
 .component-filter-list .cost .checkbox-cost {
@@ -253,6 +260,7 @@
   background-color: #717fe0;
   -webkit-appearance: none;
   outline: none;
+  width: 100%;
 }
 
 /* .collapse {
