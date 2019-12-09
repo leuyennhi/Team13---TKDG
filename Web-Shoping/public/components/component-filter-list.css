@@ -5,6 +5,10 @@
   height: auto;
 }
 
+.component-filter-list .component-outline-button {
+  width: 40%;
+}
+
 .component-filter-list .filter {
   display: flex;
   justify-content: space-between;

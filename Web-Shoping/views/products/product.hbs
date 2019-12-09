@@ -71,10 +71,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                     <hr width="100%" size="1px" />
                     <div class="size">
                         <div class="dm">
@@ -257,6 +254,21 @@
                         </div>
                         {{/each}}
                     </div>
+                    <nav aria-label="..." class="mx-auto">
+                        <ul class="pagination">
+                            {{#each pageNumbers}}
+                            {{#if active}}
+                            <li class="page-item"><a class="page-link active"
+                                    href="?pageNumber={{value}}">{{value}}</a>
+                            </li>
+                            {{else}}
+                            <li class="page-item"><a class="page-link"
+                                    href="?pageNumber={{value}}">{{value}}</a>
+                            </li>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </nav>
                 </div>
                 <!--right-->
             </div>
