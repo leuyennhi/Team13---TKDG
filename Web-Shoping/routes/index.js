@@ -86,6 +86,8 @@ module.exports = function(router, passport, parser) {
   router.get('/history', isLoggedIn, cartController.order_list);
   router.post('/history', isLoggedIn, cartController.order_create);
   router.get('/history/detail/:id', isLoggedIn, cartController.order_detail);
+  
+  router.get('/format/:price',tryOnClothesController.formatP);
 
   router.get('/faq', function(req, res, next) {
     res.render('faq', { title: 'Câu hỏi thường gặp' });

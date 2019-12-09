@@ -71,10 +71,18 @@
                     <div class="product-selected-list">
 
                     </div>
-                    <button>
-                        <i class="fa fa-shopping-cart"></i>
-                        Thêm vào giỏ hàng
-                    </button>
+                    <hr>
+                    <div class="total">
+                        <div class="product">
+                            <h4 class="name">Tổng cộng</h4>
+                            <h4 class="price-total">29000<u>đ</u></h4>
+                        </div>
+                        <button>
+                            <i class="fa fa-shopping-cart"></i>
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                    
                 </div>
 
             </div>
@@ -122,10 +130,10 @@
                             </div>
                             <div class="list-products">
                                 {{#each listProducts}}
-                                <div class="component-checkable-product card mr-2">
+                                <div class="component-checkable-product card mr-2 clickable">
                                     <div class="product-image">
                                         <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
-                                        <a href="/product/detail/{{this._id}}" class="stretched-link"></a>
+                                        {{!-- <a href="/product/detail/{{this._id}}" class="stretched-link"></a> --}}
                                     </div>
                                     <div class="card-body">
                                         <div>
@@ -139,7 +147,7 @@
                                             </div>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input tab" name="Tab1"
+                                            <input type="checkbox" class="custom-control-input tab" name="{{this.catergory}}"
                                                 id="customCheck{{this._id}}-1">
                                             <label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
                                         </div>
@@ -162,10 +170,10 @@
                             </div>
                             <div class="list-products">
                                 {{#each listProducts}}
-                                <div class="component-checkable-product card mr-2">
+                                <div class="component-checkable-product card mr-2 clickable">
                                     <div class="product-image">
                                         <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" alt="" />
-                                        <a href="/product/detail/{{this._id}}" class="stretched-link"></a>
+                                        {{!-- <a href="/product/detail/{{this._id}}" class="stretched-link"></a> --}}
                                     </div>
                                     <div class="card-body">
                                         <div>
@@ -179,7 +187,7 @@
                                             </div>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input tab" name="Tab1"
+                                            <input type="checkbox" class="custom-control-input tab" name="{{this.catergory}}"
                                                 id="customCheck{{this._id}}-1">
                                             <label class="custom-control-label" for="customCheck{{this._id}}-1"></label>
                                         </div>
@@ -200,7 +208,6 @@
 
 {{#section 'js'}}
 <script src="/pages/page-try-on-clothes/scrollable-nav-tabs.js"></script>
-<script src="/pages/page-try-on-clothes/change-model.js"></script>
 <script src="/pages/page-try-on-clothes/one-pick-tab.js"></script>
 <script src="/pages/page-try-on-clothes/search-clothes.js"></script>
 {{/section}}

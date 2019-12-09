@@ -50,3 +50,7 @@ exports.product_detail_data = async function(req, res) {
   dataProduct.price = formatPriceHelper(dataProduct.price);
   res.json(dataProduct);
 };
+
+exports.formatP = (req,res)=>{
+  return res.json(formatPriceHelper(req.params.price));
+}

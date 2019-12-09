@@ -5,6 +5,13 @@ var leftM = 0
 var model = ""
 var posImg = -1
 var size = ""
+var total = 0
+var priceM = {
+  skirt: 0,
+  dress: 0,
+  shirt: 0,
+  short: 0,
+}
 var getFigureM = ()=>{
   var x = document.getElementById("height").value;
   var y = document.getElementById("waist").value;
@@ -98,21 +105,27 @@ var onClickModel = () =>{
   })
 }
 
-$("input:checkbox.tab").on('click', function() {
-    var $box = $(this);
-    if ($box.is(":checked")) {
-      var group = "input:checkbox[name='" + $box.attr("name") + "']";
-      $(group).prop("checked", false);
-      $box.prop("checked", true);
-      var href = $(this).parent().parent().find("a").attr('href')
-      var url = href.replace('detail','product-detail');
-      getProduct(url,"add")
-    } else {
-      $box.prop("checked", false);
-      getProduct(url,"remove")
-    }
-    
-  });
+// A $( document ).ready() block.
+$( document ).ready(function() {
+  onClickModel()
+});
+
+$(".list-products").on('click','.clickable',function(){
+  var $box = $(this).find("input")
+  var href = $(this).find("a").attr('href')
+  var url = href.replace('detail','product-detail');
+  
+  if ($box.is(":checked"))
+  {
+    $box.prop("checked", false);
+    getProduct(url,"remove")
+  }else{
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+    getProduct(url,"add")
+  }
+})
 $('.product-selected-list').on('click','.select-product',function() {
     var $box = $(this);
     var type = $box.attr('id')
@@ -143,8 +156,22 @@ var getProduct = (_url,type) =>{
     });
 }
 var removeFromList = (product) =>{
-  var type = data.type
-  $(`#model-${type}`).css("display","none");
+  var type = product.type
+  $(`#model-${type}`).css("display","none"); 
+  $(`.${product.type}`).remove();
+  var a = $('.product-selected-list').children();
+  priceM[product.type] = 0
+  total = priceM["skirt"]+priceM["shirt"]+priceM["short"]+priceM["dress"]
+  $.ajax({
+    method: "GET",
+    url: `/format/${total}`,
+  })
+  .done(function( data ) {
+    $('.total-price').html(`${data}<u>đ</u>`);
+  });
+  if (a.length == 0){
+    $('.total').css("display","none")
+  }
 }
 var changeClothe = (product) =>{
   getFigureM()
@@ -168,7 +195,19 @@ var addList = (product) =>{
                 </div>`
     $( `.${product.type}` ).remove();
     $('.product-selected-list').append(item)
-    $('.selected-products button').css("display","block")
+    var price = product.price.replace(/,/g,'');
+    priceM[product.type] = parseInt(price)
+    total = priceM["skirt"]+priceM["shirt"]+priceM["short"]+priceM["dress"]
+    $.ajax({
+      method: "GET",
+      url: `/format/${total}`,
+    })
+    .done(function( data ) {
+      $('.total-price').html(`${data}<u>đ</u>`);
+      $('.total').css("display","flex")
+    });
+    $('.total-price').html(`${total}<u>đ</u>`);
+    $('.total').css("display","flex")
     if(product.type == "dress"){
       $("input:checkbox#skirt").prop("checked", false);
       $("input:checkbox#shirt").prop("checked", false);

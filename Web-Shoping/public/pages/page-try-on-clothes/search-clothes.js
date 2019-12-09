@@ -21,7 +21,7 @@ $('.btn-search-products').click(function() {
           var productItems = [];
 
           for (product of result.data) {
-            var item = `<div class="component-checkable-product card mr-2">
+            var item = `<div class="component-checkable-product card mr-2 clickable">
                 <div class="product-image">
                     <img data-toggle="tooltip" title="${product.name}" src="${product.img}" alt="" />
                     <a href="/product/detail/${product._id}" class="stretched-link"></a>
@@ -37,7 +37,7 @@ $('.btn-search-products').click(function() {
                         </div>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input tab" name="Tab1"
+                        <input type="checkbox" class="custom-control-input tab" name="${product.catergory}"
                             id="customCheck${product._id}-1">
                         <label class="custom-control-label" for="customCheck${product._id}-1"></label>
                     </div>
