@@ -117,7 +117,7 @@
 }
 
 .page-search .right .row {
-  padding-top: 40px;
+  padding-top: 15px;
 }
 
 .page-search .right .panel-collapse {
@@ -149,3 +149,4 @@
 .page-search .right .row > div {
   padding: 1em 0.8em;
 }
+

@@ -6,8 +6,8 @@ var formatPriceHelper = require('../helpers/format-price.helper');
 
 exports.try_on_clothes = async function(req, res) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push("Trang chủ");
-  res.locals.links.push("Thử đồ");
+  res.locals.links.push({name: "Trang chủ", route: "/"});
+  res.locals.links.push({name: "Thử đồ", route: "/try-on-clothes"});
   var products = await Product.find();
   var categories = await Category.find();
 
