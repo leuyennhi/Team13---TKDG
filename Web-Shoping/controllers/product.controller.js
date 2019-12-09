@@ -79,8 +79,8 @@ exports.index = function(req, res) {
 
 exports.search_products = function(req, res, next) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push('Trang chủ');
-  res.locals.links.push('Tìm kiếm');
+  res.locals.links.push({name:'Trang chủ', route: '/'});
+  res.locals.links.push({name: 'Tìm kiếm', route: '#'});
   var quantityPerPage = 12;
   var productName = req.query.productName || '';
   var pageNumber = req.query.pageNumber || 1;
@@ -318,8 +318,8 @@ exports.home_filtermulti = function(req, res) {
 };
 exports.product_list = function(req, res) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push('Trang chủ');
-  res.locals.links.push('Sản phẩm');
+  res.locals.links.push({name: 'Trang chủ', route: '/'});
+  res.locals.links.push({name: 'Sản phẩm', route: '#'});
   var itemPerPage = 12;
   page = req.params.page ? req.params.page : 1;
   async.parallel(
@@ -371,6 +371,10 @@ exports.product_detail = async function(req, res) {
     product.watch = product.watch + 1;
   }
   await product.save();
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push({name: 'Trang chủ', route: '/'});
+  res.locals.links.push({name: 'Sản phẩm', route: '/product'});
+  res.locals.links.push({name: product.name, route: '#'});
   async.parallel(
     {
       category: function(callback) {
