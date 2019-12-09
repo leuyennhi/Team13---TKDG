@@ -380,6 +380,10 @@ exports.product_detail = async function(req, res) {
     product.watch = product.watch + 1;
   }
   await product.save();
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push({name: 'Trang chủ', route: '/'});
+  res.locals.links.push({name: 'Sản phẩm', route: '/product'});
+  res.locals.links.push({name: product.name, route: '#'});
   async.parallel(
     {
       category: function(callback) {
