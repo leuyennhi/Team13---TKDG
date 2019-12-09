@@ -136,9 +136,9 @@
 
 	{{#if isShowBreadcrumbs}}
 	<div style="margin-top: 84px">
-		<ul class="breadcrumb" style="padding-left: 100px;">
+		<ul class="breadcrumb">
 			{{#each links}}
-			<li><a href="/">{{this}}</a></li>
+			<li><a href={{this.route}}>{{this.name}}</a></li>
 			{{/each}}
 		</ul>
 	</div>

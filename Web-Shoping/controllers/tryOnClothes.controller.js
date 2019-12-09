@@ -1,7 +1,7 @@
 var Product = require('../models/products');
 var Category = require('../models/catergories');
 var async = require('async');
-var engCat = { Áo: 'shirt', 'Chân Váy': 'skirt', Đầm: 'dress' };
+var engCat = { Áo: 'shirt', 'Chân Váy': 'skirt', Đầm: 'dress', Quần: 'short' };
 var formatPriceHelper = require('../helpers/format-price.helper');
 
 exports.try_on_clothes = async function(req, res) {

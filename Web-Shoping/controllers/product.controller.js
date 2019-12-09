@@ -67,8 +67,8 @@ exports.index = function(req, res) {
       var linkPage = '/page';
       res.render('products/home', {
         title: 'Trang chủ',
-        linkPage: linkPage,
-        page: page,
+        // linkPage: linkPage,
+        // page: page,
         products: results.products,
         categories: results.categories,
         user: req.user
@@ -78,12 +78,11 @@ exports.index = function(req, res) {
 };
 
 exports.search_products = function(req, res, next) {
-  res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push("Trang chủ");
-  res.locals.links.push("Tìm kiếm");
+  res.locals.isShowBreadcrumbs = false;
   var quantityPerPage = 12;
   var productName = req.query.productName || '';
   var pageNumber = req.query.pageNumber || 1;
+  var isFound = true;
 
   if (isNaN(pageNumber) || pageNumber < 1) {
     pageNumber = 1;
@@ -122,9 +121,10 @@ exports.search_products = function(req, res, next) {
       }
 
       if (results.products == 0) {
-        searchMessage = `Không tìm thấy sản phẩm phù hợp với từ khóa ${productName}.`;
+        isFound = false;
+        searchMessage = `Không tìm thấy sản phẩm phù hợp với từ khóa ${productName}`;
       } else {
-        searchMessage = `${results.productQuantity} kết quả tìm kiếm phù hợp với từ khóa ${productName}.`;
+        searchMessage = `${results.productQuantity} kết quả tìm kiếm phù hợp với từ khóa ${productName}`;
       }
 
       results.products.forEach(product => {
@@ -137,6 +137,7 @@ exports.search_products = function(req, res, next) {
         products: results.products,
         categories: results.categories,
         searchMessage: searchMessage,
+        isFound: isFound,
         productName: productName,
         user: req.user,
         helpers: {
@@ -318,22 +319,28 @@ exports.home_filtermulti = function(req, res) {
 };
 exports.product_list = function(req, res) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push("Trang chủ");
-  res.locals.links.push("Sản phẩm");
-  var itemPerPage = 12;
-  page = req.params.page ? req.params.page : 1;
+  res.locals.links.push('Trang chủ');
+  res.locals.links.push('Sản phẩm');
+
+  var quantityPerPage = 12;
+  var pageNumber = req.query.pageNumber || 1;
+
+  if (isNaN(pageNumber) || pageNumber < 1) {
+    pageNumber = 1;
+  }
+
   async.parallel(
     {
       products: function(callback) {
         Product.find()
-          .skip(itemPerPage * page - itemPerPage)
-          .limit(itemPerPage)
+          .skip(quantityPerPage * pageNumber - quantityPerPage)
+          .limit(quantityPerPage)
           .exec(callback);
       },
       categories: function(callback) {
         Category.find().exec(callback);
       },
-      pageCount: function(callback) {
+      productQuantity: function(callback) {
         Product.countDocuments().exec(callback);
       }
     },
@@ -341,19 +348,21 @@ exports.product_list = function(req, res) {
       if (err) {
         return next(err);
       }
-      var pageNum = Math.ceil(results.pageCount / itemPerPage);
-      var page = [];
-      for (var i = 1; i <= pageNum; i++) {
-        page.push(i);
+
+      var pageQuantity = Math.ceil(results.productQuantity / quantityPerPage);
+      var pageNumbers = [];
+      for (var i = 1; i <= pageQuantity; i++) {
+        var pageNum = { active: pageNumber == i ? true : false, value: i };
+        pageNumbers.push(pageNum);
       }
+
       results.products.forEach(ele => {
         ele.img = ele.img[0];
       });
-      var linkPage = '/product';
+      
       res.render('products/product', {
         title: 'Sản phẩm',
-        linkPage: linkPage,
-        page: page,
+        pageNumbers: pageNumbers,
         products: results.products,
         categories: results.categories,
         user: req.user
@@ -371,6 +380,10 @@ exports.product_detail = async function(req, res) {
     product.watch = product.watch + 1;
   }
   await product.save();
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push({name: 'Trang chủ', route: '/'});
+  res.locals.links.push({name: 'Sản phẩm', route: '/product'});
+  res.locals.links.push({name: product.name, route: '#'});
   async.parallel(
     {
       category: function(callback) {
