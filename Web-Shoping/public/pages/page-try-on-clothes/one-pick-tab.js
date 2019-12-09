@@ -160,6 +160,7 @@ var addList = (product) =>{
     if(product.type == "dress"){
       $("input:checkbox#skirt").prop("checked", false);
       $("input:checkbox#shirt").prop("checked", false);
+      $("input:checkbox#short").prop("checked", false);
       $(`#model-shirt`).css("display","none");
       $(`#model-skirt`).css("display","none");
       $(`#model-short`).css("display","none");
