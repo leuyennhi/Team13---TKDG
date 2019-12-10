@@ -5,10 +5,11 @@
   justify-content: flex-start;
   flex-direction: row;
   padding: 0.5em;
+  width: 100%;
 }
 
 .component-checkable-product .product-image {
-  width: 10em;
+  width: 40%;
   height: 8em;
   position: relative;
 }
@@ -21,7 +22,7 @@
 }
 
 .component-checkable-product .card-body {
-  width: 65%;
+  width: 60%;
   overflow: hidden;
   padding: 0.5em 0 0 0.5em;
   display: flex;
@@ -73,4 +74,24 @@
 /** focus shadow pinkish **/
 .custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
   box-shadow: none;
+}
+
+@media (max-width: 1399px) {
+  .component-checkable-product .card-body  {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+  }
+}
+
+@media (min-width: 1400px) {
+  .component-checkable-product .card-body  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+  }
 }
