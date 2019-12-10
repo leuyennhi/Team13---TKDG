@@ -102,6 +102,7 @@ var onClickModel = () =>{
     $(`#model-${ele.type}`).attr("src",`${ele.imgT[posImg]}`);
     $(`#model-${ele.type}`).css("margin-top",`${topM}px`);
     $(`#model-${ele.type}`).css("margin-left",`${leftM}px`);
+    $('.size').text(`${size}`);
   })
 }
 
@@ -186,7 +187,7 @@ var addList = (product) =>{
     getFigureM()
     var item = `<div class="product ${product.type}">
                   <h4 class="name">${product.name}</h4>
-                  <h4 class="size">${size}</h4>
+                  <h4 class="size model-size">${size}</h4>
                   <h4 class="price">${product.price}<u>đ</u></h4>
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input select-product" checked id="${product.type}">
