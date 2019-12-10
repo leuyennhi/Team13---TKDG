@@ -90,6 +90,12 @@
     margin-left: auto;
     padding: 10px;
     margin-right: 0px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.try-clothes-page .selected-products button:hover {
+  background-color: rgb(255, 100, 105);
 }
 
 .try-clothes-page .selected-products button i {
