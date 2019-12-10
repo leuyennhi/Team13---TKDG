@@ -40,24 +40,24 @@
 							{{item.name}}
 						</h4>
 						<div class="row p-l-15 m-b-40">
-							<span class="mtext-108">
+							<span style="font-size: 16px">
 								4.75
 								<i class="fa fa-star icon-star"></i>
 							</span> 
-							<h4 class="mtext-108 m-r-30 m-l-30">|</h4> 
-							<h4 class="mtext-108">{{item.bought}} Đã bán</h4>  
+							<h4 class="m-r-30 m-l-30" style="font-size: 16px">|</h4> 
+							<h4 style="font-size: 16px">{{item.bought}} Đã bán</h4>  
 						</div>
 						<span class="price js-cost">
-							{{item.price}} 
+							{{formatPrice item.price}}<u>đ</u>
 						</span>
 						<span class="original-cost js-cost ml-3 mtext-108">
-							{{item.originalPrice}}
+							{{formatPrice item.originalPrice}}<u>đ</u>
 						</span>
 						<!--  -->
 						<div class="p-t-33">
 							<div class="m-b-25">
 								<div class="size-component">
-									<h4 class="mtext-108 tag">Kích cỡ</h4> 
+									<h4 class="tag">Kích cỡ</h4> 
 									{{!-- <button class="btn-size size-selected m-l-18">{{item.size}}</button> --}}
 									<div class="size-button-component">
 										<button class="btn-size size-selected m-l-18" id="size-S">S</button>
@@ -69,7 +69,7 @@
 
 							<div class="m-b-25">
 								<div class="row p-l-15">
-									<h4 class="mtext-108 tag">Màu sắc</h4> 
+									<h4 class="tag">Màu sắc</h4> 
 									<button class="btn-color color-selected m-l-18">{{item.color}}</button>
 								</div>
 							</div>
@@ -77,7 +77,7 @@
 							<div class="flex-w flex-r-m p-b-25">
 								<form action="/product/detail/{{item._id}}" method="POST" class="flex-w flex-m respon6-next">
 									<div class="row p-l-15">
-										<h4 class="mtext-108 tag m-r-18">Số lượng</h4>
+										<h4 class="tag m-r-18">Số lượng</h4>
 										<div class="wrap-num-product flex-w">
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-minus"></i>
@@ -425,26 +425,6 @@
 			<div class="content">
 				<div class="row">
 					{{#each productRelates}}
-					{{!-- <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-						<!-- Block2 -->
-						<div class="block2">
-							<a href= /product/detail/{{this._id}} class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-							<div class="block2-pic hov-img0">
-								<img src={{this.img}} alt="IMG-PRODUCT">
-							</div>
-							</a>
-							<div class="block2-txt flex-w flex-t p-t-14">
-								<div class="block2-txt-child1 flex-col-l ">
-									<a href= /product/detail/{{this._id}} class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-										{{this.name}}
-									</a>
-									<span class="stext-105 cl3 js-cost">
-										{{this.price}}
-									</span>
-								</div>
-							</div>
-						</div>
-					</div> --}}
 					<div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex" id={{this.catergory}}>
 						<div class="component-product card">
 							<div class="product-image">
@@ -465,7 +445,7 @@
 								<div class="m-0 mt-1 d-flex justify-content-center">
 									<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
 									<span class="original-price ml-3 js-cost">
-										{{this.originalPrice}}</u>
+										{{formatPrice this.originalPrice}}<u>đ</u>
 									</span>
 								</div>
 								<button class="btn favorite-btn"><i class="far fa-heart"></i></button>
