@@ -122,9 +122,9 @@ exports.search_products = function(req, res, next) {
 
       if (results.products == 0) {
         isFound = false;
-        searchMessage = `Không tìm thấy sản phẩm phù hợp với từ khóa ${productName}`;
+        searchMessage = `Không tìm thấy sản phẩm phù hợp với từ khóa "${productName}"`;
       } else {
-        searchMessage = `${results.productQuantity} kết quả tìm kiếm phù hợp với từ khóa ${productName}`;
+        searchMessage = `${results.productQuantity} kết quả tìm kiếm phù hợp với từ khóa "${productName}"`;
       }
 
       results.products.forEach(product => {

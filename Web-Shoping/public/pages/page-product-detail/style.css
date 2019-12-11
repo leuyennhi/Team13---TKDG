@@ -215,21 +215,22 @@ input.num-product::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.evaluation-button-component button {
+/* .evaluation-button-component button {
   height: 40px;
   width: 240px;
-  background-color: #FFFFFF;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
   font-size: 14px;
   border-radius: 5px;
-  border: 1px solid;
-    border-color: #000000;
+  
 }
 
 .evaluation-button-component button:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid;
+  border-color: #000000;
+} */
 
 .rating-component {
   display: flex;
