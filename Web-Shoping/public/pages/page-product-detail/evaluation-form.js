@@ -1,11 +1,7 @@
-$( "#open-form-btn" ).click(function() {
-  $("#evaluation-form").css('display','flex');
+$( ".open-evaluation-form" ).click(function() {
+  $(".evaluation-form-component").show();
 });
 
-$( "#close-form-btn" ).click(function() {
-  $("#evaluation-form").hide();
-});
-
-$( "#send-form-btn" ).click(function() {
-  $("#evaluation-form").hide();
+$( ".send-evaluation" ).click(function() {
+  $(".evaluation-form-component").hide();
 });

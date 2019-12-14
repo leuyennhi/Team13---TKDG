@@ -1,34 +1,17 @@
 .evaluation-form-component {
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  top: 0; left: 0;
-  justify-content: center;
-  padding: 110px 0 30px 0;
   display: none;
 }
 
-.overlay {
-  height: 100vh;
-  width: 100%;
-}
 .evaluation-form{
+  width: 100%;
   display: block;
-  padding: 20px;
   background-color: #ffffff;
-  width: 600px;
-  height: 500px;
-  position: absolute;
 }
 
-.evaluation-form-component h2 {
-  color: #333333;
-  font-size: 40px;
-  margin-bottom: 25px;
-}
 .evaluation-form-component h4 {
   font-size: 21px;
-  padding-top: 5px;
+  padding-bottom: 15px;
   color: #333333;
 }
 
@@ -36,10 +19,10 @@
   border: 1px solid;
   border-color: #E6E6E6;
   background: transparent;
-  width: 550px;
   line-height: 40px;
   padding-left: 10px;
   margin-top: 10px;
+  width: 100%;
 }
 .evaluation-form-component .evaluation-start {
   display: flex;
@@ -54,11 +37,10 @@
 
 .evaluation-form-component .evaluation-button {
   display: flex;
-  justify-content: center;
+  float: right;
 }
 
 button.send-evaluation {
-  width: 235px;
   height: 40px;
   background-color: black;
   color: white;
@@ -71,20 +53,11 @@ button.send-evaluation {
   justify-content: space-between;
 }
 
-button.cancel {
-  width: 40px;
-  height: 40px;
-  font-size: large;
-  background-color:transparent;
-  color: #000000;
-  text-align: center;
-}
-
 textarea.content {
   border: 1px solid;
   border-color: #E6E6E6;
   background: transparent;
-  width: 550px;
+  width: 100%;
   line-height: 40px;
   padding-left: 10px;
   margin-top: 10px;

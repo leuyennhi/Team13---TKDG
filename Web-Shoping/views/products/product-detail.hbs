@@ -341,8 +341,44 @@
 				</div>
 				<div class="evaluation-button-component">
 					<h3>Chia sẻ nhận xét của bạn về sản phẩm</h3>
-					<button onclick="openForm()" id="open-form-btn" class="component-default-button">Viết nhận xét của bạn</button>
+					<button onclick="openForm()" id="open-form-btn" class="component-default-button open-evaluation-form">Viết nhận xét của bạn</button>
 				</div>
+			</div>
+		{{!-- Form đánh giá về sản phẩm --}}
+			<div class="evaluation-form-component" id="evaluation-form">
+				<form class="evaluation-form">
+					<div class="top">
+						<h4>Đánh giá của bạn</h4>
+					</div>
+					<div class="evaluation-start">
+						<p>Đánh giá của bạn về sản phẩm này</p>
+						<div class="stars">
+							<div>
+								<input class="star star-5" id="star-5" type="radio" name="star" checked />
+								<label class="star star-5" for="star-5"></label>
+								<input class="star star-4" id="star-4" type="radio" name="star" />
+								<label class="star star-4" for="star-4"></label>
+								<input class="star star-3" id="star-3" type="radio" name="star" />
+								<label class="star star-3" for="star-3"></label>
+								<input class="star star-2" id="star-2" type="radio" name="star" />
+								<label class="star star-2" for="star-2"></label>
+								<input class="star star-1" id="star-1" type="radio" name="star" />
+								<label class="star star-1" for="star-1"></label>
+							</div>
+						</div>		
+					</div>
+					<div class="evaluation-title">
+						<p>Tiêu đề của nhận xét</p>
+						<input type="text" class="title" name="title" placeholder="Nhập tiêu đề của nhận xét (không bắt buộc)"/>
+					</div>
+					<div class="evaluation-content">
+						<p>Nhận xét của bạn</p>
+						<textarea row="5" type="text" class="content" name="content" placeholder="Nhập nhận xét của bạn về sản phẩm này"></textarea>
+					</div>
+					<div class="evaluation-button">
+						<button type="submit" class="send-evaluation component-default-button" id="send-form-btn" onclick="closeForm()">Gửi nhận xét</button>
+					</div> 
+				</form>
 			</div>
 			{{!-- Danh sách bình luận --}}
 			<div class="comments-component">
@@ -458,44 +494,6 @@
 		</div>
 	</section>
 	
-{{!-- Form đánh giá --}}
-	<div class="evaluation-form-component" id="evaluation-form">
-		<div class="overlay"></div>
-			<form class="evaluation-form">
-				<div class="top">
-					<h2>Đánh giá của bạn</h2>
-					<button class="cancel" id="cancel-btn" onclick="closeForm()">X</button>
-				</div>
-				<div class="evaluation-start">
-					<h4>Đánh giá của bạn về sản phẩm này</h4>
-					<div class="stars">
-						<div>
-							<input class="star star-5" id="star-5" type="radio" name="star" checked />
-							<label class="star star-5" for="star-5"></label>
-							<input class="star star-4" id="star-4" type="radio" name="star" />
-							<label class="star star-4" for="star-4"></label>
-							<input class="star star-3" id="star-3" type="radio" name="star" />
-							<label class="star star-3" for="star-3"></label>
-							<input class="star star-2" id="star-2" type="radio" name="star" />
-							<label class="star star-2" for="star-2"></label>
-							<input class="star star-1" id="star-1" type="radio" name="star" />
-							<label class="star star-1" for="star-1"></label>
-						</div>
-					</div>		
-				</div>
-				<div class="evaluation-title">
-					<h4>Tiêu đề của nhận xét</h4>
-					<input type="text" class="title" name="title" placeholder="Nhập tiêu đề của nhận xét (không bắt buộc)"/>
-				</div>
-				<div class="evaluation-content">
-					<h4>Nhận xét của bạn</h4>
-					<textarea row="5" type="text" class="content" name="content" placeholder="Nhập nhận xét của bạn về sản phẩm này"></textarea>
-				</div>
-				<div class="evaluation-button">
-					<button type="submit" class="send-evaluation" id="send-form-btn" onclick="closeForm()">Gửi nhận xét</button>
-				</div> 
-			</form>
-		</div>
 
 {{#section 'js'}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
