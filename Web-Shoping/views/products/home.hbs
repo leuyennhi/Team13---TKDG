@@ -116,8 +116,8 @@
 					</p>
 
 					<div class="more">
-						<a class="btn btn-1 component-default-button hidden" href="/product" role="button">Join us</a>
-						<a class="btn btn-2 component-outline-button hidden" href="/product" role="button">Mua
+						{{!-- <a class="btn btn-1 component-default-button hidden" href="/product" role="button">Join us</a> --}}
+						<a class="btn btn-1 component-outline-button hidden" href="/product" role="button">Mua
 							ngay</a>
 					</div>
 
@@ -137,8 +137,8 @@
 					</p>
 
 					<div class="more">
-						<a class="btn btn-1 component-default-button hidden" href="/product" role="button">Join us</a>
-						<a class="btn btn-2 component-outline-button hidden" href="/product" role="button">Mua ngay</a>
+						{{!-- <a class="btn btn-1 component-default-button hidden" href="/product" role="button">Join us</a> --}}
+						<a class="btn btn-1 component-outline-button hidden" href="/product" role="button">Mua ngay</a>
 					</div>
 				</div>
 			</div>
@@ -156,8 +156,8 @@
 					</p>
 
 					<div class="more">
-						<a class="btn btn-1 component-default-button hidden" href="/product" role="button">Join us</a>
-						<a class="btn btn-2 component-outline-button hidden" href="/product" role="button">Mua ngay</a>
+						{{!-- <a class="btn btn-1 component-default-button hidden" href="/product" role="button">Join us</a> --}}
+						<a class="btn btn-1 component-outline-button hidden" href="/product" role="button">Mua ngay</a>
 					</div>
 				</div>
 			</div>
@@ -169,15 +169,13 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="https://dalia.elated-themes.com/wp-content/uploads/2018/06/fitness-home-icon-img-1.png"
+						<img src="/images/shirt.png"
 							alt="" />
 					</div>
 					<div class="title">
-						Run outdoors
+						Thử Đồ Trực Tuyến
 					</div>
-					<div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci laudantium
-						dicta
-						aliquam natus?.</div>
+					<div class="content">Trải nghiệm cảm giác như mua sắm trực tiếp tại cửa hàng</div>
 				</div>
 			</div>
 		</div>
@@ -185,15 +183,13 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="https://dalia.elated-themes.com/wp-content/uploads/2018/06/fitness-home-icon-img-5.png"
+						<img src="/images/calenda.png"
 							alt="" />
 					</div>
 					<div class="title">
-						Mountain biking
+						Đổi Trả
 					</div>
-					<div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci laudantium
-						dicta
-						aliquam natus?.</div>
+					<div class="content">Đổi trả miễn phí trong vòng 7 ngày kể từ ngày mua hàng</div>
 				</div>
 			</div>
 		</div>
@@ -201,15 +197,13 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="https://dalia.elated-themes.com/wp-content/uploads/2018/06/fitness-home-icon-img-4.png"
+						<img src="/images/shirt.png"
 							alt="" />
 					</div>
 					<div class="title">
-						Rollerblading
+						Sản Phẩm
 					</div>
-					<div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci laudantium
-						dicta
-						aliquam natus?.</div>
+					<div class="content">Luôn cập nhật xu hướng thời trang mới nhất</div>
 				</div>
 			</div>
 		</div>
@@ -217,15 +211,13 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="https://dalia.elated-themes.com/wp-content/uploads/2018/06/fitness-home-icon-img-4.png"
+						<img src="/images/save.png"
 							alt="" />
 					</div>
 					<div class="title">
-						Lorem ipsum
+						Giao Hàng
 					</div>
-					<div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci laudantium
-						dicta
-						aliquam natus?.</div>
+					<div class="content">Giao hàng miễn phí với hóa đơn trên 500.000đ</div>
 				</div>
 			</div>
 		</div>
@@ -315,6 +307,55 @@
 			</div>
 		</div>
 	</div> -->
+
+	<!-- Products -->
+	<div class="products">
+		<div class="title">
+			<div class="inner">
+				<div>Sản phẩm bán chạy</div>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores distinctio obcaecati ratione natus
+					consectetur, aliquam quo labore rerum omnis vel nemo necessitatibus officia nihil, laudantium
+					cupiditate, eius minus suscipit corporis.
+				</p>
+				<a href="/product">Xem tất cả&ensp;<i class="zmdi zmdi-chevron-right"></i></a>
+			</div>
+
+		</div>
+		<div class="content">
+			<div class="row" style="font-family:Poppins-Regular">
+				{{#each products}}
+				<div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex">
+					<div class="component-product card">
+						<div class="product-image">
+							<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"
+								alt="...">
+							<a href="/product/detail/{{this._id}}" class="stretched-link"></a>
+							<div class="deal-tag">30%</div>
+							<div class="hover-div">
+								<a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
+								<div>&nbsp;|&nbsp;</div>
+								<a href="/product/detail/{{this._id}}" class="mr-3"><i class="far fa-eye"></i>&ensp;Chi
+									tiết</a>
+							</div>
+						</div>
+
+						<div class="card-body">
+							<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
+							<div class="m-0 mt-1 d-flex justify-content-center">
+								<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
+								<span class="original-price ml-3">
+									195,000<u>đ</u>
+								</span>
+							</div>
+							<button class="btn favorite-btn"><i class="far fa-heart"></i></button>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
 
 	<!-- Categories -->
 	<div class="categories">
@@ -596,55 +637,6 @@
 			</nav>
 		</div>
 	</section> -->
-
-	<!-- Products -->
-	<div class="products">
-		<div class="title">
-			<div class="inner">
-				<div>Sản phẩm bán chạy</div>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores distinctio obcaecati ratione natus
-					consectetur, aliquam quo labore rerum omnis vel nemo necessitatibus officia nihil, laudantium
-					cupiditate, eius minus suscipit corporis.
-				</p>
-				<a href="/product">Xem tất cả&ensp;<i class="zmdi zmdi-chevron-right"></i></a>
-			</div>
-
-		</div>
-		<div class="content">
-			<div class="row" style="font-family:Poppins-Regular">
-				{{#each products}}
-				<div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex">
-					<div class="component-product card">
-						<div class="product-image">
-							<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"
-								alt="...">
-							<a href="/product/detail/{{this._id}}" class="stretched-link"></a>
-							<div class="deal-tag">30%</div>
-							<div class="hover-div">
-								<a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
-								<div>&nbsp;|&nbsp;</div>
-								<a href="/product/detail/{{this._id}}" class="mr-3"><i class="far fa-eye"></i>&ensp;Chi
-									tiết</a>
-							</div>
-						</div>
-
-						<div class="card-body">
-							<a href="/product/detail/{{this._id}}" class="card-title m-0">{{this.name}}</a>
-							<div class="m-0 mt-1 d-flex justify-content-center">
-								<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
-								<span class="original-price ml-3">
-									195,000<u>đ</u>
-								</span>
-							</div>
-							<button class="btn favorite-btn"><i class="far fa-heart"></i></button>
-						</div>
-					</div>
-				</div>
-				{{/each}}
-			</div>
-		</div>
-	</div>
 
 	<!-- News -->
 	<div class="news">

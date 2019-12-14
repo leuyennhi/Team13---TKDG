@@ -68,9 +68,12 @@
   width: 100%;
 }
 
-.page-home .categories .title .inner,
 .page-home .products .title .inner {
   padding: 6em 50% 0 0;
+}
+
+.page-home .categories .title .inner {
+  padding: 2em 50% 0 0;
 }
 
 .page-home .products .title .inner {
