@@ -63,7 +63,7 @@
   top: 0;
   right: 0;
   font-size: var(--font-size-content);
-  padding: 8px 8px 5px;
+  padding: 8px 8px 3px;
   color: #fff;
   background-color: var(--color-red);
   border-radius: 0px 3px 0px 0px;
@@ -103,6 +103,7 @@
 
 .component-product .card-body .original-price {
   text-decoration-line: line-through;
+  color: var(--color-grey);
 }
 
 .component-product .card-body .favorite-btn {
