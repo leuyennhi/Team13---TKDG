@@ -59,15 +59,44 @@
 }
 
 .try-clothes-page .product .name {
-  width: 50%;
-}
-
-.try-clothes-page .product .price {
-  width: 30%;
+  width: 40%;
 }
 
 .try-clothes-page .product .size {
-  width: 10%;
+  width: 5%;
+}
+
+.try-clothes-page .product .color {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 8px;
+}
+
+.try-clothes-page .product .price {
+  width: 25%;
+}
+
+.try-clothes-page .product .color > button {
+  border: 1px solid #b0b0b0;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  margin-left: 5px;
+  padding: 3px;
+  background-color: #fff;
+}
+
+.try-clothes-page .product .color > button > div {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.try-clothes-page .product .color > button.is-selected {
+  border: 1px solid #000;
 }
 
 .try-clothes-page .product .custom-checkbox {
@@ -78,23 +107,22 @@
   font-size: 16px;
 }
 
-
-.try-clothes-page .selected-products button {
-    width: 60%;
-    white-space: nowrap;
-    color: white;
-    background-color: var(--color-red);
-    margin-top: 30px;
-    border-radius: 5px;
-    align-items: center;
-    margin-left: auto;
-    padding: 10px;
-    margin-right: 0px;
-    height: 40px;
-    font-size: 14px;
+.try-clothes-page .selected-products button.add-to-cart {
+  width: 60%;
+  white-space: nowrap;
+  color: white;
+  background-color: var(--color-red);
+  margin-top: 30px;
+  border-radius: 5px;
+  align-items: center;
+  margin-left: auto;
+  padding: 10px;
+  margin-right: 0px;
+  height: 40px;
+  font-size: 14px;
 }
 
-.try-clothes-page .selected-products button:hover {
+.try-clothes-page .selected-products button.add-to-cart:hover {
   background-color: rgb(255, 100, 105);
 }
 
@@ -134,7 +162,7 @@
 }
 
 .try-clothes-page .total {
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   display: none;
   flex-direction: column;
@@ -162,6 +190,9 @@
 }
 
 /** focus shadow pinkish **/
-.try-clothes-page .custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+.try-clothes-page
+  .custom-checkbox
+  .custom-control-input:focus
+  ~ .custom-control-label::before {
   box-shadow: none;
 }
