@@ -1,54 +1,165 @@
 @import '../../stylesheets/css/default-style.css';
 
 .page-shopping-cart {
-  display: flex;
-  align-items: flex-start;
   width: var(--width-normal);
   margin: 70px auto 0px;
   min-height: 80vh;
   padding-bottom: 100px;
 }
 
-.page-shopping-cart .product-list {
+.page-shopping-cart .nav-tabs {
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.page-shopping-cart .nav-tabs .nav-item {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding-left: 0px;
+  text-decoration: none;
+}
+
+.page-shopping-cart .nav-tabs .nav-item::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px;
+  height: 1px;
+  margin-right: 10px;
+  background-color: var(--main-border-color);
+}
+
+/* .page-shopping-cart .nav-tabs .nav-item::after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 80px;
+  height: 1px;
+  margin-left: 10px;
+  background-color: var(--main-border-color);
+} */
+
+.page-shopping-cart .nav-tabs .nav-item:nth-child(1)::before {
+  content: '';
+  width: 0px;
+  height: 0px;
+}
+
+.page-shopping-cart .nav-tabs .nav-item:nth-last-child(1)::after {
+  content: '';
+  width: 0px;
+  height: 0px;
+}
+
+.page-shopping-cart .nav-tabs .nav-item .step-number {
+  border: 1px solid var(--main-border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  color: var(--main-border-color);
+}
+
+.page-shopping-cart .nav-tabs .nav-item .step-info {
+  color: var(--main-border-color);
+}
+
+.page-shopping-cart .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: var(--main-font-color-2);
+}
+
+.page-shopping-cart .nav-tabs .nav-item.show .nav-link::before,
+.nav-tabs .nav-link.active::before {
+  background-color: var(--main-font-color-2);
+}
+
+.page-shopping-cart .nav-tabs .nav-item.show .nav-link .step-number,
+.nav-tabs .nav-link.active .step-number {
+  color: #fff;
+  background-color: var(--main-font-color-2);
+  border-color: var(--main-font-color-2);
+}
+
+.page-shopping-cart .nav-tabs .nav-item.show .nav-link .step-info,
+.nav-tabs .nav-link.active .step-info {
+  color: var(--main-font-color-2);
+}
+
+.page-shopping-cart .tab-content {
+  margin-top: 45px;
+}
+
+.page-shopping-cart .tab-content .tab-pane {
+  display: flex;
+  align-items: flex-start;
+}
+
+.page-shopping-cart .tab-content .tab-pane .product-list {
   width: 75%;
   padding-right: 20px;
 }
 
-.page-shopping-cart .product-list .card {
+.page-shopping-cart .tab-content .tab-pane .product-list .card {
   padding: 20px 25px;
   display: flex;
   flex-direction: column;
 }
 
-.page-shopping-cart .product-list .card .component-cart-product {
+.page-shopping-cart
+  .tab-content
+  .tab-pane
+  .product-list
+  .card
+  .component-cart-product {
   margin-top: 40px;
 }
 
-.page-shopping-cart .product-list .card .component-cart-product:nth-child(1) {
+.page-shopping-cart
+  .tab-content
+  .tab-pane
+  .product-list
+  .card
+  .component-cart-product:nth-child(1) {
   margin-top: 0px;
 }
 
-.page-shopping-cart .checkout {
+.page-shopping-cart .tab-content .tab-pane .checkout {
   width: 25%;
 }
 
-.page-shopping-cart .checkout .total-price {
+.page-shopping-cart .tab-content .tab-pane .checkout .total-price {
   padding: 20px 25px;
 }
 
-.page-shopping-cart .checkout .total-price .order-total .checkout-price {
+.page-shopping-cart
+  .tab-content
+  .tab-pane
+  .checkout
+  .total-price
+  .order-total
+  .checkout-price {
   font-size: 20px;
   color: var(--color-red);
 }
 
-.page-shopping-cart .checkout .component-default-button {
+.page-shopping-cart .tab-content .tab-pane .checkout .component-default-button {
   width: 100%;
   margin-top: 10px;
   border: 1px solid var(--color-red);
   background-color: var(--color-red);
 }
 
-.page-shopping-cart .checkout .component-default-button:hover {
+.page-shopping-cart
+  .tab-content
+  .tab-pane
+  .checkout
+  .component-default-button:hover {
   border-color: var(--hover-color-red);
   background-color: var(--hover-color-red);
 }

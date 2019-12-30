@@ -178,99 +178,123 @@
 			</div>
 		</div>
 		{{/if}}-->
-	<div id="containProductSimpleInCartDetail" class="product-list">
-		<div class="card" id-product-cart-detail="productSimple">
-			<div class="component-cart-product">
-				<div class="content-left">
-					<div class="product-image" data-toggle="tooltip" title="ProductName">
-						<a class="stretched-link" href="/product"></a>
-						<img src="http://res.cloudinary.com/dpsdkyleb/image/upload/v1575567187/demo/o2qgeixluly5z6ochmbq.jpg"
-							alt="">
-					</div>
-					<div class="product-info">
-						<a href="/product" class="product-name">Product name</a>
-						<div class="product-size"><span>Size XS</span>&ensp;|&ensp;<span>Màu nâu</span></div>
-					</div>
-				</div>
+	<nav>
+		<div class="nav nav-tabs" id="nav-tab" role="tablist">
+			<a class="nav-item nav-link active" id="checkout-tab" data-toggle="tab" href="#checkout" role="tab"
+				aria-controls="checkout" aria-selected="true">
+				<div class="step-number">1</div>
+				<div class="step-info">Giỏ hàng</div>
+			</a>
+			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+				aria-controls="nav-profile" aria-selected="false">
+				<div class="step-number">2</div>
+				<div class="step-info">Thông tin người nhận</div>
+			</a>
+			<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+				aria-controls="nav-contact" aria-selected="false">
+				<div class="step-number">3</div>
+				<div class="step-info">Đặt hàng</div>
+			</a>
+		</div>
+	</nav>
+	<div class="tab-content" id="nav-tabContent">
+		<div class="tab-pane fade show active" id="checkout" role="tabpanel" aria-labelledby="checkout-tab">
+			<div id="containProductSimpleInCartDetail" class="product-list">
+				<div class="card" id-product-cart-detail="productSimple">
+					<div class="component-cart-product">
+						<div class="content-left">
+							<div class="product-image" data-toggle="tooltip" title="ProductName">
+								<a class="stretched-link" href="/product"></a>
+								<img src="http://res.cloudinary.com/dpsdkyleb/image/upload/v1575567187/demo/o2qgeixluly5z6ochmbq.jpg"
+									alt="">
+							</div>
+							<div class="product-info">
+								<a href="/product" class="product-name">Product name</a>
+								<div class="product-size"><span>Size XS</span>&ensp;|&ensp;<span>Màu nâu</span></div>
+							</div>
+						</div>
 
-				<div class="content-right">
-					<div class="top">
-						<div class="product-price">
-							<div class="sale-price">219.000<u>đ</u></div>
-							<div class="original-price"><del>352.000<u>đ</u></del></div>
-						</div>
-						<div class="product-quantity">
-							<div class="btn-num-product-down">
-								<i class="zmdi zmdi-minus"></i>
+						<div class="content-right">
+							<div class="top">
+								<div class="product-price">
+									<div class="sale-price">219.000<u>đ</u></div>
+									<div class="original-price"><del>352.000<u>đ</u></del></div>
+								</div>
+								<div class="product-quantity">
+									<div class="btn-num-product-down">
+										<i class="zmdi zmdi-minus"></i>
+									</div>
+									<input class="num-product" type="number" value="1">
+									<div class="btn-num-product-up">
+										<i class="zmdi zmdi-plus"></i>
+									</div>
+								</div>
 							</div>
-							<input class="num-product" type="number" value="1">
-							<div class="btn-num-product-up">
-								<i class="zmdi zmdi-plus"></i>
+							<div class="bottom">
+								<div class="delete-product">Xóa</div>
 							</div>
 						</div>
 					</div>
-					<div class="bottom">
-						<div class="delete-product">Xóa</div>
+					<div class="component-cart-product">
+						<div class="content-left">
+							<div class="product-image" data-toggle="tooltip" title="ProductName">
+								<a class="stretched-link" href="/product"></a>
+								<img src="http://res.cloudinary.com/dpsdkyleb/image/upload/v1575567187/demo/o2qgeixluly5z6ochmbq.jpg"
+									alt="">
+							</div>
+							<div class="product-info">
+								<a href="/product" class="product-name">Product name</a>
+								<div class="product-size"><span>Size XS</span>&ensp;|&ensp;<span>Màu nâu</span></div>
+							</div>
+						</div>
+
+						<div class="content-right">
+							<div class="top">
+								<div class="product-price">
+									<div class="sale-price">219.000<u>đ</u></div>
+									<div class="original-price"><del>352.000<u>đ</u></del></div>
+								</div>
+								<div class="product-quantity">
+									<div class="btn-num-product-down">
+										<i class="zmdi zmdi-minus"></i>
+									</div>
+									<input class="num-product" type="number" value="1">
+									<div class="btn-num-product-up">
+										<i class="zmdi zmdi-plus"></i>
+									</div>
+								</div>
+							</div>
+							<div class="bottom">
+								<div class="delete-product">Xóa</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="component-cart-product">
-				<div class="content-left">
-					<div class="product-image" data-toggle="tooltip" title="ProductName">
-						<a class="stretched-link" href="/product"></a>
-						<img src="http://res.cloudinary.com/dpsdkyleb/image/upload/v1575567187/demo/o2qgeixluly5z6ochmbq.jpg"
-							alt="">
+			<div class="checkout">
+				<div class="total-price card">
+					<div class="d-flex flex-row justify-content-between">
+						<div>Tạm tính</div>
+						<div>323.700<u>đ</u></div>
 					</div>
-					<div class="product-info">
-						<a href="/product" class="product-name">Product name</a>
-						<div class="product-size"><span>Size XS</span>&ensp;|&ensp;<span>Màu nâu</span></div>
+					<div class="d-flex flex-row justify-content-between">
+						<div>Giảm giá</div>
+						<div>- 12.000<u>đ</u></div>
 					</div>
-				</div>
-
-				<div class="content-right">
-					<div class="top">
-						<div class="product-price">
-							<div class="sale-price">219.000<u>đ</u></div>
-							<div class="original-price"><del>352.000<u>đ</u></del></div>
-						</div>
-						<div class="product-quantity">
-							<div class="btn-num-product-down">
-								<i class="zmdi zmdi-minus"></i>
-							</div>
-							<input class="num-product" type="number" value="1">
-							<div class="btn-num-product-up">
-								<i class="zmdi zmdi-plus"></i>
-							</div>
-						</div>
-					</div>
-					<div class="bottom">
-						<div class="delete-product">Xóa</div>
+					<hr width="100%" size="1px" />
+					<div class="order-total d-flex flex-row justify-content-between align-items-center">
+						<div>Thành tiền</div>
+						<div class="checkout-price">323.700<u>đ</u></div>
 					</div>
 				</div>
+				<button type="button" class="component-default-button">
+					Thanh toán
+				</button>
 			</div>
 		</div>
+		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
 	</div>
-	<div class="checkout">
-		<div class="total-price card">
-			<div class="d-flex flex-row justify-content-between">
-				<div>Tạm tính</div>
-				<div>323.700<u>đ</u></div>
-			</div>
-			<div class="d-flex flex-row justify-content-between">
-				<div>Giảm giá</div>
-				<div>- 12.000<u>đ</u></div>
-			</div>
-			<hr width="100%" size="1px" />
-			<div class="order-total d-flex flex-row justify-content-between align-items-center">
-				<div>Thành tiền</div>
-				<div class="checkout-price">323.700<u>đ</u></div>
-			</div>
-		</div>
-		<button type="button" class="component-default-button">
-			Thanh toán
-		</button>
-	</div>
-
 </div>
 
 {{#section 'js'}}
