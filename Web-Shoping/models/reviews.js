@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ReviewSchema = new Schema({
-    name: { type: String, required: true },
-    content: {type: String, required: true},
-    product: {type: Schema.ObjectId, required: true},
-    star: {type:String, required: true}
+    name: { type: String, required: Boolean },
+    content: {type: String, required: Boolean},
+    product: {type: Schema.ObjectId, required: Boolean},
+    star: {type:Number, required: Boolean}
 });
 
 // Export model.
