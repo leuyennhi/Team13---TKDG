@@ -416,13 +416,16 @@ exports.product_detail = async function(req, res) {
       results.productRelate.forEach(ele => {
         ele.img = ele.img[0];
       });
+      var filteredResult = results.review.filter(function(ele) {
+        return ele == 5;
+      })
       res.render('products/product-detail', {
         title: 'Chi tiết mặt hàng',
         item: product,
         category: results.category,
         productRelates: results.productRelate,
         user: req.user,
-        reviews: results.review,
+        reviews: filteredResult,
         num: results.reviewPage,
         page: page,
         watch: product.watch
