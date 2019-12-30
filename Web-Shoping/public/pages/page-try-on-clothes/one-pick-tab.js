@@ -12,21 +12,22 @@ var priceM = {
   shirt: 0,
   short: 0,
 }
+var type_color = {};
 var getFigureM = ()=>{
   var x = document.getElementById("height").value;
   var y = document.getElementById("waist").value;
 
   model = "/images/Models/2.png";
-  posImg = 1;
+  posImg = "model2";
   size = "S"
   if (y>80){
    model = "/images/Models/3.png";
-   posImg = 2;
+   posImg = "model3";
    size = "L"
   }
   else if (x>170){
     model = "/images/Models/1.png";
-    posImg = 0
+    posImg = "model1"
     size = "M"
   }
 }
@@ -99,7 +100,9 @@ var onClickModel = () =>{
   $("#model").attr("src",model);
   img.forEach(ele=>{
     getFigure(ele.type)
-    $(`#model-${ele.type}`).attr("src",`${ele.imgT[posImg]}`);
+    let color = type_color[ele.type]
+    const element = ele.imgT.find((elem) =>elem.color === color)
+    $(`#model-${ele.type}`).attr("src",`${element[posImg]}`);
     $(`#model-${ele.type}`).css("margin-top",`${topM}px`);
     $(`#model-${ele.type}`).css("margin-left",`${leftM}px`);
     $('.size').text(`${size}`);
@@ -127,6 +130,15 @@ $(".list-products").on('click','.clickable',function(){
     getProduct(url,"add")
   }
 })
+$(".product-selected-list").on('click','.btn-color',function(){
+  var $box = $(this);
+  var color = $box.attr('id')
+  var type = $box.attr('value')
+  type_color[type] = color
+  let ele = img.find((elem) => elem.type === type)
+  let elem = ele.imgT.find((element) => element.color === color)
+  $(`#model-${type}`).attr("src",`${elem[posImg]}`);
+})
 $('.product-selected-list').on('click','.select-product',function() {
     var $box = $(this);
     var type = $box.attr('id')
@@ -139,7 +151,6 @@ $('.product-selected-list').on('click','.select-product',function() {
     }
   });
 var getProduct = (_url,type) =>{
-    console.log(_url)
     $.ajax({
       method: "GET",
       url: _url,
@@ -149,7 +160,13 @@ var getProduct = (_url,type) =>{
       {
         addList(data)
         changeClothe(data)
-        img.push({type:data.type,imgT: data.toTryImg})
+        const index = img.findIndex((ele) => ele.type === data.type);
+        if ( index === -1) {
+          img.push({type:data.type,imgT: data.toTryImg})
+        } else {
+          img[index].imgT = data.toTryImg
+        }
+        type_color[data.type] = data.toTryImg[0].color
       }
       else if(type == "remove"){
         removeFromList(data)
@@ -176,19 +193,28 @@ var removeFromList = (product) =>{
 }
 var changeClothe = (product) =>{
   getFigureM()
-  $(`#model-${product.type}`).attr("src",`${product.toTryImg[posImg]}`);
+  $(`#model-${product.type}`).attr("src",`${product.toTryImg[0][posImg]}`);
   getFigure(product.type);
-  console.log(topM)
   $(`#model-${product.type}`).css("margin-top",`${topM}px`);
   $(`#model-${product.type}`).css("margin-left",`${leftM}px`);
   $(`#model-${product.type}`).css("display","flex");
 }
 var addList = (product) =>{
     getFigureM()
+    let s = ''
+    for( let i = 0; i< product.toTryImg.length; i++) {
+      s += `<button 
+              type="button" class="btn btn-default btn-color" 
+              id=${product.toTryImg[i].color}
+              value=${product.type}
+              style="background-color:${product.toTryImg[i].color};"
+            />`
+    }
     var item = `<div class="product ${product.type}">
                   <h4 class="name">${product.name}</h4>
                   <h4 class="size model-size">${size}</h4>
                   <h4 class="price">${product.price}<u>đ</u></h4>
+                  ${s}
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input select-product" checked id="${product.type}">
                     <label class="custom-control-label" for="${product.type}"></label>
