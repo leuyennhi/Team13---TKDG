@@ -5,15 +5,12 @@ var Schema = mongoose.Schema;
 
 var ReviewSchema = new Schema({
     name: { type: String, required: Boolean },
-<<<<<<< HEAD
-    content: { type: String, required: Boolean },
-    product: { type: Schema.ObjectId, required: Boolean },
-    star: { type: Number, required: Boolean }
-=======
     content: {type: String, required: Boolean},
     product: {type: Schema.ObjectId, required: Boolean},
-    star: {type:Number, required: Boolean}
->>>>>>> dddcdfb0cc048602a985b3eecfadcc932fd4c1d9
+    star: {type:Number, required: Boolean},
+    avatar: {type: String, require: Boolean},
+    reply: {type: Array, required: Boolean},
+    date: {type: Date}
 });
 
 // Export model.

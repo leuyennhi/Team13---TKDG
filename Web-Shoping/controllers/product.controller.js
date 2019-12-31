@@ -420,6 +420,9 @@ exports.product_detail = async function(req, res) {
       var filteredResult = results.review.filter(function(ele) {
         return ele.star == 5;
       })
+
+      console.log(filteredResult[0].reply[0])
+
       res.render('products/product-detail', {
         title: 'Chi tiết mặt hàng',
         item: product,
