@@ -416,8 +416,9 @@ exports.product_detail = async function(req, res) {
       results.productRelate.forEach(ele => {
         ele.img = ele.img[0];
       });
+  
       var filteredResult = results.review.filter(function(ele) {
-        return ele == 5;
+        return ele.star == 5;
       })
       res.render('products/product-detail', {
         title: 'Chi tiết mặt hàng',
