@@ -74,18 +74,16 @@
 									<a class="dropbtn stretched-link" href="/product">SẢN
 										PHẨM</a>
 									<div class="dropdown-content">
-										<a href="#">Link 1</a>
-										<a href="#">Link 2</a>
-										<a href="#">Link 3</a>
+										<a href="/product">Đầm</a>
+										<a href="/product">Áo</a>
+										<a href="/product">Quần</a>
+										<a href="/product">Chân váy</a>
 									</div>
 								</div>
 								{{!-- <a href="/aboutus">SẢN PHẨM</a> --}}
 							</li>
 							<li>
 								<a href="/product" class="stretched-link">JEANS</a>
-							</li>
-							<li>
-								<a href="/product" class="stretched-link">PHỤ KIỆN</a>
 							</li>
 							<li>
 								<a href="/try-on-clothes" class="stretched-link">THỬ ĐỒ</a>
@@ -313,7 +311,7 @@
 			var i = parseInt(this.value) - 1;
 			var shipFee = [0, 10000, 10000, 10000, 10000, 20000, 20000, 50000, 50000, 50000, 50000, 60000, 40000, 50000, 50000, 50000, 50000, 60000, 40000, 50000, 50000, 50000, 50000, 60000];
 			$('#ship-fee').text(setCost(shipFee[i]));
-			$('#total-ship').html(setCost(parseInt(shipFee[i]) + parseInt({{ this.total }})));
+			$('#total-ship').html(setCost(parseInt(shipFee[i]) + parseInt({{this.total}})));
 		$('#i-ship-fee').val(setCost(shipFee[i]));
 		});
 		function setCost(cost) {

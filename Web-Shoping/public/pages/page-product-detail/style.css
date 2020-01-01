@@ -8,8 +8,8 @@
 
 .sec-product-detail .basic-info-product .name {
   font-size: var(--font-size-title);
-  color: var(--main-font-color-1);
-  margin-bottom: 18px;
+  color: var(--main-font-color-2);
+  margin-bottom: 10px;
 }
 
 .sec-product-detail .basic-info-product .price {
@@ -124,7 +124,7 @@ input.num-product::-webkit-inner-spin-button {
   color: #fff;
   background-color: var(--color-red);
   border-radius: 3px;
-  font-size: var(--font-size-content);
+  font-size: 16px;
   transition: all 200ms ease;
 }
 
@@ -139,7 +139,7 @@ input.num-product::-webkit-inner-spin-button {
   background-color: #fff;
   border: 1px solid var(--color-red);
   border-radius: 3px;
-  font-size: var(--font-size-content);
+  font-size: 16px;
   transition: all 200ms ease;
 }
 
@@ -154,7 +154,7 @@ input.num-product::-webkit-inner-spin-button {
 .product-relate-component,
 .evaluation-component {
   display: block;
-  margin-top: 50px;
+  padding: 20px 0px;
 }
 
 .product-detail-component h2,
@@ -185,29 +185,37 @@ input.num-product::-webkit-inner-spin-button {
 
 .product-detail-component .data {
   display: flex;
-  justify-content: space-between;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  padding: 20px;
 }
 
-.product-detail-component .data .items-detail {
-  display: block;
+.product-detail-component .data .items-detail:nth-child(2) {
+  margin-left: 180px;
 }
 
 .product-detail-component .data .items-detail .item {
   display: flex;
+  margin-top: 20px;
+}
+
+.product-detail-component .data .items-detail .item:nth-child(1) {
+  margin-top: 0px;
 }
 
 .product-detail-component .data .items-detail .item h3 {
   font-size: var(--font-size-content);
 }
+
 .product-detail-component .data .items-detail .item .title {
-  width: 180px;
-  height: 40px;
+  width: 120px;
+  /* height: 40px; */
   color: var(--color-grey);
 }
 
 .product-detail-component .data .items-detail .item .value {
-  width: 300px;
-  height: 40px;
+  /* width: 300px; */
+  /* height: 40px; */
   color: var(--main-font-color-1);
 }
 
@@ -233,26 +241,29 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .comments-component {
-  display: block;
-  height: fit-content;
+  margin-top: 50px;
 }
 
 .evaluation {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  border: 1px solid #e6e6e6;
+  padding: 20px;
+  border-radius: 3px;
 }
 
 .evaluation-button-component {
   display: block;
-  width: 450px;
+  /* width: 450px; */
   text-align: center;
+  margin-left: 20px;
 }
 
 .evaluation-button-component h3 {
   font-size: var(--font-size-content);
-  line-height: 64px;
+  /* line-height: 64px; */
   text-align: center;
+  margin-bottom: 20px;
 }
 
 /* .evaluation-button-component button {
@@ -272,38 +283,38 @@ input.num-product::-webkit-inner-spin-button {
   border-color: #000000;
 } */
 
-.rating-component {
+.evaluation {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.rating-component .average-rating {
+.evaluation .average-rating {
   display: block;
   text-align: center;
-  padding-top: 30px;
 }
 
-.rating-component .average-rating h1 {
+.evaluation .average-rating h1 {
   font-size: var(--font-size-title);
   color: var(--main-font-color-1);
 }
 
-.rating-component .average-rating h4 {
+.evaluation .average-rating h4 {
   font-size: var(--font-size-content);
   color: var(--color-grey);
 }
 
-.rating-component .detail-rating {
+.evaluation .detail-rating {
   display: block;
-  width: 400px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
-.rating-component .detail-rating .item-detail-rating {
+.evaluation .detail-rating .item-detail-rating {
   display: flex;
   text-align: center;
 }
 
-.rating-component .detail-rating .item-detail-rating h5 {
+.evaluation .detail-rating .item-detail-rating h5 {
   font-size: var(--font-size-content);
   color: #f1b306;
   width: 50px;
@@ -322,12 +333,12 @@ input.num-product::-webkit-inner-spin-button {
   height: 10px;
   border-radius: 5px;
 }
-    
-    .form-control {
-        border-color: #666666;
-    }
-    
-    .form-control:hover {
-        border-color: #666666 !important;
-        color: #666666 !important;
-    }
+
+.form-control {
+  border-color: #666666;
+}
+
+.form-control:hover {
+  border-color: #666666 !important;
+  color: #666666 !important;
+}
