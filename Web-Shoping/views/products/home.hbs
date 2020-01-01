@@ -93,7 +93,7 @@
 	</div>
 </section> --}}
 
-<div class="page-home" {{#unless isShowBreadcrumb}}style="margin-top: 84px;"{{/unless}}>
+<div class="page-home" {{#unless isShowBreadcrumb}}style="margin-top: 84px;" {{/unless}}>
 	<div class="component-slider">
 		<div class="arrow prevArrow">
 			<i class="zmdi zmdi-chevron-left"></i>
@@ -169,8 +169,7 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="/images/shirt.png"
-							alt="" />
+						<img src="/images/shirt.png" alt="" />
 					</div>
 					<div class="title">
 						Thử Đồ Trực Tuyến
@@ -183,8 +182,7 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="/images/calenda.png"
-							alt="" />
+						<img src="/images/calenda.png" alt="" />
 					</div>
 					<div class="title">
 						Đổi Trả
@@ -197,8 +195,7 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="/images/shirt.png"
-							alt="" />
+						<img src="/images/shirt.png" alt="" />
 					</div>
 					<div class="title">
 						Sản Phẩm
@@ -211,8 +208,7 @@
 			<div class="component-intro-home">
 				<div class="inner">
 					<div class="image">
-						<img src="/images/save.png"
-							alt="" />
+						<img src="/images/save.png" alt="" />
 					</div>
 					<div class="title">
 						Giao Hàng
@@ -320,7 +316,6 @@
 				</p>
 				<a href="/product">Xem tất cả&ensp;<i class="zmdi zmdi-chevron-right"></i></a>
 			</div>
-
 		</div>
 		<div class="content">
 			<div class="row" style="font-family:Poppins-Regular">
@@ -331,7 +326,7 @@
 							<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"
 								alt="...">
 							<a href="/product/detail/{{this._id}}" class="stretched-link"></a>
-							<div class="deal-tag">30%</div>
+							<div class="deal-tag">{{this.salePercent}}%</div>
 							<div class="hover-div">
 								<a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
 								<div>&nbsp;|&nbsp;</div>
@@ -345,7 +340,7 @@
 							<div class="m-0 mt-1 d-flex justify-content-center">
 								<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
 								<span class="original-price ml-3">
-									195,000<u>đ</u>
+									{{formatPrice this.originalPrice}}<u>đ</u>
 								</span>
 							</div>
 							<button class="btn favorite-btn"><i class="far fa-heart"></i></button>
@@ -374,16 +369,16 @@
 			<div class="component-category">
 				<div class="image">
 					<div class="background"></div>
-					<a href="#">
+					<a href="/product">
 						<img src="{{this.img}}" />
 					</a>
 				</div>
 				<div class="info">
 					<div class="category">
-						<a href="#">{{this.name}}</a>
+						<a href="/product">{{this.name}}</a>
 					</div>
 					<h4 class="name">
-						<a href="#">{{this.name}}</a>
+						<a href="/product">{{this.name}}</a>
 					</h4>
 					<p class="detail">Xuân 2019</p>
 				</div>

@@ -31,27 +31,27 @@ const multer = require('multer');
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require('multer-storage-cloudinary');
 cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 const storage = cloudinaryStorage({
-    cloudinary: cloudinary,
-    folder: 'demo',
-    allowedFormats: ['jpg', 'png'],
-    transformation: [{ width: 5000, height: 5000, crop: 'limit' }]
+  cloudinary: cloudinary,
+  folder: 'demo',
+  allowedFormats: ['jpg', 'png'],
+  transformation: [{ width: 5000, height: 5000, crop: 'limit' }]
 });
 
 const parser = multer({ storage: storage });
 
 const hbs = express_handlebars.create({
-    layoutsDir: 'views',
-    defaultLayout: 'layout.hbs',
-    helpers: {
-        formatPrice: formatPriceHelper,
-        checkEquality: checkEqualityHelper
-    }
+  layoutsDir: 'views',
+  defaultLayout: 'layout.hbs',
+  helpers: {
+    formatPrice: formatPriceHelper,
+    checkEquality: checkEqualityHelper
+  }
 });
 express_handlebars_sections(hbs);
 
@@ -65,11 +65,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
-    session({
-        secret: 'xxxxxxxxxxxxx',
-        resave: true,
-        saveUninitialized: true
-    })
+  session({
+    secret: 'xxxxxxxxxxxxx',
+    resave: true,
+    saveUninitialized: true
+  })
 );
 
 app.use(passport.initialize());
@@ -77,10 +77,10 @@ app.use(passport.session());
 app.use(flash());
 
 app.use(function(req, res, next) {
-    // if there's a flash message in the session request, make it available
-    res.locals.sessionFlash = req.session.sessionFlash;
-    delete req.session.sessionFlash;
-    next();
+  // if there's a flash message in the session request, make it available
+  res.locals.sessionFlash = req.session.sessionFlash;
+  delete req.session.sessionFlash;
+  next();
 });
 
 app.use(breadcrumbs_middleware);
@@ -89,18 +89,18 @@ require('./routes/index')(app, passport, parser);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    next(createError(404));
+  next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 module.exports = app;

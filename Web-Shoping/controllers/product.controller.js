@@ -32,8 +32,22 @@ const color = [
 ];
 const size = ['S', 'M', 'L', 'XL', 'Freesize'];
 
+function formatDate(date) {
+  var dd = date.getDate();
+  var mm = date.getMonth() + 1;
+  var yyyy = date.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+  return dd + '/' + mm + '/' + yyyy;
+}
+
 var async = require('async');
 exports.index = function(req, res) {
+<<<<<<< HEAD
     res.locals.isShowBreadcrumbs = false;
     var itemPerPage = 12;
     page = req.params.page ? req.params.page : 1;
@@ -74,6 +88,52 @@ exports.index = function(req, res) {
             });
         }
     );
+=======
+  res.locals.isShowBreadcrumbs = false;
+  var itemPerPage = 12;
+  page = req.params.page ? req.params.page : 1;
+  async.parallel(
+    {
+      products: function(callback) {
+        Product.find()
+          .skip(itemPerPage * page - itemPerPage)
+          .limit(itemPerPage)
+          .exec(callback);
+      },
+      categories: function(callback) {
+        Category.find().exec(callback);
+      },
+      pageCount: function(callback) {
+        Product.countDocuments().exec(callback);
+      }
+    },
+    function(err, results) {
+      if (err) {
+        return next(err);
+      }
+      var pageNum = Math.ceil(results.pageCount / itemPerPage);
+      var page = [];
+      for (var i = 1; i <= pageNum; i++) {
+        page.push(i);
+      }
+      results.products.forEach(ele => {
+        ele.img = ele.img[0];
+        ele.salePercent = Math.ceil(
+          (1 - (ele.price * 1.0) / ele.originalPrice) * 100
+        );
+      });
+      var linkPage = '/page';
+      res.render('products/home', {
+        title: 'Trang chủ',
+        // linkPage: linkPage,
+        // page: page,
+        products: results.products,
+        categories: results.categories,
+        user: req.user
+      });
+    }
+  );
+>>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
 };
 
 exports.search_products = function(req, res, next) {
@@ -152,6 +212,7 @@ exports.product_list_by_category = function(req, res) {
     if (productName === 'all') productName = '';
     productName = productName.trim().toLowerCase();
 
+<<<<<<< HEAD
     Product.find({
             name: { $regex: new RegExp('.*' + productName + '.*', 'i') },
             catergory: ObjectId(categoryId)
@@ -163,6 +224,22 @@ exports.product_list_by_category = function(req, res) {
                 product.price = formatPriceHelper(product.price);
                 product.originalPrice = formatPriceHelper(product.originalPrice);
             });
+=======
+  Product.find({
+    name: { $regex: new RegExp('.*' + productName + '.*', 'i') },
+    catergory: ObjectId(categoryId)
+  })
+    .then(products => {
+      var listProducts = JSON.parse(JSON.stringify(products));
+      listProducts.forEach(product => {
+        product.img = product.img[0];
+        product.price = formatPriceHelper(product.price);
+        product.originalPrice = formatPriceHelper(product.originalPrice);
+        product.salePercent = Math.ceil(
+          (1 - (product.price * 1.0) / product.originalPrice) * 100
+        );
+      });
+>>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
 
             return res.json({ error: false, data: listProducts });
         })
@@ -314,9 +391,15 @@ exports.home_filtermulti = function(req, res) {
     );
 };
 exports.product_list = function(req, res) {
+<<<<<<< HEAD
     res.locals.isShowBreadcrumbs = true;
     res.locals.links.push({ name: 'Trang chủ', route: '/' });
     res.locals.links.push({ name: 'Sản phẩm', route: '/product' });
+=======
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push({ name: 'Trang chủ', route: '/' });
+  res.locals.links.push({ name: 'Sản phẩm', route: '/product' });
+>>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
 
     var quantityPerPage = 12;
     var pageNumber = req.query.pageNumber || 1;
@@ -351,6 +434,7 @@ exports.product_list = function(req, res) {
                 pageNumbers.push(pageNum);
             }
 
+<<<<<<< HEAD
             results.products.forEach(ele => {
                 ele.img = ele.img[0];
             });
@@ -373,6 +457,97 @@ exports.product_detail = async function(req, res) {
         product.watch = 1;
     } else {
         product.watch = product.watch + 1;
+=======
+      results.products.forEach(ele => {
+        ele.img = ele.img[0];
+        ele.salePercent = Math.ceil(
+          (1 - (ele.price * 1.0) / ele.originalPrice) * 100
+        );
+      });
+
+      res.render('products/product', {
+        title: 'Sản phẩm',
+        pageNumbers: pageNumbers,
+        products: results.products,
+        categories: results.categories,
+        user: req.user
+      });
+    }
+  );
+};
+exports.product_detail = async function(req, res) {
+  var itemPerPage = 10;
+  page = req.params.page ? req.params.page : 1;
+  var product = await Product.findById(req.params.id);
+  if (!product.watch) {
+    product.watch = 1;
+  } else {
+    product.watch = product.watch + 1;
+  }
+  await product.save();
+  product.bought = product.bought || 0;
+  res.locals.isShowBreadcrumbs = true;
+  res.locals.links.push({ name: 'Trang chủ', route: '/' });
+  res.locals.links.push({ name: 'Sản phẩm', route: '/product' });
+  res.locals.links.push({ name: product.name, route: '#' });
+  async.parallel(
+    {
+      category: function(callback) {
+        Category.findById(product.catergory).exec(callback);
+      },
+      productRelate: function(callback) {
+        Product.find({ catergory: product.catergory })
+          .limit(4)
+          .exec(callback);
+      },
+      reviewPage: function(callback) {
+        Review.countDocuments({ product: product._id }).exec(callback);
+      },
+      review: function(callback) {
+        Review.find({ product: product._id })
+          .skip(itemPerPage * page - itemPerPage)
+          .limit(itemPerPage)
+          .exec(callback);
+      }
+    },
+    function(err, results) {
+      if (err) {
+        return next(err);
+      }
+      var pageNum = Math.ceil(results.reviewPage / itemPerPage);
+      var page = [];
+      for (var i = 1; i <= pageNum; i++) {
+        page.push(i);
+      }
+      results.productRelate.forEach(ele => {
+        ele.img = ele.img[0];
+        ele.salePercent = Math.ceil(
+          (1 - (ele.price * 1.0) / ele.originalPrice) * 100
+        );
+      });
+
+      var filteredResult = results.review.filter(function(ele) {
+        return ele.star === 5;
+      });
+      filteredResult.forEach(review => {
+        review.formatDate = formatDate(new Date(review.date));
+        review.reply.forEach(element => {
+          element.formatDate = formatDate(new Date(element.date));
+        });
+      });
+
+      res.render('products/product-detail', {
+        title: 'Chi tiết mặt hàng',
+        item: product,
+        category: results.category,
+        productRelates: results.productRelate,
+        user: req.user,
+        reviews: filteredResult,
+        num: results.reviewPage,
+        page: page,
+        watch: product.watch
+      });
+>>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
     }
     await product.save();
     res.locals.isShowBreadcrumbs = true;

@@ -67,6 +67,8 @@
   color: #fff;
   background-color: var(--color-red);
   border-radius: 0px 3px 0px 0px;
+  text-align: center;
+  width: 44px;
 }
 
 .component-product .product-image .deal-tag:after {

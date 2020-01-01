@@ -49,8 +49,8 @@
 .component-filter-list .size .checkbox-size,
 .component-filter-list .color .checkbox-color {
   margin-left: 15px;
-  margin-top: 10px;
-  font-size: --font-size-content;
+  margin-top: 5px;
+  font-size: var(--font-size-content);
   display: flex;
   align-items: center;
   justify-content: flex-start;
