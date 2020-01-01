@@ -302,78 +302,78 @@
 	<div class="container evaluation-component">
 		<h2>Đánh giá sản phẩm</h2>
 		<div class="evaluation">
-			<div class="rating-component">
-				<div class="average-rating">
-					<h1>4.75</h1>
-					<h4>(120 bình chọn)</h4>
+			<div class="average-rating">
+				<h1>4.75</h1>
+				<h4>(120 bình chọn)</h4>
+			</div>
+			<div class="detail-rating">
+				<div class="item-detail-rating">
+					<h5>
+						5
+						<i class="fa fa-star icon-star"></i>
+					</h5>
+					<div class="progress my-process">
+						<div class="progress-bar my-process-bar" role="progressbar" style="width: 75%;"
+							aria-valuenow="90" aria-valuemin="0" aria-valuemax="120"></div>
+					</div>
 				</div>
-				<div class="detail-rating">
-					<div class="item-detail-rating">
-						<h5>
-							5
-							<i class="fa fa-star icon-star"></i>
-						</h5>
-						<div class="progress my-process">
-							<div class="progress-bar my-process-bar" role="progressbar" style="width: 75%;"
-								aria-valuenow="90" aria-valuemin="0" aria-valuemax="120"></div>
-						</div>
+				<div class="item-detail-rating">
+					<h5>
+						4
+						<i class="fa fa-star icon-star"></i>
+					</h5>
+					<div class="progress my-process">
+						<div class="progress-bar my-process-bar" role="progressbar" style="width: 25%;"
+							aria-valuenow="30" aria-valuemin="0" aria-valuemax="120"></div>
 					</div>
-					<div class="item-detail-rating">
-						<h5>
-							4
-							<i class="fa fa-star icon-star"></i>
-						</h5>
-						<div class="progress my-process">
-							<div class="progress-bar my-process-bar" role="progressbar" style="width: 25%;"
-								aria-valuenow="30" aria-valuemin="0" aria-valuemax="120"></div>
-						</div>
+				</div>
+				<div class="item-detail-rating">
+					<h5>
+						3
+						<i class="fa fa-star icon-star"></i>
+					</h5>
+					<div class="progress my-process">
+						<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
+							aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
-					<div class="item-detail-rating">
-						<h5>
-							3
-							<i class="fa fa-star icon-star"></i>
-						</h5>
-						<div class="progress my-process">
-							<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
-								aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
+				</div>
+				<div class="item-detail-rating">
+					<h5>
+						2
+						<i class="fa fa-star icon-star"></i>
+					</h5>
+					<div class="progress my-process">
+						<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
+							aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
-					<div class="item-detail-rating">
-						<h5>
-							2
-							<i class="fa fa-star icon-star"></i>
-						</h5>
-						<div class="progress my-process">
-							<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
-								aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
-					</div>
-					<div class="item-detail-rating">
-						<h5>
-							1
-							<i class="fa fa-star icon-star"></i>
-						</h5>
-						<div class="progress my-process">
-							<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
-								aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
+				</div>
+				<div class="item-detail-rating">
+					<h5>
+						1
+						<i class="fa fa-star icon-star"></i>
+					</h5>
+					<div class="progress my-process">
+						<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
+							aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				</div>
 			</div>
 			<div class="evaluation-button-component">
 				<h3>Chia sẻ nhận xét của bạn về sản phẩm</h3>
-				<button onclick="openForm()" id="open-form-btn"
-					class="component-default-button open-evaluation-form">Viết nhận xét của bạn</button>
+				<button data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false"
+					aria-controls="collapseReview" class="component-default-button">
+					Viết nhận xét
+				</button>
 			</div>
 		</div>
 		{{!-- Form đánh giá về sản phẩm --}}
-		<div class="evaluation-form-component" id="evaluation-form">
-			<form class="evaluation-form">
+		<div class="evaluation-form-component collapse" id="collapseReview">
+			<form class="evaluation-form clearfix">
 				<div class="top">
-					<h4>Đánh giá của bạn</h4>
+					<h4>Nhận xét của bạn</h4>
 				</div>
 				<div class="evaluation-start">
-					<p>Đánh giá của bạn về sản phẩm này</p>
+					<p>Đánh giá của bạn</p>
 					<div class="stars">
 						<div>
 							<input class="star star-5" id="star-5" type="radio" name="star" checked />
@@ -390,14 +390,13 @@
 					</div>
 				</div>
 				<div class="evaluation-title">
-					<p>Tiêu đề của nhận xét</p>
-					<input type="text" class="title" name="title"
-						placeholder="Nhập tiêu đề của nhận xét (không bắt buộc)" />
+					{{!-- <p>Tiêu đề</p> --}}
+					<input type="text" class="title" name="title" placeholder="Tiêu đề (không bắt buộc)" />
 				</div>
 				<div class="evaluation-content">
-					<p>Nhận xét của bạn</p>
+					{{!-- <p>Nội dung</p> --}}
 					<textarea row="5" type="text" class="content" name="content"
-						placeholder="Nhập nhận xét của bạn về sản phẩm này"></textarea>
+						placeholder="Nhận xét của bạn về sản phẩm"></textarea>
 				</div>
 				<div class="evaluation-button">
 					<button type="submit" class="send-evaluation component-default-button" id="send-form-btn"
@@ -414,11 +413,11 @@
 					<div class="my-photo">
 						<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
 						<h5>{{this.name}}</h5>
-						<p class="time">{{this.date}}</p>
+						<p class="time">{{this.formatDate}}</p>
 					</div>
-					<div class="information">
-						<div class="stars">
-							<form action="">
+					<div class="information clearfix">
+						<div style="display: flex; align-items: center;">
+							<div class="stars">
 								{{!-- <input class="star star-5" id="star-5" type="radio" name="star" /> --}}
 								<label class="star star-5" for="star-5"></label>
 								{{!-- <input class="star star-4" id="star-4" type="radio" name="star" /> --}}
@@ -429,52 +428,49 @@
 								<label class="star star-2" for="star-2"></label>
 								{{!-- <input class="star star-1" id="star-1" type="radio" name="star" /> --}}
 								<label class="star star-1" for="star-1"></label>
-							</form>
+							</div>
+							<p class="review">Cực kì hài lòng</p>
 						</div>
-						<p class="review">Cực kì hài lòng</p>
-						<i class="fab fa-shield-check"></i>
-						<p class="buy-already">Đã mua sản phẩm này tại Team13-Shop</p>
+						<p class="buy-already">Đã mua sản phẩm này tại Unicorn Shop</p>
 						<div class="description js-description">
-							<p class="review_detail" itemprop="reviewBody"></p>
-							<span>{{this.content}}
-								<br>
-							</span>
-							</p>
+							{{!-- <p class="review_detail" itemprop="reviewBody"></p> --}}
+							<span>{{this.content}}</span>
 						</div>
-						<button class="show-comment">Phản hồi</button>
-						<button class="hide-comment">Ẩn phản hồi</button>
+						{{#if this.reply}}
+						<button data-toggle="collapse" href="#collapseReply-{{this._id}}" role="button"
+							aria-expanded="false" aria-controls="collapseReply-{{this._id}}" class="show-comment">
+							Xem phản hồi
+						</button>
+						{{/if}}
 					</div>
 				</div>
-				
-				
-				<div class="reply-comment-component">
-					{{#each reply}}	
+
+				<div class="reply-comment-component collapse" id="collapseReply-{{this._id}}">
+					{{#each reply}}
 					<div class="reply-comment">
-						
 						<div class="my-photo">
 							<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
 							<h5>Unicorn Shop</h5>
-							<p class="time">{{this.date}}</p>
+							<p class="time">{{this.formatDate}}</p>
 						</div>
 						<div class="information">
 							<p class="from-us">Phản hồi từ Unicorn Shop</p>
-							<span>{{this.content}}
-								<br>
-							</span>
+							<span>{{this.content}}</span>
 						</div>
 					</div>
-					
-					<div class="input-comment-component">
+
+					<div class="input-comment-component clearfix">
 						<div class="input-comment">
 							<div class="my-photo">
 								<a href="#"><img class="img-circle" src="/images/customer.jpg" alt="My Image" /></a>
 							</div>
-							<textarea rows="2" class="comment" placeholder="Nhập phản hồi của bạn"></textarea>
+							<textarea rows="3" placeholder="Nhập phản hồi"></textarea>
 						</div>
-						<button class="public-comment component-default-button">Đăng phản hồi</button>
+						<button class="public-comment component-default-button">Gửi phản hồi</button>
 					</div>
+					{{/each}}
 				</div>
-				{{/each}}
+
 			</div>
 			{{/each}}
 		</div>
@@ -500,7 +496,7 @@
 							<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"
 								alt="...">
 							<a href="/product/detail/{{this._id}}" class="stretched-link"></a>
-							<div class="deal-tag">30%</div>
+							<div class="deal-tag">{{this.salePercent}}%</div>
 							<div class="hover-div">
 								<a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
 								<div>&nbsp;|&nbsp;</div>
@@ -530,7 +526,7 @@
 
 {{#section 'js'}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script src="/pages/page-product-detail/evaluation-form.js"></script>
+{{!-- <script src="/pages/page-product-detail/evaluation-form.js"></script> --}}
 <script src="/pages/page-product-detail/select-size-button.js"></script>
 <script src="/pages/page-product-detail/comment.js"></script>
 {{/section}}

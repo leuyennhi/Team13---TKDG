@@ -32,6 +32,19 @@ const color = [
 ];
 const size = ['S', 'M', 'L', 'XL', 'Freesize'];
 
+function formatDate(date) {
+  var dd = date.getDate();
+  var mm = date.getMonth() + 1;
+  var yyyy = date.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+  return dd + '/' + mm + '/' + yyyy;
+}
+
 var async = require('async');
 exports.index = function(req, res) {
   res.locals.isShowBreadcrumbs = false;
@@ -63,6 +76,9 @@ exports.index = function(req, res) {
       }
       results.products.forEach(ele => {
         ele.img = ele.img[0];
+        ele.salePercent = Math.ceil(
+          (1 - (ele.price * 1.0) / ele.originalPrice) * 100
+        );
       });
       var linkPage = '/page';
       res.render('products/home', {
@@ -164,6 +180,9 @@ exports.product_list_by_category = function(req, res) {
         product.img = product.img[0];
         product.price = formatPriceHelper(product.price);
         product.originalPrice = formatPriceHelper(product.originalPrice);
+        product.salePercent = Math.ceil(
+          (1 - (product.price * 1.0) / product.originalPrice) * 100
+        );
       });
 
       return res.json({ error: false, data: listProducts });
@@ -319,8 +338,8 @@ exports.home_filtermulti = function(req, res) {
 };
 exports.product_list = function(req, res) {
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push({name: 'Trang chủ', route: '/'});
-  res.locals.links.push({name: 'Sản phẩm', route: '/product'});
+  res.locals.links.push({ name: 'Trang chủ', route: '/' });
+  res.locals.links.push({ name: 'Sản phẩm', route: '/product' });
 
   var quantityPerPage = 12;
   var pageNumber = req.query.pageNumber || 1;
@@ -358,8 +377,11 @@ exports.product_list = function(req, res) {
 
       results.products.forEach(ele => {
         ele.img = ele.img[0];
+        ele.salePercent = Math.ceil(
+          (1 - (ele.price * 1.0) / ele.originalPrice) * 100
+        );
       });
-      
+
       res.render('products/product', {
         title: 'Sản phẩm',
         pageNumbers: pageNumbers,
@@ -380,10 +402,11 @@ exports.product_detail = async function(req, res) {
     product.watch = product.watch + 1;
   }
   await product.save();
+  product.bought = product.bought || 0;
   res.locals.isShowBreadcrumbs = true;
-  res.locals.links.push({name: 'Trang chủ', route: '/'});
-  res.locals.links.push({name: 'Sản phẩm', route: '/product'});
-  res.locals.links.push({name: product.name, route: '#'});
+  res.locals.links.push({ name: 'Trang chủ', route: '/' });
+  res.locals.links.push({ name: 'Sản phẩm', route: '/product' });
+  res.locals.links.push({ name: product.name, route: '#' });
   async.parallel(
     {
       category: function(callback) {
@@ -415,13 +438,20 @@ exports.product_detail = async function(req, res) {
       }
       results.productRelate.forEach(ele => {
         ele.img = ele.img[0];
+        ele.salePercent = Math.ceil(
+          (1 - (ele.price * 1.0) / ele.originalPrice) * 100
+        );
       });
-  
-      var filteredResult = results.review.filter(function(ele) {
-        return ele.star == 5;
-      })
 
-      console.log(filteredResult[0].reply[0])
+      var filteredResult = results.review.filter(function(ele) {
+        return ele.star === 5;
+      });
+      filteredResult.forEach(review => {
+        review.formatDate = formatDate(new Date(review.date));
+        review.reply.forEach(element => {
+          element.formatDate = formatDate(new Date(element.date));
+        });
+      });
 
       res.render('products/product-detail', {
         title: 'Chi tiết mặt hàng',

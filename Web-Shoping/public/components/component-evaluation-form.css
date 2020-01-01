@@ -1,66 +1,68 @@
+@import '../stylesheets/css/default-style.css';
+
 .evaluation-form-component {
   width: 100%;
-  display: none;
+  /* display: none; */
+  border: 1px solid #e6e6e6;
+  border-top: none;
+  border-radius: 3px;
+  color: var(--main-font-color-1);
 }
 
-.evaluation-form{
+.evaluation-form {
   width: 100%;
   display: block;
-  background-color: #ffffff;
+  background-color: #fff;
+  padding: 20px;
 }
 
 .evaluation-form-component h4 {
-  font-size: 21px;
+  font-size: 20px;
   padding-bottom: 15px;
-  color: #333333;
 }
 
-.evaluation-form-component input.title {
-  border: 1px solid;
-  border-color: #E6E6E6;
+.evaluation-form-component input.title,
+.evaluation-form textarea.content {
+  border: 1px solid #e6e6e6;
   background: transparent;
   line-height: 40px;
   padding-left: 10px;
   margin-top: 10px;
   width: 100%;
+  border-radius: 3px;
+  color: var(--main-font-color-1);
+  font-size: var(--font-size-content);
 }
+
 .evaluation-form-component .evaluation-start {
   display: flex;
   justify-content: left;
+  align-items: center;
   margin-bottom: 20px;
+  font-size: var(--font-size-content);
 }
 
-.evaluation-form-component .evaluation-title, .evaluation-form-component .evaluation-content {
+.evaluation-form-component .evaluation-title,
+.evaluation-form-component .evaluation-content {
   display: block;
   margin-bottom: 20px;
 }
 
 .evaluation-form-component .evaluation-button {
-  display: flex;
   float: right;
 }
 
-button.send-evaluation {
+/* button.send-evaluation {
   height: 40px;
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   text-align: center;
   border-radius: 5px;
-}
+} */
 
 .evaluation-form .top {
   display: flex;
   justify-content: space-between;
-}
-
-textarea.content {
-  border: 1px solid;
-  border-color: #E6E6E6;
-  background: transparent;
-  width: 100%;
-  line-height: 40px;
-  padding-left: 10px;
-  margin-top: 10px;
 }
 
 .evaluation-form-component .evaluation-start div.stars {
@@ -72,39 +74,37 @@ input.star {
   display: none;
   margin: 0;
   padding-top: 0;
-  height: 30px;
 }
 
 .evaluation-form-component .evaluation-start label.star {
   float: right;
   margin: 0;
   padding-top: 0;
-  font-size: 25px;
-  height: 30px;
-  color: #F1B306;
-  transition: all .2s;
+  padding-right: 5px;
+  color: #f1b306;
+  transition: all 200ms ease;
 }
 
-input.star:checked~label.star:before {
+input.star:checked ~ label.star:before {
   content: '\f005';
-  color: #F1B306;
-  transition: all .25s;
+  color: #f1b306;
+  font-size: 22px;
 }
 
-input.star-5:checked~label.star:before {
-  color: #F1B306;
+/* input.star-5:checked ~ label.star:before {
+  color: #f1b306;
 }
 
-input.star-1:checked~label.star:before {
-  color: #F62;
-}
+input.star-1:checked ~ label.star:before {
+  color: #f62;
+} */
 
 .evaluation-form-component .evaluation-start label.star:hover {
-  transform: rotate(-15deg) scale(1.3);
+  transform: rotate(-10deg) scale(1.2);
 }
-
 
 .evaluation-form-component .evaluation-start label.star:before {
   content: '\f006';
   font-family: FontAwesome;
+  font-size: 22px;
 }

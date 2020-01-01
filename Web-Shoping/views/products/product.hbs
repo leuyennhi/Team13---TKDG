@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="/public/vendor/bootstrap/css/bootstrap.min.css">
 
 {{!-- slider slick --}}
-{{title}}
 {{/section}}
 <div class="page-product">
     <div class="infor">
@@ -230,7 +229,7 @@
                                     <img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}"
                                         class="card-img-top" alt="...">
                                     <a href="/product/detail/{{this._id}}" class="stretched-link"></a>
-                                    <div class="deal-tag">30%</div>
+                                    <div class="deal-tag">{{this.salePercent}}%</div>
                                     <div class="hover-div">
                                         <a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
                                         <div>&nbsp;|&nbsp;</div>

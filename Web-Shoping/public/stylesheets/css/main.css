@@ -555,7 +555,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    bottom: -135px;
+    top: 73px;
     right: 0px;
     background-color: black;
     min-width: 160px;
@@ -636,7 +636,7 @@
 /* Style the list */
 
 ul.breadcrumb {
-  padding: 25px 10%;
+  padding: 30px 10%;
   list-style: none;
   background-color: rgba(103, 117, 214, 0.22);
 }

@@ -326,7 +326,7 @@
 							<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"
 								alt="...">
 							<a href="/product/detail/{{this._id}}" class="stretched-link"></a>
-							<div class="deal-tag">30%</div>
+							<div class="deal-tag">{{this.salePercent}}%</div>
 							<div class="hover-div">
 								<a href="#"><i class="fas fa-shopping-cart"></i>&ensp;Mua hàng</a>
 								<div>&nbsp;|&nbsp;</div>
@@ -340,7 +340,7 @@
 							<div class="m-0 mt-1 d-flex justify-content-center">
 								<span class="sale-price">{{formatPrice this.price}}<u>đ</u></span>
 								<span class="original-price ml-3">
-									195,000<u>đ</u>
+									{{formatPrice this.originalPrice}}<u>đ</u>
 								</span>
 							</div>
 							<button class="btn favorite-btn"><i class="far fa-heart"></i></button>
