@@ -70,14 +70,11 @@
 
 .page-home .products .title .inner {
   padding: 6em 50% 0 0;
+  position: relative;
 }
 
 .page-home .categories .title .inner {
   padding: 2em 50% 0 0;
-}
-
-.page-home .products .title .inner {
-  position: relative;
 }
 
 .page-home .categories .title .inner div,

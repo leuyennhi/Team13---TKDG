@@ -11,8 +11,14 @@
   --main-background-color: rgba(103, 117, 214, 0.22);
   --color-red: #ff3940;
   --hover-color-red: #ff424e;
-  --color-grey: #6d6b6a;
+  --color-grey: #7e7e7e;
   --width-normal: 80%;
   --font-size-title: 28px;
   --font-size-content: 14px;
+}
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none;
 }

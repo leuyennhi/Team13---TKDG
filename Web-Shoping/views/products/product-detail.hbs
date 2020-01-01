@@ -35,51 +35,59 @@
 				</div>
 			</div>
 
-			<div class="col-md-6 col-lg-5 p-b-30">
+			<div class="col-md-6 col-lg-5 ">
 				<div class="p-lr-0-lg">
 					<h4 class="name js-name-detail">
 						{{item.name}}
 					</h4>
-					<div class="row p-l-15 m-b-40">
-						<span style="font-size: 16px">
-							4.75
+					<div class="row p-l-15" style="font-size: 16px; margin-bottom: 30px;">
+						<span>
+							4.75&nbsp;
 							<i class="fa fa-star icon-star"></i>
 						</span>
-						<h4 class="m-r-30 m-l-30" style="font-size: 16px">|</h4>
-						<h4 style="font-size: 16px">{{item.bought}} Đã bán</h4>
+						<span class="m-r-30 m-l-30">|</span>
+						<span>{{item.bought}} Đã bán</span>
 					</div>
+					{{#if item.price}}
 					<span class="price js-cost">
 						{{formatPrice item.price}}<u>đ</u>
 					</span>
-					<span class="original-cost js-cost ml-3 mtext-108">
+					<span class="original-price js-cost ml-3">
+						<del>{{formatPrice item.originalPrice}}<u>đ</u></del>
+					</span>
+					{{else}}
+					<span class="price js-cost ml-3">
 						{{formatPrice item.originalPrice}}<u>đ</u>
 					</span>
+					{{/if}}
 					<!--  -->
-					<div class="p-t-33">
+					<div class="p-t-30">
 						<div class="m-b-25">
-							<div class="size-component">
+							<div class="select-component">
 								<h4 class="tag">Kích cỡ</h4>
 								{{!-- <button class="btn-size size-selected m-l-18">{{item.size}}</button> --}}
-								<div class="size-button-component">
-									<button class="btn-size size-selected m-l-18" id="size-S">S</button>
-									<button class="btn-size m-l-18" id="size-M">M</button>
-									<button class="btn-size m-l-18" id="size-L">L</button>
+								<div class="select-button-component">
+									<button class="btn-size size-selected" id="size-S">S</button>
+									<button class="btn-size" id="size-M">M</button>
+									<button class="btn-size" id="size-L">L</button>
 								</div>
 							</div>
 						</div>
 
 						<div class="m-b-25">
-							<div class="row p-l-15">
+							<div class="select-component">
 								<h4 class="tag">Màu sắc</h4>
-								<button class="btn-color color-selected m-l-18">{{item.color}}</button>
+								<div class="select-button-component"><button
+										class="btn-color color-selected">{{item.color}}</button>
+								</div>
 							</div>
 						</div>
 
-						<div class="flex-w flex-r-m p-b-25">
+						<div class="m-b-25">
 							<form action="/product/detail/{{item._id}}" method="POST"
 								class="flex-w flex-m respon6-next">
-								<div class="row p-l-15">
-									<h4 class="tag m-r-18">Số lượng</h4>
+								<div class="select-component">
+									<h4 class="tag">Số lượng</h4>
 									<div class="wrap-num-product flex-w">
 										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 											<i class="fs-16 zmdi zmdi-minus"></i>
@@ -93,7 +101,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="row p-l-15 m-t-50">
+								<div class="m-t-50"
+									style="display: flex; align-items: center; justify-content: space-between; width: 100%">
 									<button type="submit" class="btn-add-to-cart flex-c-m m-r-28 js-addcart-detail">
 										<i class="fa fa-shopping-cart m-r-5"></i>
 										Thêm vào giỏ hàng
@@ -393,7 +402,7 @@
 			</form>
 		</div>
 		{{!-- Danh sách bình luận --}}
-		
+
 		<div class="comments-component">
 			{{#each reviews}}
 			<div class="comment">
@@ -464,11 +473,12 @@
 
 
 	<div class="container product-relate-component">
-		<div class="title-component">
-			<h2> Sản phẩm liên quan</h2>
-			<a href="/product">Xem thêm ></a>
+		<div class="title">
+			<div class="inner">
+				<h2>Sản phẩm liên quan</h2>
+				<a href="/product">Xem tất cả&ensp;<i class="zmdi zmdi-chevron-right"></i></a>
+			</div>
 		</div>
-
 
 		<!-- Slide2 -->
 		<div class="content">
