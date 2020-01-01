@@ -65,23 +65,21 @@
 						<div class="m-b-25">
 							<div class="select-component">
 								<h4 class="tag">Kích cỡ</h4>
-								{{!-- <button class="btn-size size-selected m-l-18">{{item.size}}</button> --}}
-<<<<<<< HEAD
 								{{!-- <div class="size-button-component">
-										<button class="btn-size size-selected m-l-18" id="size-S">S</button>
-										<button class="btn-size m-l-18" id="size-M">M</button>
-										<button class="btn-size m-l-18" id="size-L">L</button>										
-									</div> --}}
-								<div class="size-button-component">
-									{{#checkEquality item.size.length  3}}
+									<button class="btn-size size-selected m-l-18" id="size-S">S</button>
+									<button class="btn-size m-l-18" id="size-M">M</button>
+									<button class="btn-size m-l-18" id="size-L">L</button>										
+								</div> --}}
+								<div class="select-button-component">
+									{{#checkEquality item.size.length 3}}
 									{{#each item.size}}
-									<button class="btn-size m-l-18" id="size-S">{{this}}</button>
+									<button class="btn-size" id={{this}}>{{this}}</button>
 									{{/each}}
 									{{else }}
 									<div class="form-group">
 										<select class="form-control">
 											{{#each item.size}}
-											<option>{{this}}</option>
+											<option value={{this}}>{{this}}</option>
 											{{/each}}
 										</select>
 									</div>
@@ -91,31 +89,31 @@
 						</div>
 					</div>
 					<div class="m-b-25">
-						<div class="row p-l-15">
+						<div class="select-component">
 							<h4 class="tag">Màu sắc</h4>
-							{{!-- <button class="btn-color color-selected m-l-18">{{item.color}}</button> --}}
-							{{#checkEquality item.color.length  3}}
-							{{#each item.color}}
-							<button class="btn-size m-l-18">{{this}}</button>
-							{{/each}}
-							{{else }}
-							<div class="form-group">
-								{{!-- <label for="exampleFormControlSelect1">Chọn kích cỡ</label> --}}
-								<select class="form-control" id="exampleFormControlSelect1">
-									{{#each item.color}}
-									<option>{{this}}</option>
-									{{/each}}
-								</select>
+							<div class="select-button-component">
+								{{#checkEquality item.color.length 3}}
+								{{#each item.color}}
+								<button class="btn-color">{{this}}</button>
+								{{/each}}
+								{{else }}
+								<div class="form-group">
+									{{!-- <label for="exampleFormControlSelect1">Chọn kích cỡ</label> --}}
+									<select class="form-control">
+										{{#each item.color}}
+										<option>{{this}}</option>
+										{{/each}}
+									</select>
+								</div>
+								{{/checkEquality}}
 							</div>
-							{{/checkEquality}}
-
 						</div>
 					</div>
 
 					<div class="flex-w flex-r-m p-b-25">
 						<form action="/product/detail/{{item._id}}" method="POST" class="flex-w flex-m respon6-next">
-							<div class="row p-l-15">
-								<h4 class="tag m-r-18">Số lượng</h4>
+							<div class="select-component">
+								<h4 class="tag">Số lượng</h4>
 								<div class="wrap-num-product flex-w">
 									<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 										<i class="fs-16 zmdi zmdi-minus"></i>
@@ -129,7 +127,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="row p-l-15 m-t-50">
+							<div class="m-t-50"
+								style="display: flex; align-items: center; justify-content: space-between; width: 100%">
 								<button type="submit" class="btn-add-to-cart flex-c-m m-r-28 js-addcart-detail">
 									<i class="fa fa-shopping-cart m-r-5"></i>
 									Thêm vào giỏ hàng
@@ -139,206 +138,10 @@
 								</button>
 							</div>
 						</form>
-=======
-								<div class="select-button-component">
-									<button class="btn-size size-selected" id="size-S">S</button>
-									<button class="btn-size" id="size-M">M</button>
-									<button class="btn-size" id="size-L">L</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="m-b-25">
-							<div class="select-component">
-								<h4 class="tag">Màu sắc</h4>
-								<div class="select-button-component"><button
-										class="btn-color color-selected">{{item.color}}</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="m-b-25">
-							<form action="/product/detail/{{item._id}}" method="POST"
-								class="flex-w flex-m respon6-next">
-								<div class="select-component">
-									<h4 class="tag">Số lượng</h4>
-									<div class="wrap-num-product flex-w">
-										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-minus"></i>
-										</div>
-
-										<input class="mtext-104 cl3 txt-center num-product" type="number" id="num"
-											name="num" value="1">
-
-										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-plus"></i>
-										</div>
-									</div>
-								</div>
-								<div class="m-t-50"
-									style="display: flex; align-items: center; justify-content: space-between; width: 100%">
-									<button type="submit" class="btn-add-to-cart flex-c-m m-r-28 js-addcart-detail">
-										<i class="fa fa-shopping-cart m-r-5"></i>
-										Thêm vào giỏ hàng
-									</button>
-									<button type="submit" class="btn-buy-now flex-c-m js-addcart-detail">
-										Mua ngay
-									</button>
-								</div>
-							</form>
-						</div>
->>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
 					</div>
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
-	</div>
-
-	{{!-- <div class="bor10 m-t-50 p-t-43 p-b-40">
-=======
-
-		{{!-- <div class="bor10 m-t-50 p-t-43 p-b-40">
->>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
-				<!-- Tab01 -->
-				<div class="tab01">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="nav-item p-b-10">
-							<a class="nav-link active" data-toggle="tab" href="#description" role="tab">Mô tả</a>
-						</li>
-
-						<li class="nav-item p-b-10">
-							<a class="nav-link" data-toggle="tab" href="#information" role="tab">Thông tin thêm</a>
-						</li>
-
-						<li class="nav-item p-b-10">
-							<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews({{num}})</a>
-						</li>
-					</ul>
-
-					<!-- Tab panes -->
-					<div class="tab-content p-t-43">
-						<!-- - -->
-						<div class="tab-pane fade show active" id="description" role="tabpanel">
-							<div class="how-pos2 p-lr-15-md">
-								<p class="stext-102 cl6">
-									{{item.description}}
-								</p>
-							</div>
-						</div>
-
-						<!-- - -->
-						<div class="tab-pane fade" id="information" role="tabpanel">
-							<div class="row">
-								<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-									<ul class="p-lr-28 p-lr-15-sm">
-										<li class="flex-w flex-t p-b-7">
-											<span class="stext-102 cl3 size-205">
-												Xuất xứ
-											</span>
-
-											<span class="stext-102 cl6 size-206">
-												China
-											</span>
-										</li>
-										<li class="flex-w flex-t p-b-7">
-											<span class="stext-102 cl3 size-205">
-												Chất liệu
-											</span>
-
-											<span class="stext-102 cl6 size-206">
-												60% cotton
-											</span>
-										</li>
-
-										<li class="flex-w flex-t p-b-7">
-											<span class="stext-102 cl3 size-205">
-												Color
-											</span>
-
-											<span class="stext-102 cl6 size-206">
-												{{item.color}}
-											</span>
-										</li>
-
-										<li class="flex-w flex-t p-b-7">
-											<span class="stext-102 cl3 size-205">
-												Size
-											</span>
-
-											<span class="stext-102 cl6 size-206">
-												{{item.size}}
-											</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<!-- - -->
-						<div class="tab-pane fade" id="reviews" role="tabpanel">
-							<div class="row">
-								<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-									<div class="p-b-30 m-lr-15-sm">
-										<!-- Review -->
-										<!-- Add review -->
-										<form class="w-full" action="/product/review/{{item._id}}" method="POST">
-											<h5 class="mtext-108 cl2 p-b-7">
-												Thêm bình luận
-											</h5>
-
-											<div class="row p-b-25">
-												<div class="col-sm-12 p-b-10">
-													<label class="stext-102 cl3" for="name">Name</label>
-													<input class="size-111 bor8 stext-102 cl2 p-lr-20" required id="name" type="text" name="name" value="{{user.username}}">
-												</div>
-												<div class="col-12 p-b-5">
-													<label class="stext-102 cl3" for="review">Your review</label>
-													<textarea required class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10" id="review" name="review"></textarea>
-												</div>	
-											</div>
-
-											<button type="submit" class="float-right flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10">
-												Submit
-											</button>
-										</form>
-										<h5 class="mtext-108 cl2 p-b-7">
-												Bình luận
-											</h5><br><br>
-										{{#each reviews}}
-										<div class="flex-w flex-t p-b-68">
-											<div class="size-207">
-												<div class="flex-w flex-sb-m p-b-17">
-													<span class="mtext-107 cl2 p-r-20">
-														{{this.name}}
-													</span>
-												</div>
-
-												<p class="stext-102 cl6">
-													{{this.content}}
-												</p>
-											</div>
-										</div>
-										{{/each}}
-										{{#each item.size}}
-										
-										</div>
-										{{/each}}
-										<nav aria-label="..." class="mx-auto">
-											<ul class="pagination">
-												{{#each page}}
-												<li class="page-item"><a class="page-link" href="/product/detail/{{../item._id}}/{{this}}">{{this}}</a></li>
-												{{/each}}
-											</ul>
-										</nav>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> --}}
 	</div>
 
 	<div class="container product-detail-component">
@@ -365,7 +168,7 @@
 				</div>
 				<div class="item">
 					<h3 class="title">Kích cỡ</h3>
-					<h3 class="value">S, M, L</h3>
+					<h3 class="value">{{item.size}}</h3>
 				</div>
 				<div class="item">
 					<h3 class="title">Kho hàng</h3>
@@ -384,8 +187,8 @@
 		<h2>Đánh giá sản phẩm</h2>
 		<div class="evaluation">
 			<div class="average-rating">
-				<h1>4.75</h1>
-				<h4>(120 bình chọn)</h4>
+				<h1>4.75&nbsp;<i class="fa fa-star icon-star"></i></h1>
+				<h4 class="m-t-5">(120 bình chọn)</h4>
 			</div>
 			<div class="detail-rating">
 				<div class="item-detail-rating">
@@ -486,15 +289,6 @@
 			</form>
 		</div>
 		{{!-- Danh sách bình luận --}}
-<<<<<<< HEAD
-		<div class="comments-component">
-			<div class="comment">
-				<div class="comment-item">
-					<div class="my-photo">
-						<a href="#"><img class="img-circle" src="/images/customer.jpg" alt="My Image" /></a>
-						<h5>Vạn Bằng</h5>
-						<p class="time">một tháng trước</p>
-=======
 
 		<div class="comments-component">
 			{{#each reviews}}
@@ -504,7 +298,6 @@
 						<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
 						<h5>{{this.name}}</h5>
 						<p class="time">{{this.formatDate}}</p>
->>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
 					</div>
 					<div class="information clearfix">
 						<div style="display: flex; align-items: center;">
@@ -524,18 +317,8 @@
 						</div>
 						<p class="buy-already">Đã mua sản phẩm này tại Unicorn Shop</p>
 						<div class="description js-description">
-<<<<<<< HEAD
-							<p class="review_detail" itemprop="reviewBody"></p>
-							<span>Mình rất ưng ý với giá cả và chất liệu,
-								màu cũng rất xinh xẻo khi nhìn ở ngoài, vải đúng cotton,
-								ko bị mỏng như mình nghĩ
-								<br>
-							</span>
-							</p>
-=======
 							{{!-- <p class="review_detail" itemprop="reviewBody"></p> --}}
 							<span>{{this.content}}</span>
->>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
 						</div>
 						{{#if this.reply}}
 						<button data-toggle="collapse" href="#collapseReply-{{this._id}}" role="button"
@@ -545,13 +328,9 @@
 						{{/if}}
 					</div>
 				</div>
-<<<<<<< HEAD
-				<div class="reply-comment-component">
-=======
 
 				<div class="reply-comment-component collapse" id="collapseReply-{{this._id}}">
 					{{#each reply}}
->>>>>>> e64ac7f0934d22ecf6b76c21cbdb513ef49aaa42
 					<div class="reply-comment">
 						<div class="my-photo">
 							<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>

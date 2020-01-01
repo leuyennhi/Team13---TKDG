@@ -1,14 +1,18 @@
-$("#size-S").click(function() {
-  $(".btn-size").removeClass("size-selected");
-  $("#size-S").addClass("size-selected");
+$('.btn-size').click(function() {
+  $('.btn-size').removeClass('size-selected');
+  $(this).addClass('size-selected');
 });
 
-$("#size-M").click(function() {
-  $(".btn-size").removeClass("size-selected");
-  $("#size-M").addClass("size-selected");
+$('.btn-color').click(function() {
+  $('.btn-color').removeClass('color-selected');
+  $(this).addClass('color-selected');
 });
 
-$("#size-L").click(function() {
-  $(".btn-size").removeClass("size-selected");
-  $("#size-L").addClass("size-selected");
+$(document).ready(function() {
+  $('.btn-size')
+    .first()
+    .addClass('size-selected');
+  $('.btn-color')
+    .first()
+    .addClass('color-selected');
 });

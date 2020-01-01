@@ -86,7 +86,6 @@ input.num-product::-webkit-inner-spin-button {
 
 .select-component .select-button-component {
   display: flex;
-  justify-content: space-between;
   width: 75%;
   padding-left: 10px;
 }
@@ -99,6 +98,25 @@ input.num-product::-webkit-inner-spin-button {
   color: #b0b0b0;
   border: 1px solid #b0b0b0;
   transition: all 200ms ease;
+  margin-right: 10px;
+}
+
+.select-component .select-button-component .btn-size:nth-last-child(1),
+.select-component .select-button-component .btn-color:nth-last-child(1) {
+  margin-right: 0px;
+}
+
+.select-component .select-button-component > .form-group {
+  margin-bottom: 0px;
+  height: 35px;
+  width: 30%;
+  border-radius: 3px;
+  color: #b0b0b0;
+}
+
+.select-component .select-button-component > .form-group .form-control {
+  font-size: var(--font-size-content);
+  color: var(--main-font-color-1);
 }
 
 .size-selected,
@@ -329,7 +347,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .my-process-bar {
-  background-color: var(--main-border-color);
+  background-color: var(--main-font-color-2);
   height: 10px;
   border-radius: 5px;
 }
