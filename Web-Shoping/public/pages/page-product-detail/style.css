@@ -322,3 +322,12 @@ input.num-product::-webkit-inner-spin-button {
   height: 10px;
   border-radius: 5px;
 }
+    
+    .form-control {
+        border-color: #666666;
+    }
+    
+    .form-control:hover {
+        border-color: #666666 !important;
+        color: #666666 !important;
+    }

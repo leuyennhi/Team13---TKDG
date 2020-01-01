@@ -240,6 +240,10 @@
 											</div>
 										</div>
 										{{/each}}
+										{{#each item.size}}
+										
+										</div>
+										{{/each}}
 										<nav aria-label="..." class="mx-auto">
 											<ul class="pagination">
 												{{#each page}}
@@ -408,7 +412,7 @@
 			<div class="comment">
 				<div class="comment-item">
 					<div class="my-photo">
-						<a href="#"><img class="img-circle" src="/images/customer.jpg" alt="My Image" /></a>
+						<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
 						<h5>{{this.name}}</h5>
 						<p class="time">{{this.date}}</p>
 					</div>
@@ -441,21 +445,25 @@
 						<button class="hide-comment">Ẩn phản hồi</button>
 					</div>
 				</div>
-				{{/each}}
+				
+				
 				<div class="reply-comment-component">
+					{{#each reply}}	
 					<div class="reply-comment">
+						
 						<div class="my-photo">
-							<a href="#"><img class="img-circle" src="/images/avatar.png" alt="My Image" /></a>
+							<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
 							<h5>Unicorn Shop</h5>
-							<p class="time">một tháng trước</p>
+							<p class="time">{{this.date}}</p>
 						</div>
 						<div class="information">
 							<p class="from-us">Phản hồi từ Unicorn Shop</p>
-							<span>Cảm ơn phản hồi của bạn!
+							<span>{{this.content}}
 								<br>
 							</span>
 						</div>
 					</div>
+					
 					<div class="input-comment-component">
 						<div class="input-comment">
 							<div class="my-photo">
@@ -466,7 +474,9 @@
 						<button class="public-comment component-default-button">Đăng phản hồi</button>
 					</div>
 				</div>
+				{{/each}}
 			</div>
+			{{/each}}
 		</div>
 	</div>
 

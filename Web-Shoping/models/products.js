@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
-    name: {type: String, required: true},
+    name: { type: String, required: true },
     catergory: { type: Schema.ObjectId, ref: 'Catergory', required: true },
     originalPrice: {type: Number},
     price: {type: Number, required: true},
@@ -22,10 +22,10 @@ var ProductSchema = new Schema({
 
 // Virtual for this Product instance URL.
 ProductSchema
-.virtual('url')
-.get(function () {
-  return '/product/'+this._id;
-});
+    .virtual('url')
+    .get(function() {
+        return '/product/' + this._id;
+    });
 
 // Export model.
 module.exports = mongoose.model('Product', ProductSchema);
