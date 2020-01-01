@@ -1,4 +1,5 @@
-< script >
+{
+  /* < script >
     var img_tracker = 'f';
 
 function change() {
@@ -60,4 +61,5 @@ script >
     function rangeSlider(value) {
         document.getElementById('rangeValue').innerHTML = value;
     } <
-    /script>
+    /script> */
+}
