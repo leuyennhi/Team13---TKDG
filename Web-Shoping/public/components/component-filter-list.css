@@ -58,7 +58,7 @@
 }
 
 .component-filter-list .cost .checkbox-cost {
-  padding-top: 50px;
+  /* padding-top: 50px; */
 }
 
 .component-filter-list .cost .checkbox-cost > div {
@@ -154,8 +154,9 @@
   width: 300px;
 } */
 
-.component-filter-list .down {
-  width: 14px;
+.component-filter-list .filter-item-icon {
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -256,11 +257,13 @@
 }
 
 .range {
-  height: 2px;
+  /* height: 2px;
   background-color: #717fe0;
   -webkit-appearance: none;
   outline: none;
-  width: 100%;
+  width: 100%; */
+  margin: 0px !important;
+  margin-top: 35px !important;
 }
 
 /* .collapse {
