@@ -187,60 +187,23 @@
 		<h2>Đánh giá sản phẩm</h2>
 		<div class="evaluation">
 			<div class="average-rating">
-				<h1>4.75&nbsp;<i class="fa fa-star icon-star"></i></h1>
-				<h4 class="m-t-5">(120 bình chọn)</h4>
+				<h1>{{ratings.averageStar}}/5 <i class="fa fa-star icon-star"></i></h1>
+				<h4 class="m-t-5">({{ratings.reviewQuantity}} bình luận)</h4>
 			</div>
 			<div class="detail-rating">
+				{{#each ratings.bars}}
 				<div class="item-detail-rating">
-					<h5>
-						5
+					<div class="star">
+						{{this.number}}
 						<i class="fa fa-star icon-star"></i>
-					</h5>
-					<div class="progress my-process">
-						<div class="progress-bar my-process-bar" role="progressbar" style="width: 75%;"
-							aria-valuenow="90" aria-valuemin="0" aria-valuemax="120"></div>
 					</div>
-				</div>
-				<div class="item-detail-rating">
-					<h5>
-						4
-						<i class="fa fa-star icon-star"></i>
-					</h5>
 					<div class="progress my-process">
-						<div class="progress-bar my-process-bar" role="progressbar" style="width: 25%;"
-							aria-valuenow="30" aria-valuemin="0" aria-valuemax="120"></div>
+						<div class="progress-bar my-process-bar" role="progressbar" style="width: {{percent}}%"
+							aria-valuenow={{this.percent}} aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
+					<div class="percent">{{percent}}%</div>
 				</div>
-				<div class="item-detail-rating">
-					<h5>
-						3
-						<i class="fa fa-star icon-star"></i>
-					</h5>
-					<div class="progress my-process">
-						<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
-							aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
-				<div class="item-detail-rating">
-					<h5>
-						2
-						<i class="fa fa-star icon-star"></i>
-					</h5>
-					<div class="progress my-process">
-						<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
-							aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
-				<div class="item-detail-rating">
-					<h5>
-						1
-						<i class="fa fa-star icon-star"></i>
-					</h5>
-					<div class="progress my-process">
-						<div class="progress-bar my-process-bar" role="progressbar" style="width: 0%;"
-							aria-valuenow="{{newOrder}}" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
+				{{/each}}
 			</div>
 			<div class="evaluation-button-component">
 				<h3>Chia sẻ nhận xét của bạn về sản phẩm</h3>
@@ -301,18 +264,14 @@
 					<div class="information clearfix">
 						<div style="display: flex; align-items: center;">
 							<div class="stars">
-								{{!-- <input class="star star-5" id="star-5" type="radio" name="star" /> --}}
-								<label class="star star-5" for="star-5"></label>
-								{{!-- <input class="star star-4" id="star-4" type="radio" name="star" /> --}}
-								<label class="star star-4" for="star-4"></label>
-								{{!-- <input class="star star-3" id="star-3" type="radio" name="star" /> --}}
-								<label class="star star-3" for="star-3"></label>
-								{{!-- <input class="star star-2" id="star-2" type="radio" name="star" /> --}}
-								<label class="star star-2" for="star-2"></label>
-								{{!-- <input class="star star-1" id="star-1" type="radio" name="star" /> --}}
-								<label class="star star-1" for="star-1"></label>
+								{{#each checkedRatingStars}}
+								<span class="fa fa-star icon-star"></span>
+								{{/each}}
+								{{#each uncheckedRatingStars}}
+								<span class="fa fa-star icon-grey-star"></span>
+								{{/each}}
 							</div>
-							<p class="review">Cực kì hài lòng</p>
+							<p class="review">{{this.title}}</p>
 						</div>
 						<p class="buy-already">Đã mua sản phẩm này tại Unicorn Shop</p>
 						<div class="description js-description">
