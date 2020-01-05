@@ -4,3 +4,7 @@ $('.page-shopping-cart .nav .nav-link').click(function() {
     .prevAll('a')
     .addClass('is-active');
 });
+
+$('.page-shopping-cart .checkout-btn').click(function() {
+  $('.page-shopping-cart .nav #nav-profile-tab').trigger('click');
+});

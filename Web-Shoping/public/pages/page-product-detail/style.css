@@ -77,6 +77,10 @@ input.num-product::-webkit-inner-spin-button {
   color: #f1b306;
 }
 
+.icon-grey-star {
+  color: var(--main-border-color);
+}
+
 .select-component {
   display: flex;
   align-items: center;
@@ -329,24 +333,36 @@ input.num-product::-webkit-inner-spin-button {
 
 .evaluation .detail-rating .item-detail-rating {
   display: flex;
-  text-align: center;
+  align-items: center;
 }
 
-.evaluation .detail-rating .item-detail-rating h5 {
+.evaluation .detail-rating .item-detail-rating .star {
   font-size: var(--font-size-content);
-  color: #f1b306;
-  width: 50px;
+  width: 30px;
+  margin-right: 5px;
 }
 
-.my-process {
+.evaluation .detail-rating .item-detail-rating .percent {
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.evaluation .detail-rating .item-detail-rating .my-process {
   height: 10px;
-  margin-bottom: 10px;
-  margin-top: 7px;
-  margin-left: 5px;
+  margin-bottom: 8px;
+  margin-top: 8px;
   width: 350px;
 }
 
-.my-process-bar {
+.evaluation .detail-rating .item-detail-rating .my-process:nth-child(1) {
+  margin-top: 0x;
+}
+
+.evaluation .detail-rating .item-detail-rating .my-process:nth-last-child(1) {
+  margin-bottom: 0x;
+}
+
+.evaluation .detail-rating .item-detail-rating .my-process .my-process-bar {
   background-color: var(--main-font-color-2);
   height: 10px;
   border-radius: 5px;

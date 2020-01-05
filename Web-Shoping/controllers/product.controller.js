@@ -444,14 +444,61 @@ exports.product_detail = async function(req, res) {
       });
 
       var filteredResult = results.review.filter(function(ele) {
-        return ele.star === 5;
+        return ele.star > 3;
       });
+
+      var totalStar = 0;
+      var ratingBars = [
+        { number: 1, percent: 0 },
+        { number: 2, percent: 0 },
+        { number: 3, percent: 0 },
+        { number: 4, percent: 0 },
+        { number: 5, percent: 0 }
+      ];
+
       filteredResult.forEach(review => {
         review.formatDate = formatDate(new Date(review.date));
         review.reply.forEach(element => {
           element.formatDate = formatDate(new Date(element.date));
         });
+
+        review.checkedRatingStars = [];
+        review.uncheckedRatingStars = [];
+        for (let i = 0; i < review.star; i++) {
+          review.checkedRatingStars.push('');
+        }
+        for (let i = 0; i < 5 - review.star; i++) {
+          review.uncheckedRatingStars.push('');
+        }
+
+        totalStar += review.star;
+        if (review.star === 4) {
+          ratingBars[3].percent += 1;
+        }
+        if (review.star === 5) {
+          ratingBars[4].percent += 1;
+        }
       });
+
+      ratingBars[3].percent = Math.ceil(
+        ((ratingBars[3].percent * 1.0) /
+          (filteredResult.length > 0 ? filteredResult.length : 1)) *
+          100
+      );
+      ratingBars[4].percent = Math.ceil(
+        ((ratingBars[4].percent * 1.0) /
+          (filteredResult.length > 0 ? filteredResult.length : 1)) *
+          100
+      );
+
+      var ratings = {
+        reviewQuantity: filteredResult.length,
+        averageStar: (
+          (totalStar * 1.0) /
+          (filteredResult.length > 0 ? filteredResult.length : 1)
+        ).toFixed(2),
+        bars: ratingBars
+      };
 
       res.render('products/product-detail', {
         title: 'Chi tiết mặt hàng',
@@ -462,7 +509,8 @@ exports.product_detail = async function(req, res) {
         reviews: filteredResult,
         num: results.reviewPage,
         page: page,
-        watch: product.watch
+        watch: product.watch,
+        ratings
       });
     }
   );
