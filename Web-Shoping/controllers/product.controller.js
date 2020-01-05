@@ -392,6 +392,7 @@ exports.product_list = function(req, res) {
     }
   );
 };
+
 exports.product_detail = async function(req, res) {
   var itemPerPage = 10;
   page = req.params.page ? req.params.page : 1;
@@ -448,6 +449,7 @@ exports.product_detail = async function(req, res) {
       });
 
       var totalStar = 0;
+      var averageStar = 0;
       var ratingBars = [
         { number: 1, percent: 0 },
         { number: 2, percent: 0 },
@@ -480,6 +482,10 @@ exports.product_detail = async function(req, res) {
         }
       });
 
+      averageStar =
+        (totalStar * 1.0) /
+        (filteredResult.length > 0 ? filteredResult.length : 1);
+
       ratingBars[3].percent = Math.ceil(
         ((ratingBars[3].percent * 1.0) /
           (filteredResult.length > 0 ? filteredResult.length : 1)) *
@@ -493,10 +499,7 @@ exports.product_detail = async function(req, res) {
 
       var ratings = {
         reviewQuantity: filteredResult.length,
-        averageStar: (
-          (totalStar * 1.0) /
-          (filteredResult.length > 0 ? filteredResult.length : 1)
-        ).toFixed(2),
+        averageStar: averageStar === 0 ? averageStar : averageStar.toFixed(2),
         bars: ratingBars
       };
 
