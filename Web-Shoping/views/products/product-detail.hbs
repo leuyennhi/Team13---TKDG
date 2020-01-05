@@ -252,7 +252,7 @@
 		</div>
 		{{!-- Form đánh giá về sản phẩm --}}
 		<div class="evaluation-form-component collapse" id="collapseReview">
-			<form class="evaluation-form clearfix">
+			<form class="evaluation-form clearfix" id ="review-form" idP={{id}}>
 				<div class="top">
 					<h4>Nhận xét của bạn</h4>
 				</div>
@@ -260,15 +260,15 @@
 					<p>Đánh giá của bạn</p>
 					<div class="stars">
 						<div>
-							<input class="star star-5" id="star-5" type="radio" name="star" checked />
+							<input class="star star-5" id="star-5" s="5" type="radio" name="star" checked />
 							<label class="star star-5" for="star-5"></label>
-							<input class="star star-4" id="star-4" type="radio" name="star" />
+							<input class="star star-4" id="star-4" s="4" type="radio" name="star" />
 							<label class="star star-4" for="star-4"></label>
-							<input class="star star-3" id="star-3" type="radio" name="star" />
+							<input class="star star-3" id="star-3" s="3" type="radio" name="star" />
 							<label class="star star-3" for="star-3"></label>
-							<input class="star star-2" id="star-2" type="radio" name="star" />
+							<input class="star star-2" id="star-2" s="2" type="radio" name="star" />
 							<label class="star star-2" for="star-2"></label>
-							<input class="star star-1" id="star-1" type="radio" name="star" />
+							<input class="star star-1" id="star-1" s="1" type="radio" name="star" />
 							<label class="star star-1" for="star-1"></label>
 						</div>
 					</div>
@@ -283,8 +283,7 @@
 						placeholder="Nhận xét của bạn về sản phẩm"></textarea>
 				</div>
 				<div class="evaluation-button">
-					<button type="submit" class="send-evaluation component-default-button" id="send-form-btn"
-						onclick="closeForm()">Gửi nhận xét</button>
+					<button type="submit" class="send-evaluation component-default-button" id="send-form-btn">Gửi nhận xét</button>
 				</div>
 			</form>
 		</div>

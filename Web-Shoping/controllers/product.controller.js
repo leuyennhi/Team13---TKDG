@@ -444,7 +444,7 @@ exports.product_detail = async function(req, res) {
       });
 
       var filteredResult = results.review.filter(function(ele) {
-        return ele.star === 5;
+        return !ele.isAccepted;
       });
       filteredResult.forEach(review => {
         review.formatDate = formatDate(new Date(review.date));
@@ -456,6 +456,7 @@ exports.product_detail = async function(req, res) {
       res.render('products/product-detail', {
         title: 'Chi tiết mặt hàng',
         item: product,
+        id: product._id,
         category: results.category,
         productRelates: results.productRelate,
         user: req.user,
@@ -789,3 +790,19 @@ exports.product_review = async function(req, res) {
   await review.save();
   res.redirect('/product/detail/' + req.params.id);
 };
+
+exports.addComment = async (req,res) => {
+  var review  = new Review({
+    name: 'Minh Nguyen',
+    content: req.body.content,
+    star: req.body.star,
+    isAccepted: req.body.star < 5? false : undefined,
+    avatar: '',
+    // id: req.body.id,
+    date: new Date(),
+    reply: []
+  })
+  await review.save();
+  var object = {...review.toObject(),formatDate:formatDate(new Date()),title:req.body.title}
+  return res.send(object);
+}

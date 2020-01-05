@@ -100,6 +100,7 @@ module.exports = function(router, passport, parser) {
     router.get('/aboutus', function(req, res, next) {
         res.render('aboutus', { title: 'Về chúng tôi' });
     });
+    router.post('/addcomment',productController.addComment);
 
     router.get('/try-on-clothes', tryOnClothesController.try_on_clothes);
 };
