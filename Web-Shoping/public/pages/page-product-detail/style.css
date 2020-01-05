@@ -75,20 +75,10 @@ input.num-product::-webkit-inner-spin-button {
 
 .icon-star {
   color: #f1b306;
-  margin-right: 4px;
-}
-
-.icon-star:nth-last-child(1) {
-  margin-right: 0px;
 }
 
 .icon-grey-star {
   color: var(--main-border-color);
-  margin-right: 4px;
-}
-
-.icon-grey-star:nth-last-child(1) {
-  margin-right: 0px;
 }
 
 .select-component {
