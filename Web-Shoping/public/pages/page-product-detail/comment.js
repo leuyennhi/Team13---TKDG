@@ -29,7 +29,7 @@ $('#review-form').submit(function(e) {
 		data : form_data
 	}).done(function(response){
     var comment
-    if(response.star == 5)
+    if(response.star >= 4)
 		{
       comment =  `<div class="comment">
                         <div class="comment-item">

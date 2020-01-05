@@ -847,7 +847,7 @@ exports.addComment = async (req,res) => {
     name: 'Minh Nguyen',
     content: req.body.content,
     star: req.body.star,
-    isAccepted: req.body.star < 5? false : undefined,
+    isAccepted: req.body.star < 4? false : undefined,
     avatar: 'https://png.pngtree.com/png-clipart/20190906/original/pngtree-520-couple-avatar-boy-avatar-little-dinosaur-cartoon-cute-png-image_4561296.jpg',
     product: req.body.id,
     date: new Date(),
