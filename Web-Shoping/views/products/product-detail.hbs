@@ -15,8 +15,6 @@
 				<div class="p-l-25 p-r-30 p-lr-0-lg">
 					<div class="wrap-slick3 flex-sb flex-w">
 						<div class="wrap-slick3-dots"></div>
-						{{!-- <div class="wrap-slick3-arrows flex-sb-m flex-w"></div> --}}
-
 						<div class="slick3 gallery-lb">
 							{{#each item.img}}
 							<div class="item-slick3" data-thumb={{this}}>
@@ -60,7 +58,7 @@
 						{{formatPrice item.originalPrice}}<u>đ</u>
 					</span>
 					{{/if}}
-					<!--  -->
+
 					<div class="p-t-30">
 						<div class="m-b-25">
 							<div class="select-component">
@@ -98,7 +96,6 @@
 								{{/each}}
 								{{else }}
 								<div class="form-group">
-									{{!-- <label for="exampleFormControlSelect1">Chọn kích cỡ</label> --}}
 									<select class="form-control">
 										{{#each item.color}}
 										<option>{{this}}</option>
@@ -154,7 +151,7 @@
 				</div>
 				<div class="item">
 					<h3 class="title">Thương hiệu</h3>
-					<h3 class="value">No brand</h3>
+					<h3 class="value">Unicorn</h3>
 				</div>
 				<div class="item">
 					<h3 class="title">Chất liệu</h3>
@@ -194,12 +191,12 @@
 				{{#each ratings.bars}}
 				<div class="item-detail-rating">
 					<div class="star">
-						{{this.number}}
+						{{number}}
 						<i class="fa fa-star icon-star"></i>
 					</div>
 					<div class="progress my-process">
 						<div class="progress-bar my-process-bar" role="progressbar" style="width: {{percent}}%"
-							aria-valuenow={{this.percent}} aria-valuemin="0" aria-valuemax="100"></div>
+							aria-valuenow={{percent}} aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 					<div class="percent">{{percent}}%</div>
 				</div>
@@ -208,14 +205,14 @@
 			<div class="evaluation-button-component">
 				<h3>Chia sẻ nhận xét của bạn về sản phẩm</h3>
 				<button data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false"
-					aria-controls="collapseReview" class="component-default-button">
+					aria-controls="collapseReview" class="comment-bnt component-default-button">
 					Viết nhận xét
 				</button>
 			</div>
 		</div>
 		{{!-- Form đánh giá về sản phẩm --}}
 		<div class="evaluation-form-component collapse" id="collapseReview">
-			<form class="evaluation-form clearfix" id ="review-form" idP={{id}}>
+			<form class="evaluation-form clearfix" id="review-form" idP={{id}}>
 				<div class="top">
 					<h4>Nhận xét của bạn</h4>
 				</div>
@@ -243,96 +240,95 @@
 				<div class="evaluation-content">
 					{{!-- <p>Nội dung</p> --}}
 					<textarea row="5" type="text" class="content" name="content"
-						placeholder="Nhận xét của bạn về sản phẩm"></textarea>
+						placeholder="Nhận xét của bạn về sản phẩm" required></textarea>
 				</div>
 				<div class="evaluation-button">
-					<button type="submit" class="send-evaluation component-default-button" id="send-form-btn">Gửi nhận xét</button>
+					<button type="submit" class="send-evaluation component-default-button" id="send-form-btn">Gửi nhận
+						xét</button>
 				</div>
 			</form>
 		</div>
-		{{!-- Danh sách bình luận --}}
 
+		{{!-- Danh sách bình luận --}}
 		<div class="comments-component">
 			{{#each reviews}}
-				{{#if this.isAccepted}}
-				<div class="comment">
-					<div class="comment-item">
+			<div class="comment">
+				<div class="comment-item">
 					<div class="my-photo">
 						<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
-						<h5>{{this.name}}</h5>
+						<div class="name">{{this.name}}</div>
 						<p class="time">{{this.formatDate}}</p>
 					</div>
+
+					{{#if this.isAccepted}}
 					<div class="information clearfix">
-						<p class="review">Comment của bạn đang được duyệt, vui lòng chờ giây lát....</p>
+						<div style="display: flex; align-items: center;">
+							<div class="stars">
+								{{#each checkedRatingStars}}
+								<span class="fa fa-star star"></span>
+								{{/each}}
+								{{#each uncheckedRatingStars}}
+								<span class="fa fa-star grey-star"></span>
+								{{/each}}
+							</div>
+							<p class="review">{{this.title}}</p>
+						</div>
+
+						{{#if this.isBought}}
+						<p class="bought">Đã mua sản phẩm này tại Unicorn</p>
+						{{else}}
+						<p class="unbought"><i class="fas fa-exclamation-circle"></i>&ensp;Chưa mua sản phẩm</p>
+						{{/if}}
+
+						<div class="description js-description">
+							<span>{{this.content}}</span>
+						</div>
+
+						{{#if this.reply}}
+						<button data-toggle="collapse" href="#collapseReply-{{this._id}}" role="button"
+							aria-expanded="false" aria-controls="collapseReply-{{this._id}}" class="show-comment">
+							Xem phản hồi
+						</button>
+						{{/if}}
 					</div>
+					{{else}}
+					<div class="information clearfix">
+						<div class="description js-description">
+							<span>Bình luận của bạn đang trong trạng thái chờ duyệt.</span>
+						</div>
+					</div>
+					{{/if}}
 				</div>
-				{{else}}
-				<div class="comment">
-					<div class="comment-item">
+
+				<div class="reply-comment-component collapse" id="collapseReply-{{this._id}}">
+					{{#each reply}}
+					<div class="reply-comment">
 						<div class="my-photo">
 							<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
-							<h5>{{this.name}}</h5>
+							<div class="name">Unicorn Shop</div>
 							<p class="time">{{this.formatDate}}</p>
 						</div>
-						<div class="information clearfix">
-							<div style="display: flex; align-items: center;">
-								<div class="stars">
-									{{#each checkedRatingStars}}
-									<span class="fa fa-star icon-star"></span>
-									{{/each}}
-									{{#each uncheckedRatingStars}}
-									<span class="fa fa-star icon-grey-star"></span>
-									{{/each}}
-								</div>
-								<p class="review">{{this.title}}</p>
-							</div>
-							<p class="buy-already">Đã mua sản phẩm này tại Unicorn Shop</p>
-							<div class="description js-description">
-								{{!-- <p class="review_detail" itemprop="reviewBody"></p> --}}
-								<span>{{this.content}}</span>
-							</div>
-							{{#if this.reply}}
-							<button data-toggle="collapse" href="#collapseReply-{{this._id}}" role="button"
-								aria-expanded="false" aria-controls="collapseReply-{{this._id}}" class="show-comment">
-								Xem phản hồi
-							</button>
-							{{/if}}
+						<div class="information">
+							<p class="from-us">Phản hồi từ Unicorn</p>
+							<span>{{this.content}}</span>
 						</div>
 					</div>
 
-					<div class="reply-comment-component collapse" id="collapseReply-{{this._id}}">
-						{{#each reply}}
-						<div class="reply-comment">
+					<div class="input-comment-component clearfix">
+						<div class="input-comment">
 							<div class="my-photo">
-								<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
-								<h5>Unicorn Shop</h5>
-								<p class="time">{{this.formatDate}}</p>
+								<a href="#"><img class="img-circle" src="/images/customer.jpg" alt="My Image" /></a>
 							</div>
-							<div class="information">
-								<p class="from-us">Phản hồi từ Unicorn Shop</p>
-								<span>{{this.content}}</span>
-							</div>
+							<textarea rows="3" placeholder="Nhập phản hồi"></textarea>
 						</div>
-
-						<div class="input-comment-component clearfix">
-							<div class="input-comment">
-								<div class="my-photo">
-									<a href="#"><img class="img-circle" src="/images/customer.jpg" alt="My Image" /></a>
-								</div>
-								<textarea rows="3" placeholder="Nhập phản hồi"></textarea>
-							</div>
-							<button class="public-comment component-default-button">Gửi phản hồi</button>
-						</div>
-						{{/each}}
+						<button class="public-comment component-default-button">Gửi phản hồi</button>
 					</div>
-
+					{{/each}}
 				</div>
-				{{/if}}
+			</div>
 			{{/each}}
 		</div>
 	</div>
-
-
 
 	<div class="container product-relate-component">
 		<div class="title">
@@ -346,7 +342,8 @@
 		<div class="content">
 			<div class="row">
 				{{#each productRelates}}
-				<div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex" id={{this.catergory}}>
+				<div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex" style="padding: 1em 0.8em;"
+					id={{this.catergory}}>
 					<div class="component-product card">
 						<div class="product-image">
 							<img data-toggle="tooltip" title="{{this.name}}" src="{{this.img}}" class="card-img-top"

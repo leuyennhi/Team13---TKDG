@@ -394,8 +394,8 @@ exports.product_list = function(req, res) {
 };
 
 exports.product_detail = async function(req, res) {
-  var itemPerPage = 10;
-  page = req.params.page ? req.params.page : 1;
+  // var itemPerPage = 10;
+  // page = req.params.page ? req.params.page : 1;
   var product = await Product.findById(req.params.id);
   if (!product.watch) {
     product.watch = 1;
@@ -404,10 +404,12 @@ exports.product_detail = async function(req, res) {
   }
   await product.save();
   product.bought = product.bought || 0;
+
   res.locals.isShowBreadcrumbs = true;
   res.locals.links.push({ name: 'Trang chủ', route: '/' });
   res.locals.links.push({ name: 'Sản phẩm', route: '/product' });
   res.locals.links.push({ name: product.name, route: '#' });
+
   async.parallel(
     {
       category: function(callback) {
@@ -422,21 +424,18 @@ exports.product_detail = async function(req, res) {
         Review.countDocuments({ product: product._id }).exec(callback);
       },
       review: function(callback) {
-        Review.find({ product: product._id })
-          .skip(itemPerPage * page - itemPerPage)
-          .limit(itemPerPage)
-          .exec(callback);
+        Review.find({ product: product._id }).exec(callback);
       }
     },
     function(err, results) {
       if (err) {
         return next(err);
       }
-      var pageNum = Math.ceil(results.reviewPage / itemPerPage);
-      var page = [];
-      for (var i = 1; i <= pageNum; i++) {
-        page.push(i);
-      }
+      // var pageNum = Math.ceil(results.reviewPage / itemPerPage);
+      // var page = [];
+      // for (var i = 1; i <= pageNum; i++) {
+      //   page.push(i);
+      // }
       results.productRelate.forEach(ele => {
         ele.img = ele.img[0];
         ele.salePercent = Math.ceil(
@@ -444,8 +443,8 @@ exports.product_detail = async function(req, res) {
         );
       });
 
-      var filteredResult = results.review
       var totalStar = 0;
+      var totalAcceptedReviews = 0;
       var averageStar = 0;
       var ratingBars = [
         { number: 1, percent: 0 },
@@ -455,47 +454,53 @@ exports.product_detail = async function(req, res) {
         { number: 5, percent: 0 }
       ];
 
-      filteredResult.forEach(review => {
+      results.review.sort(function(review1, review2) {
+        return review2.date - review1.date;
+      });
+
+      results.review.forEach(review => {
         review.formatDate = formatDate(new Date(review.date));
         review.reply.forEach(element => {
           element.formatDate = formatDate(new Date(element.date));
         });
+        review.isBought = review.isBought;
+        review.isAccepted = review.isAccepted;
 
-        review.checkedRatingStars = [];
-        review.uncheckedRatingStars = [];
-        for (let i = 0; i < review.star; i++) {
-          review.checkedRatingStars.push('');
-        }
-        for (let i = 0; i < 5 - review.star; i++) {
-          review.uncheckedRatingStars.push('');
-        }
+        if (review.isAccepted) {
+          totalAcceptedReviews += 1;
 
-        totalStar += review.star;
-        if (review.star === 4) {
-          ratingBars[3].percent += 1;
-        }
-        if (review.star === 5) {
-          ratingBars[4].percent += 1;
+          review.checkedRatingStars = [];
+          review.uncheckedRatingStars = [];
+          for (let i = 0; i < review.star; i++) {
+            review.checkedRatingStars.push('');
+          }
+          for (let i = 0; i < 5 - review.star; i++) {
+            review.uncheckedRatingStars.push('');
+          }
+
+          totalStar += review.star;
+          for (let i = 0; i < ratingBars.length; i++) {
+            if (review.star === ratingBars[i].number) {
+              ratingBars[i].percent += 1;
+            }
+          }
         }
       });
 
       averageStar =
         (totalStar * 1.0) /
-        (filteredResult.length > 0 ? filteredResult.length : 1);
+        (totalAcceptedReviews > 0 ? totalAcceptedReviews : 1);
 
-      ratingBars[3].percent = Math.ceil(
-        ((ratingBars[3].percent * 1.0) /
-          (filteredResult.length > 0 ? filteredResult.length : 1)) *
-          100
-      );
-      ratingBars[4].percent = Math.ceil(
-        ((ratingBars[4].percent * 1.0) /
-          (filteredResult.length > 0 ? filteredResult.length : 1)) *
-          100
-      );
+      for (let i = 0; i < ratingBars.length; i++) {
+        ratingBars[i].percent = Math.ceil(
+          ((ratingBars[i].percent * 1.0) /
+            (totalAcceptedReviews > 0 ? totalAcceptedReviews : 1)) *
+            100
+        );
+      }
 
       var ratings = {
-        reviewQuantity: filteredResult.length,
+        reviewQuantity: totalAcceptedReviews,
         averageStar: averageStar === 0 ? averageStar : averageStar.toFixed(2),
         bars: ratingBars
       };
@@ -507,9 +512,9 @@ exports.product_detail = async function(req, res) {
         category: results.category,
         productRelates: results.productRelate,
         user: req.user,
-        reviews: filteredResult,
-        num: results.reviewPage,
-        page: page,
+        reviews: results.review,
+        // num: results.reviewPage,
+        // page: page,
         watch: product.watch,
         ratings
       });
@@ -839,19 +844,86 @@ exports.product_review = async function(req, res) {
   res.redirect('/product/detail/' + req.params.id);
 };
 
-exports.addComment = async (req,res) => {
-  var review  = new Review({
+exports.addComment = async (req, res) => {
+  var review = new Review({
     name: 'Minh Nguyen',
     content: req.body.content,
     star: req.body.star,
-    isAccepted: req.body.star < 4? true : undefined,
-    avatar: 'https://png.pngtree.com/png-clipart/20190906/original/pngtree-520-couple-avatar-boy-avatar-little-dinosaur-cartoon-cute-png-image_4561296.jpg',
+    isAccepted: req.body.star < 4 ? false : true,
+    avatar:
+      'https://png.pngtree.com/png-clipart/20190906/original/pngtree-520-couple-avatar-boy-avatar-little-dinosaur-cartoon-cute-png-image_4561296.jpg',
     product: req.body.id,
     date: new Date(),
     reply: [],
     title: req.body.title,
-  })
+    isBought: false
+  });
   await review.save();
-  var object = {...review.toObject(),formatDate:formatDate(new Date()),title:req.body.title}
+
+  reviews = await Review.find({ product: req.body.id });
+
+  var totalStar = 0;
+  var totalAcceptedReviews = 0;
+  var averageStar = 0;
+  var ratingBars = [
+    { number: 1, percent: 0 },
+    { number: 2, percent: 0 },
+    { number: 3, percent: 0 },
+    { number: 4, percent: 0 },
+    { number: 5, percent: 0 }
+  ];
+
+  reviews.forEach(review => {
+    review.formatDate = formatDate(new Date(review.date));
+    review.reply.forEach(element => {
+      element.formatDate = formatDate(new Date(element.date));
+    });
+    review.isBought = review.isBought;
+    review.isAccepted = review.isAccepted;
+
+    if (review.isAccepted) {
+      totalAcceptedReviews += 1;
+
+      review.checkedRatingStars = [];
+      review.uncheckedRatingStars = [];
+      for (let i = 0; i < review.star; i++) {
+        review.checkedRatingStars.push('');
+      }
+      for (let i = 0; i < 5 - review.star; i++) {
+        review.uncheckedRatingStars.push('');
+      }
+
+      totalStar += review.star;
+      for (let i = 0; i < ratingBars.length; i++) {
+        if (review.star === ratingBars[i].number) {
+          ratingBars[i].percent += 1;
+        }
+      }
+    }
+  });
+
+  averageStar =
+    (totalStar * 1.0) / (totalAcceptedReviews > 0 ? totalAcceptedReviews : 1);
+
+  for (let i = 0; i < ratingBars.length; i++) {
+    ratingBars[i].percent = Math.ceil(
+      ((ratingBars[i].percent * 1.0) /
+        (totalAcceptedReviews > 0 ? totalAcceptedReviews : 1)) *
+        100
+    );
+  }
+
+  var ratings = {
+    reviewQuantity: totalAcceptedReviews,
+    averageStar: averageStar === 0 ? averageStar : averageStar.toFixed(2),
+    bars: ratingBars
+  };
+
+  var object = {
+    ...review.toObject(),
+    formatDate: formatDate(new Date()),
+    reviews,
+    ratings
+  };
   return res.send(object);
-}
+};
