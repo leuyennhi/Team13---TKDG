@@ -16,7 +16,7 @@ var ProductSchema = new Schema({
   watch: { type: Number, default: 0 },
   bought: { type: Number },
   toTryImg: { type: Array },
-  type: { type: String }
+  type: { type: String },
 });
 
 // Virtual for this Product instance URL.

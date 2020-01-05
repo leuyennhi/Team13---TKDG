@@ -9,7 +9,9 @@ var ReviewSchema = new Schema({
   star: { type: Number, required: Boolean },
   avatar: { type: String, require: Boolean },
   reply: { type: Array, required: Boolean },
-  date: { type: Date }
+  date: { type: Date },
+  isAccepted:{type: Boolean},
+  title: {type: String},
 });
 
 // Export model.

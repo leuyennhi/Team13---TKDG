@@ -254,66 +254,80 @@
 
 		<div class="comments-component">
 			{{#each reviews}}
-			<div class="comment">
-				<div class="comment-item">
+				{{#if this.isAccepted}}
+				<div class="comment">
+					<div class="comment-item">
 					<div class="my-photo">
 						<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
 						<h5>{{this.name}}</h5>
 						<p class="time">{{this.formatDate}}</p>
 					</div>
 					<div class="information clearfix">
-						<div style="display: flex; align-items: center;">
-							<div class="stars">
-								{{#each checkedRatingStars}}
-								<span class="fa fa-star icon-star"></span>
-								{{/each}}
-								{{#each uncheckedRatingStars}}
-								<span class="fa fa-star icon-grey-star"></span>
-								{{/each}}
-							</div>
-							<p class="review">{{this.title}}</p>
-						</div>
-						<p class="buy-already">Đã mua sản phẩm này tại Unicorn Shop</p>
-						<div class="description js-description">
-							{{!-- <p class="review_detail" itemprop="reviewBody"></p> --}}
-							<span>{{this.content}}</span>
-						</div>
-						{{#if this.reply}}
-						<button data-toggle="collapse" href="#collapseReply-{{this._id}}" role="button"
-							aria-expanded="false" aria-controls="collapseReply-{{this._id}}" class="show-comment">
-							Xem phản hồi
-						</button>
-						{{/if}}
+						<p class="review">Comment của bạn đang được duyệt, vui lòng chờ giây lát....</p>
 					</div>
 				</div>
-
-				<div class="reply-comment-component collapse" id="collapseReply-{{this._id}}">
-					{{#each reply}}
-					<div class="reply-comment">
+				{{else}}
+				<div class="comment">
+					<div class="comment-item">
 						<div class="my-photo">
 							<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
-							<h5>Unicorn Shop</h5>
+							<h5>{{this.name}}</h5>
 							<p class="time">{{this.formatDate}}</p>
 						</div>
-						<div class="information">
-							<p class="from-us">Phản hồi từ Unicorn Shop</p>
-							<span>{{this.content}}</span>
-						</div>
-					</div>
-
-					<div class="input-comment-component clearfix">
-						<div class="input-comment">
-							<div class="my-photo">
-								<a href="#"><img class="img-circle" src="/images/customer.jpg" alt="My Image" /></a>
+						<div class="information clearfix">
+							<div style="display: flex; align-items: center;">
+								<div class="stars">
+									{{#each checkedRatingStars}}
+									<span class="fa fa-star icon-star"></span>
+									{{/each}}
+									{{#each uncheckedRatingStars}}
+									<span class="fa fa-star icon-grey-star"></span>
+									{{/each}}
+								</div>
+								<p class="review">{{this.title}}</p>
 							</div>
-							<textarea rows="3" placeholder="Nhập phản hồi"></textarea>
+							<p class="buy-already">Đã mua sản phẩm này tại Unicorn Shop</p>
+							<div class="description js-description">
+								{{!-- <p class="review_detail" itemprop="reviewBody"></p> --}}
+								<span>{{this.content}}</span>
+							</div>
+							{{#if this.reply}}
+							<button data-toggle="collapse" href="#collapseReply-{{this._id}}" role="button"
+								aria-expanded="false" aria-controls="collapseReply-{{this._id}}" class="show-comment">
+								Xem phản hồi
+							</button>
+							{{/if}}
 						</div>
-						<button class="public-comment component-default-button">Gửi phản hồi</button>
 					</div>
-					{{/each}}
-				</div>
 
-			</div>
+					<div class="reply-comment-component collapse" id="collapseReply-{{this._id}}">
+						{{#each reply}}
+						<div class="reply-comment">
+							<div class="my-photo">
+								<a href="#"><img class="img-circle" src="{{this.avatar}}" alt="My Image" /></a>
+								<h5>Unicorn Shop</h5>
+								<p class="time">{{this.formatDate}}</p>
+							</div>
+							<div class="information">
+								<p class="from-us">Phản hồi từ Unicorn Shop</p>
+								<span>{{this.content}}</span>
+							</div>
+						</div>
+
+						<div class="input-comment-component clearfix">
+							<div class="input-comment">
+								<div class="my-photo">
+									<a href="#"><img class="img-circle" src="/images/customer.jpg" alt="My Image" /></a>
+								</div>
+								<textarea rows="3" placeholder="Nhập phản hồi"></textarea>
+							</div>
+							<button class="public-comment component-default-button">Gửi phản hồi</button>
+						</div>
+						{{/each}}
+					</div>
+
+				</div>
+				{{/if}}
 			{{/each}}
 		</div>
 	</div>

@@ -444,10 +444,7 @@ exports.product_detail = async function(req, res) {
         );
       });
 
-      var filteredResult = results.review.filter(function(ele) {
-        return !ele.isAccepted;
-      });
-
+      var filteredResult = results.review
       var totalStar = 0;
       var averageStar = 0;
       var ratingBars = [
@@ -847,11 +844,12 @@ exports.addComment = async (req,res) => {
     name: 'Minh Nguyen',
     content: req.body.content,
     star: req.body.star,
-    isAccepted: req.body.star < 4? false : undefined,
+    isAccepted: req.body.star < 4? true : undefined,
     avatar: 'https://png.pngtree.com/png-clipart/20190906/original/pngtree-520-couple-avatar-boy-avatar-little-dinosaur-cartoon-cute-png-image_4561296.jpg',
     product: req.body.id,
     date: new Date(),
-    reply: []
+    reply: [],
+    title: req.body.title,
   })
   await review.save();
   var object = {...review.toObject(),formatDate:formatDate(new Date()),title:req.body.title}
